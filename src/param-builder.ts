@@ -17,13 +17,18 @@ import stripColorProfile from './transformers/strip-color-profile';
 import stripMetadata from './transformers/strip-metadata';
 import trim, { TrimOptions } from './transformers/trim';
 import watermark, { WatermarkOptions } from './transformers/watermark';
-
 import cacheBuster, { CacheBusterOptions } from './transformers/cache-buster';
+
 import { encodeFilePath, generateSignature } from './utils';
 
 type ForwardType = Partial<ParamBuilder> & {
   readonly modifiers: string[];
 };
+
+type OmitTransformer<
+  T extends ForwardType,
+  K extends keyof ParamBuilder,
+> = Omit<T, K>;
 
 class ParamBuilder {
   public readonly modifiers: string[];
@@ -74,7 +79,9 @@ class ParamBuilder {
    * Automatically rotates the image based on
    * the EXIF orientation parameter
    */
-  public autoRotate<T extends ForwardType>(this: T): Omit<T, 'autoRotate'> {
+  public autoRotate<T extends ForwardType>(
+    this: T,
+  ): OmitTransformer<T, 'autoRotate'> {
     this.modifiers.push(autoRotate());
     return this;
   }
@@ -87,7 +94,7 @@ class ParamBuilder {
   public background<T extends ForwardType>(
     this: T,
     options: BackgroundOptions,
-  ): Omit<T, 'background'> {
+  ): OmitTransformer<T, 'background'> {
     this.modifiers.push(background(options));
     return this;
   }
@@ -100,7 +107,7 @@ class ParamBuilder {
   public blur<T extends ForwardType>(
     this: T,
     options: BlurOptions,
-  ): Omit<T, 'blur'> {
+  ): OmitTransformer<T, 'blur'> {
     this.modifiers.push(blur(options));
     return this;
   }
@@ -111,7 +118,7 @@ class ParamBuilder {
   public cacheBuster<T extends ForwardType>(
     this: T,
     options: CacheBusterOptions,
-  ): Omit<T, 'cacheBuster'> {
+  ): OmitTransformer<T, 'cacheBuster'> {
     this.modifiers.push(cacheBuster(options));
     return this;
   }
@@ -124,7 +131,7 @@ class ParamBuilder {
   public crop<T extends ForwardType>(
     this: T,
     options: CropOptions,
-  ): Omit<T, 'crop'> {
+  ): OmitTransformer<T, 'crop'> {
     this.modifiers.push(crop(options));
     return this;
   }
@@ -137,7 +144,7 @@ class ParamBuilder {
   public dpr<T extends ForwardType>(
     this: T,
     options: DprOptions,
-  ): Omit<T, 'dpr'> {
+  ): OmitTransformer<T, 'dpr'> {
     this.modifiers.push(dpr(options));
     return this;
   }
@@ -150,7 +157,7 @@ class ParamBuilder {
   public filename<T extends ForwardType>(
     this: T,
     options: FileNameOptions,
-  ): Omit<T, 'dpr'> {
+  ): OmitTransformer<T, 'filename'> {
     this.modifiers.push(fileName(options));
     return this;
   }
@@ -163,7 +170,7 @@ class ParamBuilder {
   public format<T extends ForwardType>(
     this: T,
     options: FormatOptions,
-  ): Omit<T, 'format'> {
+  ): OmitTransformer<T, 'format'> {
     this.modifiers.push(format(options));
     return this;
   }
@@ -176,7 +183,7 @@ class ParamBuilder {
   public gravity<T extends ForwardType>(
     this: T,
     options: GravityOptions,
-  ): Omit<T, 'gravity'> {
+  ): OmitTransformer<T, 'gravity'> {
     this.modifiers.push(gravity(options));
     return this;
   }
@@ -192,7 +199,7 @@ class ParamBuilder {
   public maxBytes<T extends ForwardType>(
     this: T,
     options: MaxBytesOptions,
-  ): Omit<T, 'maxBytes'> {
+  ): OmitTransformer<T, 'maxBytes'> {
     this.modifiers.push(maxBytes(options));
     return this;
   }
@@ -205,7 +212,7 @@ class ParamBuilder {
   public pad<T extends ForwardType>(
     this: T,
     options: PaddingOptions,
-  ): Omit<T, 'pad'> {
+  ): OmitTransformer<T, 'pad'> {
     this.modifiers.push(pad(options));
     return this;
   }
@@ -218,7 +225,7 @@ class ParamBuilder {
   public preset<T extends ForwardType>(
     this: T,
     options: PresetOptions,
-  ): Omit<T, 'preset'> {
+  ): OmitTransformer<T, 'preset'> {
     this.modifiers.push(preset(options));
     return this;
   }
@@ -231,7 +238,7 @@ class ParamBuilder {
   public quality<T extends ForwardType>(
     this: T,
     options: QualityOptions,
-  ): Omit<T, 'quality'> {
+  ): OmitTransformer<T, 'quality'> {
     this.modifiers.push(quality(options));
     return this;
   }
@@ -244,7 +251,7 @@ class ParamBuilder {
   public resize<T extends ForwardType>(
     this: T,
     options: ResizeOptions,
-  ): Omit<T, 'resize'> {
+  ): OmitTransformer<T, 'resize'> {
     this.modifiers.push(resize(options));
     return this;
   }
@@ -257,7 +264,7 @@ class ParamBuilder {
   public rotate<T extends ForwardType>(
     this: T,
     options: RotationOptions,
-  ): Omit<T, 'rotate'> {
+  ): OmitTransformer<T, 'rotate'> {
     this.modifiers.push(rotate(options));
     return this;
   }
@@ -270,7 +277,7 @@ class ParamBuilder {
   public sharpen<T extends ForwardType>(
     this: T,
     options: SharpenOptions,
-  ): Omit<T, 'sharpen'> {
+  ): OmitTransformer<T, 'sharpen'> {
     this.modifiers.push(sharpen(options));
     return this;
   }
@@ -280,7 +287,7 @@ class ParamBuilder {
    */
   public stripColorProfile<T extends ForwardType>(
     this: T,
-  ): Omit<T, 'stripColorProfile'> {
+  ): OmitTransformer<T, 'stripColorProfile'> {
     this.modifiers.push(stripColorProfile());
     return this;
   }
@@ -290,7 +297,7 @@ class ParamBuilder {
    */
   public stripMetadata<T extends ForwardType>(
     this: T,
-  ): Omit<T, 'stripMetadata'> {
+  ): OmitTransformer<T, 'stripMetadata'> {
     this.modifiers.push(stripMetadata());
     return this;
   }
@@ -303,7 +310,7 @@ class ParamBuilder {
   public trim<T extends ForwardType>(
     this: T,
     options: TrimOptions,
-  ): Omit<T, 'trim'> {
+  ): OmitTransformer<T, 'trim'> {
     this.modifiers.push(trim(options));
     return this;
   }
@@ -316,7 +323,7 @@ class ParamBuilder {
   public watermark<T extends ForwardType>(
     this: T,
     options: WatermarkOptions,
-  ): Omit<T, 'watermark'> {
+  ): OmitTransformer<T, 'watermark'> {
     this.modifiers.push(watermark(options));
     return this;
   }
