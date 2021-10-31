@@ -1,0 +1,14 @@
+---
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 5
+    reviewers:
+      - bitpatty
+    labels:
+      - dependencies
+    ignore:
+      - dependency-name: '@types/node'

@@ -1,0 +1,65 @@
+{
+    "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+    "editor.quickSuggestions": {
+    "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.autoSave": "off",
+    "breadcrumbs.symbolSortOrder": "type",
+    "coverage-gutters.coverageReportFileName": "coverage/**/index.html",
+    "coverage-gutters.showLineCoverage": true,
+    "editor.codeLens": true,
+    "editor.detectIndentation": true,
+    "editor.formatOnSave": true,
+    "editor.minimap.maxColumn": 150,
+    "editor.tabSize": 2,
+    "explorer.confirmDragAndDrop": false,
+    "files.associations": {
+    "*.erb": "html",
+    "*.html.erb": "html"
+    },
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "html.format.wrapLineLength": 150,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "search.exclude": {
+    "**/*.eot": true,
+    "**/*.png": true,
+    "**/*.svg": true,
+    "**/*.ttf": true,
+    "**/*.woff": true,
+    "**/*.woff2": true,
+    "**/.git": true,
+    "**/bower_components": true,
+    "**/dist/": true,
+    "**/node_modules": true,
+    "**/tmp": true
+    },
+    "todohighlight.keywords": [
+    "@TODO"
+    ],
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
+    "typescript.reportStyleChecksAsWarnings": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false
+    }

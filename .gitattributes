@@ -1,0 +1,26 @@
+*.css text eol=lf
+*.env text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.lock text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.svg text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.yml text eol=lf
+
+# Dockerfiles
+*.Dockerfile text eol=lf
+Dockerfile text eol=lf
+
+# dotfiles
+.git* text eol=lf
+.npmignore text eol=lf
+.nvmrc text eol=lf
+.prettierrc text eol=lf
+
+# Binaries
+*.ico binary
+*.jpg binary
+*.png binary

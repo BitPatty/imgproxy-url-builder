@@ -1,0 +1,38 @@
+{
+  "name": "imgproxy-js",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "application",
+  "workspaceFolder": "/workspace",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/workspace/bin"
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "mikestead.dotenv",
+    "ms-azuretools.vscode-docker",
+    "ms-vsliveshare.vsliveshare",
+    "wayou.vscode-todo-highlight",
+  ],
+  "forwardPorts": [
+    4000,
+    9000,
+    9001
+  ],
+  "postCreateCommand": "bash -i .devcontainer/init.sh",
+  "remoteUser": "node",
+  "portsAttributes": {
+    "4000": {
+      "label": "Imgproxy Server"
+    },
+    "9000": {
+      "label": "Minio Server"
+    },
+    "9001": {
+      "label": "Minio Console"
+    }
+  }
+}

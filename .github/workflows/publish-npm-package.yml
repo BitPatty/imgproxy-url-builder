@@ -1,0 +1,45 @@
+name: Publish npm package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-github:
+    if: github.repository_owner == 'bitpatty'
+    name: Publish NPM package (GitHub Registry)
+    runs-on: ubuntu-latest
+    environment: github-registry
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.1'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@bitpatty'
+      - run: npm install
+      - run: npm run build
+      - run: echo "registry=https://npm.pkg.github.com/@bitpatty" >> .npmrc
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npmjs:
+    if: github.repository_owner == 'bitpatty'
+    name: Publish NPM package (npmjs.org)
+    runs-on: ubuntu-latest
+    environment: npm-registry
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.6.1'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+      - run: npm run build
+      - run: npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

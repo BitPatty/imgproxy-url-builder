@@ -1,0 +1,58 @@
+version: '3.7'
+
+networks:
+  imgproxy-url-builder-network:
+    name: imgproxy-url-builder-network
+    driver: bridge
+
+volumes:
+  imgproxy-url-builder-minio__data:
+    driver: local
+
+services:
+  application:
+    container_name: imgproxy-url-builder
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VARIANT: 14
+        USER_UID: 1000
+        USER_GID: 1000
+    networks:
+      - imgproxy-url-builder-network
+    volumes:
+      - ..:/workspace:cached
+      - ~/.ssh:/home/node/.ssh:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: sleep infinity
+    user: node
+    env_file:
+      - ./workspace.env
+    ports:
+      - 4000:4000
+      - 9000:9000
+      - 9001:9001
+
+  # Minio
+  imgproxy-url-builder-minio:
+    container_name: imgproxy-url-builder-minio
+    image: minio/minio:RELEASE.2021-10-23T03-28-24Z
+    network_mode: service:application
+    volumes:
+      - type: volume
+        source: imgproxy-url-builder-minio__data
+        target: /data
+        volume:
+          nocopy: false
+    command: server /data --console-address :9001
+    env_file:
+      - ./minio.env
+
+  # Imgproxy
+  imgproxy-url-builder-imgproxy:
+    container_name: imgproxy-url-builder-imgproxy
+    image: darthsim/imgproxy:v2.17
+    network_mode: service:application
+    env_file:
+      - ./imgproxy.env
