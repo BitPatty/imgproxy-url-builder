@@ -19,7 +19,10 @@ const stringifyOptions = (
   opCode: string,
   values: Array<string | number | boolean | undefined>,
 ): string => {
-  return [opCode, ...values.map((v) => (v == null ? '' : v))]
+  return [
+    opCode,
+    ...values.map((v) => (v == null ? '' : encodeURIComponent(v))),
+  ]
     .join(':')
     .replace(/:+$/, '');
 };
