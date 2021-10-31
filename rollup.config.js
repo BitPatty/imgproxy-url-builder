@@ -1,6 +1,7 @@
 import typescript from 'rollup-plugin-typescript2';
-import compiler from '@ampproject/rollup-plugin-closure-compiler';
 import pkg from './package.json';
+
+// import compiler from '@ampproject/rollup-plugin-closure-compiler';
 
 export default {
   input: 'src/index.ts',
@@ -18,7 +19,7 @@ export default {
     typescript({
       tsconfig: 'tsconfig.build.json',
     }),
-    compiler(),
+    // compiler(),
   ],
   external: [],
 };
