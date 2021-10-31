@@ -13,8 +13,8 @@ A helper library for building Imgproxy URLs.
 | [`Width`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#width)                             | :wavy_dash: (via Resize) |
 | [`Height`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#height)                           | :wavy_dash: (via Resize) |
 | [`Dpr`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#dpr)                                 | :white_check_mark:       |
-| [`Enlarge`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#enlarge)                         | :wavy_dash: (via Resize) |
-| [`Extend`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#extend)                           | :wavy_dash: (via Resize) |
+| [`Enlarge`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#enlarge)                         | :white_check_mark:       |
+| [`Extend`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#extend)                           | :white_check_mark:       |
 | [`Gravity`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gravity)                         | :white_check_mark:       |
 | [`Crop`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#crop)                               | :white_check_mark:       |
 | [`Padding`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#padding)                         | :white_check_mark:       |
@@ -35,20 +35,20 @@ A helper library for building Imgproxy URLs.
 
 ## Suported PRO transformations
 
-| Transformation                                                                                                                                                   | Supported |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| [`Resizing Algorithm`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#resizing-algorithm-idresizing-algorithm)             | :x:       |
-| [`Background Alpha`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#background-alpha-idbackground-alpha)                   | :x:       |
-| [`Adjust`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#adjust)                                                          | :x:       |
-| [`Brightness`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#brightness-idbrightness)                                     | :x:       |
-| [`Contrast`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#contrast-idcontrast)                                           | :x:       |
-| [`Saturation`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#saturation-idsaturation)                                     | :x:       |
-| [`Pixelate`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#pixelate-idpixelate)                                           | :x:       |
-| [`Unsharpening`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#unsharpening-idunsharpening)                               | :x:       |
-| [`Watermark URL`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#watermark-url-idwatermark)                                | :x:       |
-| [`Style`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#style-idstyle)                                                    | :x:       |
-| [`JPEG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#jpeg-options-idjpeg-options)                               | :x:       |
-| [`PNG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#png-options-idpng-options)                                  | :x:       |
-| [`GIF options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gif-options-idgif-options)                                  | :x:       |
-| [`Page`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#page-idpage)                                                       | :x:       |
-| [`Video Thumbnail Second`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#video-thumbnail-second-idvideo-thumbnail-second) | :x:       |
+| Transformation                                                                                                                                                   | Supported          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [`Resizing Algorithm`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#resizing-algorithm-idresizing-algorithm)             | :white_check_mark: |
+| [`Background Alpha`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#background-alpha-idbackground-alpha)                   | :white_check_mark: |
+| [`Adjust`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#adjust)                                                          | :x:                |
+| [`Brightness`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#brightness-idbrightness)                                     | :white_check_mark: |
+| [`Contrast`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#contrast-idcontrast)                                           | :white_check_mark: |
+| [`Saturation`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#saturation-idsaturation)                                     | :white_check_mark: |
+| [`Pixelate`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#pixelate-idpixelate)                                           | :white_check_mark: |
+| [`Unsharpening`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#unsharpening-idunsharpening)                               | :x:                |
+| [`Watermark URL`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#watermark-url-idwatermark)                                | :x:                |
+| [`Style`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#style-idstyle)                                                    | :x:                |
+| [`JPEG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#jpeg-options-idjpeg-options)                               | :x:                |
+| [`PNG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#png-options-idpng-options)                                  | :x:                |
+| [`GIF options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gif-options-idgif-options)                                  | :x:                |
+| [`Page`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#page-idpage)                                                       | :x:                |
+| [`Video Thumbnail Second`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#video-thumbnail-second-idvideo-thumbnail-second) | :x:                |

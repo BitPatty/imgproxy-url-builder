@@ -1,23 +1,35 @@
 import autoRotate from './transformers/auto-rotate';
 import background, { BackgroundOptions } from './transformers/background';
+import backgroundAlpha, {
+  BackgroundAlphaOptions,
+} from './transformers/background-alpha';
 import blur, { BlurOptions } from './transformers/blur';
+import brightness, { BrightnessOptions } from './transformers/brightness';
+import cacheBuster, { CacheBusterOptions } from './transformers/cache-buster';
+import contrast, { ContrastOptions } from './transformers/contrast';
 import crop, { CropOptions } from './transformers/crop';
 import dpr, { DprOptions } from './transformers/dpr';
+import enlarge from './transformers/enlarge';
+import extend from './transformers/extend';
 import fileName, { FileNameOptions } from './transformers/filename';
 import format, { FormatOptions } from './transformers/format';
 import gravity, { GravityOptions } from './transformers/gravity';
 import maxBytes, { MaxBytesOptions } from './transformers/max-bytes';
 import pad, { PaddingOptions } from './transformers/pad';
+import pixelate, { PixelateOptions } from './transformers/pixelate';
 import preset, { PresetOptions } from './transformers/preset';
 import quality, { QualityOptions } from './transformers/quality';
 import resize, { ResizeOptions } from './transformers/resize';
+import resizingAlgorithm, {
+  ResizingAlgorithmOptions,
+} from './transformers/resizing-algorithm';
 import rotate, { RotationOptions } from './transformers/rotate';
+import saturation, { SaturationOptions } from './transformers/saturation';
 import sharpen, { SharpenOptions } from './transformers/sharpen';
 import stripColorProfile from './transformers/strip-color-profile';
 import stripMetadata from './transformers/strip-metadata';
 import trim, { TrimOptions } from './transformers/trim';
 import watermark, { WatermarkOptions } from './transformers/watermark';
-import cacheBuster, { CacheBusterOptions } from './transformers/cache-buster';
 
 import { encodeFilePath, generateSignature } from './utils';
 
@@ -100,6 +112,19 @@ class ParamBuilder {
   }
 
   /**
+   * Adds alpha channel to background.
+   *
+   * @param options A positive floating point number between 0 and 1.
+   */
+  public backgroundAlpha<T extends ForwardType>(
+    this: T,
+    options: BackgroundAlphaOptions,
+  ): OmitTransformer<T, 'backgroundAlpha'> {
+    this.modifiers.push(backgroundAlpha(options));
+    return this;
+  }
+
+  /**
    * Applies a gaussian blur filter to the image
    *
    * @param sigma The size of the blur mask
@@ -113,6 +138,19 @@ class ParamBuilder {
   }
 
   /**
+   * When set, imgproxy will adjust brightness of the resulting image.
+   *
+   * @param options An integer number in range from -255 to 255.
+   */
+  public brightness<T extends ForwardType>(
+    this: T,
+    options: BrightnessOptions,
+  ): OmitTransformer<T, 'blur'> {
+    this.modifiers.push(brightness(options));
+    return this;
+  }
+
+  /**
    * Adds a cache buster to the imgproxy params
    */
   public cacheBuster<T extends ForwardType>(
@@ -120,6 +158,20 @@ class ParamBuilder {
     options: CacheBusterOptions,
   ): OmitTransformer<T, 'cacheBuster'> {
     this.modifiers.push(cacheBuster(options));
+    return this;
+  }
+
+  /**
+   * When set, imgproxy will adjust contrast of the resulting image.
+   *
+   * @param percentage A positive floating point number, where 1
+   * keeps the contrast unchanged.
+   */
+  public contrast<T extends ForwardType>(
+    this: T,
+    options: ContrastOptions,
+  ): OmitTransformer<T, 'contrast'> {
+    this.modifiers.push(contrast(options));
     return this;
   }
 
@@ -146,6 +198,24 @@ class ParamBuilder {
     options: DprOptions,
   ): OmitTransformer<T, 'dpr'> {
     this.modifiers.push(dpr(options));
+    return this;
+  }
+
+  /**
+   * Enlarges the image of it is smaller than the given size
+   */
+  public enlarge<T extends ForwardType>(
+    this: T,
+  ): OmitTransformer<T, 'enlarge'> {
+    this.modifiers.push(enlarge());
+    return this;
+  }
+
+  /**
+   * Extends the image of it is smaller than the given size
+   */
+  public extend<T extends ForwardType>(this: T): OmitTransformer<T, 'extend'> {
+    this.modifiers.push(extend());
     return this;
   }
 
@@ -218,6 +288,19 @@ class ParamBuilder {
   }
 
   /**
+   * Applies a pixelate filter to the resulting image.
+   *
+   * @param options The size of a pixel
+   */
+  public pixelate<T extends ForwardType>(
+    this: T,
+    options: PixelateOptions,
+  ): OmitTransformer<T, 'pixelate'> {
+    this.modifiers.push(pixelate(options));
+    return this;
+  }
+
+  /**
    * Sets one or many presets to be used by the imgproxy
    *
    * @param options The presets
@@ -227,6 +310,19 @@ class ParamBuilder {
     options: PresetOptions,
   ): OmitTransformer<T, 'preset'> {
     this.modifiers.push(preset(options));
+    return this;
+  }
+
+  /**
+   * Defines the algorithm that imgproxy will use for resizing.
+   *
+   * @param options The resizing algorithm
+   */
+  public resizingAlgorithm<T extends ForwardType>(
+    this: T,
+    options: ResizingAlgorithmOptions,
+  ): OmitTransformer<T, 'resizingAlgorithm'> {
+    this.modifiers.push(resizingAlgorithm(options));
     return this;
   }
 
@@ -266,6 +362,20 @@ class ParamBuilder {
     options: RotationOptions,
   ): OmitTransformer<T, 'rotate'> {
     this.modifiers.push(rotate(options));
+    return this;
+  }
+
+  /**
+   * When set, imgproxy will adjust saturation of the resulting image.
+   *
+   * @param options A positive floating point number, where 1
+   * keeps the saturation unchanged.
+   */
+  public saturation<T extends ForwardType>(
+    this: T,
+    options: SaturationOptions,
+  ): OmitTransformer<T, 'saturation'> {
+    this.modifiers.push(saturation(options));
     return this;
   }
 
