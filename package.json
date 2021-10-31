@@ -8,9 +8,6 @@
     "build": "rimraf dist && rollup -c",
     "test": "jest --verbose"
   },
-  "engines": {
-    "node": ">=15.7.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/BitPatty/imgproxy-url-builder.git"
