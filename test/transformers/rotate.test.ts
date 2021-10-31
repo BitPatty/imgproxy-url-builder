@@ -12,7 +12,7 @@ describe('Rotate', () => {
       .rotate(angle as RotationOptions)
       .build(jestGlobals.buildOptions);
 
-    await expect(axios.head(res)).resolves.toHaveProperty('status', 200);
+    await expect(res).toRespondWith(200);
 
     const pixels = (await promisify(getPixels)(res)) as {
       data: Uint8Array;
@@ -46,15 +46,7 @@ describe('Rotate', () => {
         }
       })();
 
-      const r = pixels.data[sIdx];
-      const g = pixels.data[sIdx + 1];
-      const b = pixels.data[sIdx + 2];
-      const a = pixels.data[sIdx + 3];
-
-      expect(r).toBe(probePoint.r);
-      expect(g).toBe(probePoint.g);
-      expect(b).toBe(probePoint.b);
-      expect(a).toBe(probePoint.a);
+      expect(pixels.data).toContainPixel(sIdx, probePoint);
     }
   });
 
