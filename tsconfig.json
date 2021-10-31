@@ -3,11 +3,7 @@
     "outDir": "dist",
     "module": "esnext",
     "target": "es6",
-    "lib": [
-      "es6",
-      "es2016",
-      "es2017"
-    ],
+    "lib": ["es6", "es2016", "es2017"],
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
@@ -21,16 +17,9 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "esModuleInterop": true
   },
-  "include": [
-    "src/**/*",
-    "test/**/*",
-    "./*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "rollup.config.js"
-  ]
+  "include": ["src/**/*", "test/**/*", "./*.ts"],
+  "exclude": ["node_modules", "dist", "rollup.config.js"]
 }

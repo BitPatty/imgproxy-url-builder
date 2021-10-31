@@ -6,6 +6,6 @@ export default (): Config.InitialOptions => {
     testEnvironment: 'node',
     coverageReporters: ['lcov', 'html', 'json'],
     verbose: true,
-    testMatch: ['**/*.test.ts'],
+    testMatch: ['**/transformers/*.test.ts'],
   };
 };
