@@ -1,5 +1,5 @@
 import { base64urlEncode, parseHexString, utf8encode } from './crypto/codec';
-import { byteArrayToWordArray } from './crypto/common';
+import { wordArrayToByteArray } from './crypto/common';
 import hmac from './crypto/hmac';
 
 type OneOrMany<T extends { [key: string]: unknown }> = {
@@ -30,7 +30,7 @@ const stringifyOptions = (
  * @returns The encoded file path
  */
 const encodeFilePath = (filePath: string): string => {
-  return base64urlEncode(byteArrayToWordArray(utf8encode(filePath)));
+  return base64urlEncode(utf8encode(filePath));
 };
 
 /**
@@ -52,7 +52,7 @@ const generateSignature = (
     ...parseHexString(salt),
     ...utf8encode(path),
   ]);
-  return base64urlEncode(h);
+  return base64urlEncode(wordArrayToByteArray(h));
 };
 
 export { stringifyOptions, OneOrMany, encodeFilePath, generateSignature };

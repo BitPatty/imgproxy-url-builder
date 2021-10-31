@@ -157,37 +157,35 @@ const base64urlChar = (b: number): string => {
 };
 
 /**
- * Encodes the specified array of 32-bit words to
+ * Encodes the specified array of bytes to
  * its base64url representation
  *
- * @param words The words
+ * @param bytes The bytes
  *
  * @returns The base64url string
  */
-const base64urlEncode = (words: number[]): string => {
+const base64urlEncode = (bytes: number[]): string => {
   let res = '';
 
-  for (let i = 0; i < words.length; i += 3) {
-    // Iterate through 3-word packets to have
+  for (let i = 0; i < bytes.length; i += 3) {
+    // Iterate through 3-byte packets to have
     // a multiple of 6 bits
     for (let j = 0, carry = 0; j < 3; j++) {
-      if (i + j >= words.length) {
+      if (i + j >= bytes.length) {
         // If there are no words left return the result
-        if (carry !== 0) res += base64urlChar(carry);
+        res += base64urlChar(carry);
         return res;
       }
 
-      const p = words[i + j];
+      const p = bytes[i + j];
 
-      // Encode the current word
-      for (let k = 0; k < (j == 2 ? 6 : 5); k++) {
-        res += base64urlChar(carry | (p >>> (26 + j * 2 - k * 6)));
-        carry = 0;
-      }
+      // Encode the current byte
+      res += base64urlChar(carry | (p >>> (2 + j * 2)));
 
       // Update the carry
       if (j === 0) carry = (p & 0b0_0011) << 4;
       else if (j === 1) carry = (p & 0b0_1111) << 2;
+      else res += base64urlChar(p);
     }
   }
 
