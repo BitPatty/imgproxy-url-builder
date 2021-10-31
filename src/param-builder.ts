@@ -29,7 +29,11 @@ import sharpen, { SharpenOptions } from './transformers/sharpen';
 import stripColorProfile from './transformers/strip-color-profile';
 import stripMetadata from './transformers/strip-metadata';
 import trim, { TrimOptions } from './transformers/trim';
+import unsharpen, { UnsharpeningOptions } from './transformers/unsharpen';
 import watermark, { WatermarkOptions } from './transformers/watermark';
+import watermarkUrl, {
+  WatermarkUrlOptions,
+} from './transformers/watermark-url';
 
 import { encodeFilePath, generateSignature } from './utils';
 
@@ -426,6 +430,19 @@ class ParamBuilder {
   }
 
   /**
+   * Allows redefining unsharpening options.
+   *
+   * @param options The unsharpening options
+   */
+  public unsharpen<T extends ForwardType>(
+    this: T,
+    options: UnsharpeningOptions,
+  ): OmitTransformer<T, 'unsharpen'> {
+    this.modifiers.push(unsharpen(options));
+    return this;
+  }
+
+  /**
    * Applies a gaussian blur filter to the image
    *
    * @param options The size of the blur mask
@@ -435,6 +452,19 @@ class ParamBuilder {
     options: WatermarkOptions,
   ): OmitTransformer<T, 'watermark'> {
     this.modifiers.push(watermark(options));
+    return this;
+  }
+
+  /**
+   * Sets the watermark URL
+   *
+   * @param options The watermark URL
+   */
+  public watermarkUrl<T extends ForwardType>(
+    this: T,
+    options: WatermarkUrlOptions,
+  ): OmitTransformer<T, 'watermarkUrl'> {
+    this.modifiers.push(watermarkUrl(options));
     return this;
   }
 }

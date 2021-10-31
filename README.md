@@ -44,8 +44,8 @@ A helper library for building Imgproxy URLs.
 | [`Contrast`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#contrast-idcontrast)                                           | :white_check_mark: |
 | [`Saturation`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#saturation-idsaturation)                                     | :white_check_mark: |
 | [`Pixelate`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#pixelate-idpixelate)                                           | :white_check_mark: |
-| [`Unsharpening`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#unsharpening-idunsharpening)                               | :x:                |
-| [`Watermark URL`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#watermark-url-idwatermark)                                | :x:                |
+| [`Unsharpening`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#unsharpening-idunsharpening)                               | :white_check_mark: |
+| [`Watermark URL`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#watermark-url-idwatermark)                                | :white_check_mark: |
 | [`Style`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#style-idstyle)                                                    | :x:                |
 | [`JPEG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#jpeg-options-idjpeg-options)                               | :x:                |
 | [`PNG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#png-options-idpng-options)                                  | :x:                |
