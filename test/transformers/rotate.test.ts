@@ -1,6 +1,6 @@
-import pb from '../src';
+import pb from '../../src';
 import axios from 'axios';
-import { RotationOptions } from '../src/transformers/rotate';
+import { RotationOptions } from '../../src/transformers/rotate';
 
 const key =
   '91bdcda48ce22cd7d8d3a0eda930b3db1762bc1cba5dc13542e723b68fe55d6f9d18199cbe35191a45faf22593405cad0fe76ffec67d24f8aee861ac8fe44d96';

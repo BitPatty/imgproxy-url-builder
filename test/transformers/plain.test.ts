@@ -1,4 +1,4 @@
-import pb from '../src';
+import pb from '../../src';
 import axios from 'axios';
 
 const key =
