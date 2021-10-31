@@ -1,6 +1,6 @@
-# imgproxy-js
+# imgproxy-url-builder
 
-WIP TS imgproxy library
+A helper library for building Imgproxy URLs.
 
 ## Supported Transformations
 
