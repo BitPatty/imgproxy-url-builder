@@ -22,26 +22,26 @@ import pb from '@bitpatty/imgproxy-url-builder';
 pb().rotate(90).blur(10).build();
 
 // The transformer params with the target image
-// Returns /rot:90/bl:10/bXlpbWFnZS5wbmc
+// Returns /rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
 pb().rotate(90).blur(10).build({
-  path: 'myimage.png',
+  path: 's3://mybucket/myimage.png',
 });
 
 // You can disable path encoding by setting 'plain' to true
-// Returns rot:90/bl:10/plain/myimage.png
+// Returns /rot:90/bl:10/plain/s3://mybucket/myimage.png
 pb().rotate(90).blur(10).build({
-  plain: true
-  path: 'myimage.png',
+  plain: true,
+  path: 's3://mybucket/myimage.png',
 });
 
 // To sign your URL provide the key and salt
 // The path is required to sign your URL!
-// Returns /G-Rj8JZAxQSnYcMNXMNrhkGaid3d7NfjaBJNuaV4ebA/rot:90/bl:10/bXlpbWFnZS5wbmc
+// Returns /TXf2QXtZkU-ULvrg0pLDqJlWUb7XdHkXD0h6NFWD-mo/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
 pb()
   .rotate(90)
   .blur(10)
   .build({
-    path: 'myimage.png',
+    path: 's3://mybucket/myimage.png',
     signature: {
       key: 'a91bdcda48ce22cd7d8d3a0eda93',
       salt: 'a91bdcda48ce22cd7d8d3a0eda93',
@@ -50,9 +50,9 @@ pb()
 
 // To automatically prepend the imgproxy URL
 // provide it as the 'baseUrl' setting
-// Returns https://my-imgproxy-instance.example.com/rot:90/bl:10/bXlpbWFnZS5wbmc
+// Returns https://my-imgproxy-instance.example.com/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
 pb().rotate(90).blur(10).build({
-  path: 'myimage.png',
+  path: 's3://mybucket/myimage.png',
   baseUrl: 'https://my-imgproxy-instance.example.com',
 });
 ```
