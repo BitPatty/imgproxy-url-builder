@@ -13,10 +13,14 @@ import enlarge from './transformers/enlarge';
 import extend from './transformers/extend';
 import fileName, { FileNameOptions } from './transformers/filename';
 import format, { FormatOptions } from './transformers/format';
+import gifOptions, { GifOptions } from './transformers/gif-options';
 import gravity, { GravityOptions } from './transformers/gravity';
+import jpegOptions, { JpegOptions } from './transformers/jpeg-options';
 import maxBytes, { MaxBytesOptions } from './transformers/max-bytes';
 import pad, { PaddingOptions } from './transformers/pad';
+import page, { PageOptions } from './transformers/page';
 import pixelate, { PixelateOptions } from './transformers/pixelate';
+import pngOptions, { PngOptions } from './transformers/png-options';
 import preset, { PresetOptions } from './transformers/preset';
 import quality, { QualityOptions } from './transformers/quality';
 import resize, { ResizeOptions } from './transformers/resize';
@@ -30,6 +34,9 @@ import stripColorProfile from './transformers/strip-color-profile';
 import stripMetadata from './transformers/strip-metadata';
 import trim, { TrimOptions } from './transformers/trim';
 import unsharpen, { UnsharpeningOptions } from './transformers/unsharpen';
+import videoThumbnailSecond, {
+  VideoThumbnailSecondOptions,
+} from './transformers/video-thumbnail-second';
 import watermark, { WatermarkOptions } from './transformers/watermark';
 import watermarkUrl, {
   WatermarkUrlOptions,
@@ -250,6 +257,19 @@ class ParamBuilder {
   }
 
   /**
+   * Allows redefining GIF saving options
+   *
+   * @param options The gif options
+   */
+  public gifOptions<T extends ForwardType>(
+    this: T,
+    options: GifOptions,
+  ): OmitTransformer<T, 'gifOptions'> {
+    this.modifiers.push(gifOptions(options));
+    return this;
+  }
+
+  /**
    * Sets the gravity
    *
    * @param options The gravity options
@@ -259,6 +279,19 @@ class ParamBuilder {
     options: GravityOptions,
   ): OmitTransformer<T, 'gravity'> {
     this.modifiers.push(gravity(options));
+    return this;
+  }
+
+  /**
+   * Allows redefining JPEG saving options
+   *
+   * @param options The jpeg options
+   */
+  public jpegOptions<T extends ForwardType>(
+    this: T,
+    options: JpegOptions,
+  ): OmitTransformer<T, 'jpegOptions'> {
+    this.modifiers.push(jpegOptions(options));
     return this;
   }
 
@@ -292,6 +325,23 @@ class ParamBuilder {
   }
 
   /**
+   * When source image supports pagination (PDF, TIFF)
+   * or animation (GIF, WebP), this option allows
+   * specifying the page to use.
+   *
+   * Pages numeration starts from zero.
+   *
+   * @param page The page to use
+   */
+  public page<T extends ForwardType>(
+    this: T,
+    options: PageOptions,
+  ): OmitTransformer<T, 'page'> {
+    this.modifiers.push(page(options));
+    return this;
+  }
+
+  /**
    * Applies a pixelate filter to the resulting image.
    *
    * @param options The size of a pixel
@@ -301,6 +351,19 @@ class ParamBuilder {
     options: PixelateOptions,
   ): OmitTransformer<T, 'pixelate'> {
     this.modifiers.push(pixelate(options));
+    return this;
+  }
+
+  /**
+   * Allows redefining PNG saving options
+   *
+   * @param options The png options
+   */
+  public pngOptions<T extends ForwardType>(
+    this: T,
+    options: PngOptions,
+  ): OmitTransformer<T, 'pngOptions'> {
+    this.modifiers.push(pngOptions(options));
     return this;
   }
 
@@ -439,6 +502,20 @@ class ParamBuilder {
     options: UnsharpeningOptions,
   ): OmitTransformer<T, 'unsharpen'> {
     this.modifiers.push(unsharpen(options));
+    return this;
+  }
+
+  /**
+   * Redefines the second used for the thumbnail
+   *
+   * @param options The timestamp of the frame in seconds
+   * that will be used for a thumbnail.
+   */
+  public videoThumbnailSecond<T extends ForwardType>(
+    this: T,
+    options: VideoThumbnailSecondOptions,
+  ): OmitTransformer<T, 'unsharpen'> {
+    this.modifiers.push(videoThumbnailSecond(options));
     return this;
   }
 

@@ -47,8 +47,8 @@ A helper library for building Imgproxy URLs.
 | [`Unsharpening`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#unsharpening-idunsharpening)                               | :white_check_mark: |
 | [`Watermark URL`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#watermark-url-idwatermark)                                | :white_check_mark: |
 | [`Style`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#style-idstyle)                                                    | :x:                |
-| [`JPEG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#jpeg-options-idjpeg-options)                               | :x:                |
-| [`PNG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#png-options-idpng-options)                                  | :x:                |
-| [`GIF options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gif-options-idgif-options)                                  | :x:                |
-| [`Page`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#page-idpage)                                                       | :x:                |
-| [`Video Thumbnail Second`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#video-thumbnail-second-idvideo-thumbnail-second) | :x:                |
+| [`JPEG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#jpeg-options-idjpeg-options)                               | :white_check_mark: |
+| [`PNG options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#png-options-idpng-options)                                  | :white_check_mark: |
+| [`GIF options`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gif-options-idgif-options)                                  | :white_check_mark: |
+| [`Page`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#page-idpage)                                                       | :white_check_mark: |
+| [`Video Thumbnail Second`](https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#video-thumbnail-second-idvideo-thumbnail-second) | :white_check_mark: |
