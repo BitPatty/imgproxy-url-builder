@@ -1,9 +1,9 @@
 // Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#unsharpening-idunsharpening
 
 import UnsharpeningMode from '../enums/unsharpening-mode.enum';
-import { OneOrMany, stringifyOptions } from '../utils';
+import { stringifyOptions } from '../utils';
 
-type UnsharpeningOptions = OneOrMany<{
+type UnsharpeningOptions = {
   /**
    * The mode in which the unsharpening mask
    * should be applied
@@ -29,7 +29,7 @@ type UnsharpeningOptions = OneOrMany<{
    * Should be greater than zero.
    */
   dividor?: number;
-}>;
+};
 
 /**
  * Allows redefining unsharpening options.

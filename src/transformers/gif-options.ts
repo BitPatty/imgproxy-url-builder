@@ -1,8 +1,8 @@
 // Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gif-options-idgif-options
 
-import { OneOrMany, stringifyOptions } from '../utils';
+import { stringifyOptions } from '../utils';
 
-type GifOptions = OneOrMany<{
+type GifOptions = {
   /**
    * If true, enables GIF frames optimization.
    */
@@ -12,7 +12,7 @@ type GifOptions = OneOrMany<{
    * If true, enables GIF transparency optimization.
    */
   optimizeTransparency?: boolean;
-}>;
+};
 
 /**
  * Allows redefining GIF saving options

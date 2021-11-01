@@ -3,7 +3,7 @@
 import { stringifyOptions } from '../utils';
 
 /**
- * Strips the metadata from teh image
+ * Strips the metadata from the image
  *
  * @returns The strip metadata params
  */

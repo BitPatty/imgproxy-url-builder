@@ -3,7 +3,7 @@
 import { stringifyOptions } from '../utils';
 
 /**
- * Strips the color profile from teh image
+ * Strips the color profile from the image
  *
  * @returns The strip color profile params
  */

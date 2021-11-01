@@ -1,45 +1,45 @@
 {
-    "[html]": {
+  "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
+  },
+  "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascriptreact]": {
+  },
+  "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
+  },
+  "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
+  },
+  "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
+  },
+  "[json]": {
     "editor.quickSuggestions": {
-    "strings": true
+      "strings": true
     },
     "editor.suggest.insertMode": "replace",
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "files.autoSave": "off",
-    "breadcrumbs.symbolSortOrder": "type",
-    "coverage-gutters.coverageReportFileName": "coverage/**/index.html",
-    "coverage-gutters.showLineCoverage": true,
-    "editor.codeLens": true,
-    "editor.detectIndentation": true,
-    "editor.formatOnSave": true,
-    "editor.minimap.maxColumn": 150,
-    "editor.tabSize": 2,
-    "explorer.confirmDragAndDrop": false,
-    "files.associations": {
+  },
+  "files.autoSave": "off",
+  "breadcrumbs.symbolSortOrder": "type",
+  "coverage-gutters.coverageReportFileName": "coverage/**/index.html",
+  "coverage-gutters.showLineCoverage": true,
+  "editor.codeLens": true,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.maxColumn": 150,
+  "editor.tabSize": 2,
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
     "*.erb": "html",
     "*.html.erb": "html"
-    },
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    "html.format.wrapLineLength": 150,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "search.exclude": {
+  },
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "html.format.wrapLineLength": 150,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "search.exclude": {
     "**/*.eot": true,
     "**/*.png": true,
     "**/*.svg": true,
@@ -51,15 +51,26 @@
     "**/dist/": true,
     "**/node_modules": true,
     "**/tmp": true
-    },
-    "todohighlight.keywords": [
-    "@TODO"
-    ],
-    "typescript.preferences.importModuleSpecifier": "relative",
-    "typescript.referencesCodeLens.enabled": true,
-    "typescript.referencesCodeLens.showOnAllFunctions": true,
-    "typescript.reportStyleChecksAsWarnings": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false
-    }
+  },
+  "todohighlight.keywords": ["@TODO"],
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.reportStyleChecksAsWarnings": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "cSpell.enabled": true,
+  "cSpell.words": ["imgproxy", "rotr"],
+  "cSpell.ignorePaths": [
+    ".devcontainer",
+    ".github",
+    "docs",
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders"
+  ]
+}

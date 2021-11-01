@@ -2,10 +2,6 @@ import { base64urlEncode, parseHexString, utf8encode } from './crypto/codec';
 import { wordArrayToByteArray } from './crypto/common';
 import hmac from './crypto/hmac';
 
-type OneOrMany<T extends { [key: string]: unknown }> = {
-  [K in keyof T]-?: T & Required<Pick<T, K>>;
-}[keyof T];
-
 /**
  * Stringifies the imgproxy modifier for use
  * within the imgproxy URL
@@ -60,4 +56,4 @@ const generateSignature = (
   return base64urlEncode(wordArrayToByteArray(h));
 };
 
-export { stringifyOptions, OneOrMany, encodeFilePath, generateSignature };
+export { stringifyOptions, encodeFilePath, generateSignature };

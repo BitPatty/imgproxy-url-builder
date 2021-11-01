@@ -1,8 +1,8 @@
 // Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#png-options-idpng-options
 
-import { OneOrMany, stringifyOptions } from '../utils';
+import { stringifyOptions } from '../utils';
 
-type PngOptions = OneOrMany<{
+type PngOptions = {
   /**
    * If true, enables interlaced PNG compression
    */
@@ -19,7 +19,7 @@ type PngOptions = OneOrMany<{
    * Should be between 2 and 256.
    */
   quantization_colors?: boolean;
-}>;
+};
 
 /**
  * Allows redefining PNG saving options

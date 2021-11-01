@@ -1,6 +1,6 @@
 // Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#trim
 
-import { OneOrMany, stringifyOptions } from '../utils';
+import { stringifyOptions } from '../utils';
 
 type TrimOptions = {
   /**
@@ -17,10 +17,19 @@ type TrimOptions = {
    * Equalize the horizontal or vertical
    * trimming distance
    */
-  equal?: OneOrMany<{
+  equal?: {
+    /**
+     * If true, equalizes the trimming distance
+     * on the horizontal axis
+     */
     horizontal?: boolean;
+
+    /**
+     * If true, equalizes the trimming distance
+     * on the vertical axis
+     */
     vertical?: boolean;
-  }>;
+  };
 };
 
 /**

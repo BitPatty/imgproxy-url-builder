@@ -1,20 +1,20 @@
 // Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#jpeg-options-idjpeg-options
 
-import { OneOrMany, stringifyOptions } from '../utils';
+import { stringifyOptions } from '../utils';
 
-type JpegOptions = OneOrMany<{
+type JpegOptions = {
   /**
    * If true, enables progressive JPEG compression
    */
   progressive?: boolean;
 
   /**
-   * If true, chrominance subsampling is disabled
+   * If true, chrominance sub-sampling is disabled
    */
   noSubsample?: boolean;
 
   /**
-   * If true, enables trellis quantisation for each
+   * If true, enables trellis quantization for each
    * 8x8 block
    */
   trellisQuant?: boolean;
@@ -27,7 +27,7 @@ type JpegOptions = OneOrMany<{
 
   /**
    * If true, split the spectrum of DCT coefficients
-   * into seperate scans
+   * into separate scans
    */
   optimizeScans?: boolean;
 
@@ -45,7 +45,7 @@ type JpegOptions = OneOrMany<{
    *     8: Table from An Improved Detection Model for DCT Coefficient Quantization (1993).
    */
   quantizationTable?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-}>;
+};
 
 /**
  * Allows redefining JPEG saving options

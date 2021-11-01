@@ -1,11 +1,11 @@
 // Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#padding
 
-import { OneOrMany, stringifyOptions } from '../utils';
+import { stringifyOptions } from '../utils';
 
 /**
  * The available options for the crop operation
  */
-type PaddingOptions = OneOrMany<{
+type PaddingOptions = {
   /**
    * The top padding (and all other sides if not set explicitly)
    */
@@ -25,7 +25,7 @@ type PaddingOptions = OneOrMany<{
    * The left padding
    */
   left?: number;
-}>;
+};
 
 /**
  * Applies the specified padding to the image

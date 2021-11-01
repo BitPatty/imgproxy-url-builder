@@ -463,7 +463,7 @@ class ParamBuilder {
   }
 
   /**
-   * Strips the color profile from teh image
+   * Strips the color profile from the image
    */
   public stripColorProfile<T extends ForwardType>(
     this: T,
@@ -473,7 +473,7 @@ class ParamBuilder {
   }
 
   /**
-   * Strips the metadata from teh image
+   * Strips the metadata from the image
    */
   public stripMetadata<T extends ForwardType>(
     this: T,
