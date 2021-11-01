@@ -19,6 +19,7 @@
   ],
   "forwardPorts": [
     4000,
+    5000,
     9000,
     9001
   ],
@@ -27,6 +28,9 @@
   "portsAttributes": {
     "4000": {
       "label": "Imgproxy Server"
+    },
+    "5000": {
+      "label": "Imgproxy Server (Unsigned)"
     },
     "9000": {
       "label": "Minio Server"

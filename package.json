@@ -1,6 +1,6 @@
 {
   "name": "@bitpatty/imgproxy-url-builder",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "imgproxy param builder",
   "author": "Matteias Collet <matteias.collet@bluewin.ch>",
   "main": "dist/index.js",
@@ -9,6 +9,12 @@
     "test": "jest --verbose",
     "docs": "typedoc src/index.ts"
   },
+  "keywords": [
+    "imgproxy",
+    "imgproxyjs",
+    "browser",
+    "node"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/BitPatty/imgproxy-url-builder.git"

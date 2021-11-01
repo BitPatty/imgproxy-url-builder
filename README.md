@@ -22,13 +22,13 @@ import pb from '@bitpatty/imgproxy-url-builder';
 pb().rotate(90).blur(10).build();
 
 // The transformer params with the target image
-// Returns /rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
+// Returns /-/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
 pb().rotate(90).blur(10).build({
   path: 's3://mybucket/myimage.png',
 });
 
 // You can disable path encoding by setting 'plain' to true
-// Returns /rot:90/bl:10/plain/s3://mybucket/myimage.png
+// Returns /-/rot:90/bl:10/plain/s3://mybucket/myimage.png
 pb().rotate(90).blur(10).build({
   plain: true,
   path: 's3://mybucket/myimage.png',
@@ -50,7 +50,7 @@ pb()
 
 // To automatically prepend the imgproxy URL
 // provide it as the 'baseUrl' setting
-// Returns https://my-imgproxy-instance.example.com/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
+// Returns https://my-imgproxy-instance.example.com/-/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw
 pb().rotate(90).blur(10).build({
   path: 's3://mybucket/myimage.png',
   baseUrl: 'https://my-imgproxy-instance.example.com',

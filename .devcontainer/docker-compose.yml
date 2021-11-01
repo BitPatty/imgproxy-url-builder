@@ -31,6 +31,7 @@ services:
       - ./workspace.env
     ports:
       - 4000:4000
+      - 5000:5000
       - 9000:9000
       - 9001:9001
 
@@ -56,3 +57,10 @@ services:
     network_mode: service:application
     env_file:
       - ./imgproxy.env
+
+  imgproxy-url-builder-imgproxy-unsigned:
+    container_name: imgproxy-url-builder-imgproxy-unsigned
+    image: darthsim/imgproxy:v2.17
+    network_mode: service:application
+    env_file:
+      - ./imgproxy-unsigned.env
