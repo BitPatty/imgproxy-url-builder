@@ -300,7 +300,7 @@ class ParamBuilder {
 
   /**
    * Limits the file size to the specified
-   * Specifies the resulting image format
+   * number of bytes
    *
    * Note: only applicable to jpg, webp, heic and tiff
    *

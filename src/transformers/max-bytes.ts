@@ -5,13 +5,14 @@ import { stringifyOptions } from '../utils';
 type MaxBytesOptions = number;
 
 /**
- * Specifies the resulting image format
+ * Limits the file size to the specified
+ * number of bytes
  *
  * Note: only applicable to jpg, webp, heic and tiff
  *
- * @param maxBytes The max bytes
+ * @param maxBytes The number of bytes
  *
- * @returns The format params
+ * @returns The maxBytes params
  */
 const maxBytes = (bytes: MaxBytesOptions): string =>
   stringifyOptions('mb', [bytes]);
