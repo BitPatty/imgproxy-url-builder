@@ -17,7 +17,7 @@ export default {
   ],
   plugins: [
     typescript({
-      tsconfig: 'tsconfig.build.json',
+      tsconfig: 'tsconfig.json',
     }),
     // compiler(),
   ],
