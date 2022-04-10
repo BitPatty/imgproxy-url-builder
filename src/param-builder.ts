@@ -44,19 +44,12 @@ import watermarkUrl, {
 
 import { encodeFilePath, generateSignature } from './utils';
 
-type ForwardType = Partial<ParamBuilder> & {
-  readonly modifiers: string[];
-};
-
-type OmitTransformer<
-  T extends ForwardType,
-  K extends keyof ParamBuilder,
-> = Omit<T, K>;
-
 class ParamBuilder {
-  public readonly modifiers: string[];
+  public readonly modifiers: Map<keyof ParamBuilder, string>;
 
-  public constructor(initialModifiers: string[] = []) {
+  public constructor(
+    initialModifiers: Map<keyof ParamBuilder, string> = new Map(),
+  ) {
     this.modifiers = initialModifiers;
   }
 
@@ -66,8 +59,18 @@ class ParamBuilder {
    *
    * @returns A copy of this param builder
    */
-  public clone<T extends ForwardType>(this: T): T {
-    return new ParamBuilder([...this.modifiers]) as T;
+  public clone(this: this): ParamBuilder {
+    return new ParamBuilder(new Map(this.modifiers));
+  }
+
+  /**
+   * Unsets the specified modifier
+   *
+   * @param modifier  The modifier
+   */
+  public unset(this: this, modifier: keyof ParamBuilder): this {
+    this.modifiers.delete(modifier);
+    return this;
   }
 
   /**
@@ -84,8 +87,8 @@ class ParamBuilder {
     signature?: { key: string; salt: string };
   }): string {
     const { baseUrl, path, plain, signature } = options ?? {};
-    if (!path) return this.modifiers.join('/');
-    const mods = [...this.modifiers];
+    const mods = Array.from(this.modifiers.values());
+    if (!path) return mods.join('/');
 
     if (path && plain) mods.push('plain', path);
     else mods.push(encodeFilePath(path));
@@ -105,10 +108,8 @@ class ParamBuilder {
    * Automatically rotates the image based on
    * the EXIF orientation parameter
    */
-  public autoRotate<T extends ForwardType>(
-    this: T,
-  ): OmitTransformer<T, 'autoRotate'> {
-    this.modifiers.push(autoRotate());
+  public autoRotate(this: this): this {
+    this.modifiers.set('autoRotate', autoRotate());
     return this;
   }
 
@@ -117,11 +118,8 @@ class ParamBuilder {
    *
    * @param options The background color (hex encoded string or RGB object)
    */
-  public background<T extends ForwardType>(
-    this: T,
-    options: BackgroundOptions,
-  ): OmitTransformer<T, 'background'> {
-    this.modifiers.push(background(options));
+  public background(this: this, options: BackgroundOptions): this {
+    this.modifiers.set('background', background(options));
     return this;
   }
 
@@ -130,11 +128,8 @@ class ParamBuilder {
    *
    * @param options A positive floating point number between 0 and 1.
    */
-  public backgroundAlpha<T extends ForwardType>(
-    this: T,
-    options: BackgroundAlphaOptions,
-  ): OmitTransformer<T, 'backgroundAlpha'> {
-    this.modifiers.push(backgroundAlpha(options));
+  public backgroundAlpha(this: this, options: BackgroundAlphaOptions): this {
+    this.modifiers.set('backgroundAlpha', backgroundAlpha(options));
     return this;
   }
 
@@ -143,11 +138,8 @@ class ParamBuilder {
    *
    * @param sigma The size of the blur mask
    */
-  public blur<T extends ForwardType>(
-    this: T,
-    options: BlurOptions,
-  ): OmitTransformer<T, 'blur'> {
-    this.modifiers.push(blur(options));
+  public blur(this: this, options: BlurOptions): this {
+    this.modifiers.set('blur', blur(options));
     return this;
   }
 
@@ -156,22 +148,16 @@ class ParamBuilder {
    *
    * @param options An integer number in range from -255 to 255.
    */
-  public brightness<T extends ForwardType>(
-    this: T,
-    options: BrightnessOptions,
-  ): OmitTransformer<T, 'blur'> {
-    this.modifiers.push(brightness(options));
+  public brightness(this: this, options: BrightnessOptions): this {
+    this.modifiers.set('brightness', brightness(options));
     return this;
   }
 
   /**
    * Adds a cache buster to the imgproxy params
    */
-  public cacheBuster<T extends ForwardType>(
-    this: T,
-    options: CacheBusterOptions,
-  ): OmitTransformer<T, 'cacheBuster'> {
-    this.modifiers.push(cacheBuster(options));
+  public cacheBuster(this: this, options: CacheBusterOptions): this {
+    this.modifiers.set('cacheBuster', cacheBuster(options));
     return this;
   }
 
@@ -181,11 +167,8 @@ class ParamBuilder {
    * @param percentage A positive floating point number, where 1
    * keeps the contrast unchanged.
    */
-  public contrast<T extends ForwardType>(
-    this: T,
-    options: ContrastOptions,
-  ): OmitTransformer<T, 'contrast'> {
-    this.modifiers.push(contrast(options));
+  public contrast(this: this, options: ContrastOptions): this {
+    this.modifiers.set('contrast', contrast(options));
     return this;
   }
 
@@ -194,11 +177,8 @@ class ParamBuilder {
    *
    * @param options The cropping options
    */
-  public crop<T extends ForwardType>(
-    this: T,
-    options: CropOptions,
-  ): OmitTransformer<T, 'crop'> {
-    this.modifiers.push(crop(options));
+  public crop(this: this, options: CropOptions): this {
+    this.modifiers.set('crop', crop(options));
     return this;
   }
 
@@ -207,29 +187,24 @@ class ParamBuilder {
    *
    * @param options the Dpr factor (must be greater than 0)
    */
-  public dpr<T extends ForwardType>(
-    this: T,
-    options: DprOptions,
-  ): OmitTransformer<T, 'dpr'> {
-    this.modifiers.push(dpr(options));
+  public dpr(this: this, options: DprOptions): this {
+    this.modifiers.set('dpr', dpr(options));
     return this;
   }
 
   /**
    * Enlarges the image of it is smaller than the given size
    */
-  public enlarge<T extends ForwardType>(
-    this: T,
-  ): OmitTransformer<T, 'enlarge'> {
-    this.modifiers.push(enlarge());
+  public enlarge(this: this): this {
+    this.modifiers.set('enlarge', enlarge());
     return this;
   }
 
   /**
    * Extends the image of it is smaller than the given size
    */
-  public extend<T extends ForwardType>(this: T): OmitTransformer<T, 'extend'> {
-    this.modifiers.push(extend());
+  public extend(this: this): this {
+    this.modifiers.set('extend', extend());
     return this;
   }
 
@@ -238,11 +213,8 @@ class ParamBuilder {
    *
    * @param options The filename
    */
-  public filename<T extends ForwardType>(
-    this: T,
-    options: FileNameOptions,
-  ): OmitTransformer<T, 'filename'> {
-    this.modifiers.push(fileName(options));
+  public filename(this: this, options: FileNameOptions): this {
+    this.modifiers.set('filename', fileName(options));
     return this;
   }
 
@@ -251,11 +223,8 @@ class ParamBuilder {
    *
    * @param options The target format
    */
-  public format<T extends ForwardType>(
-    this: T,
-    options: FormatOptions,
-  ): OmitTransformer<T, 'format'> {
-    this.modifiers.push(format(options));
+  public format(this: this, options: FormatOptions): this {
+    this.modifiers.set('format', format(options));
     return this;
   }
 
@@ -264,11 +233,8 @@ class ParamBuilder {
    *
    * @param options The gif options
    */
-  public gifOptions<T extends ForwardType>(
-    this: T,
-    options: GifOptions,
-  ): OmitTransformer<T, 'gifOptions'> {
-    this.modifiers.push(gifOptions(options));
+  public gifOptions(this: this, options: GifOptions): this {
+    this.modifiers.set('gifOptions', gifOptions(options));
     return this;
   }
 
@@ -277,11 +243,8 @@ class ParamBuilder {
    *
    * @param options The gravity options
    */
-  public gravity<T extends ForwardType>(
-    this: T,
-    options: GravityOptions,
-  ): OmitTransformer<T, 'gravity'> {
-    this.modifiers.push(gravity(options));
+  public gravity(this: this, options: GravityOptions): this {
+    this.modifiers.set('gravity', gravity(options));
     return this;
   }
 
@@ -290,11 +253,8 @@ class ParamBuilder {
    *
    * @param options The jpeg options
    */
-  public jpegOptions<T extends ForwardType>(
-    this: T,
-    options: JpegOptions,
-  ): OmitTransformer<T, 'jpegOptions'> {
-    this.modifiers.push(jpegOptions(options));
+  public jpegOptions(this: this, options: JpegOptions): this {
+    this.modifiers.set('jpegOptions', jpegOptions(options));
     return this;
   }
 
@@ -306,11 +266,8 @@ class ParamBuilder {
    *
    * @param options The number of bytes
    */
-  public maxBytes<T extends ForwardType>(
-    this: T,
-    options: MaxBytesOptions,
-  ): OmitTransformer<T, 'maxBytes'> {
-    this.modifiers.push(maxBytes(options));
+  public maxBytes(this: this, options: MaxBytesOptions): this {
+    this.modifiers.set('maxBytes', maxBytes(options));
     return this;
   }
 
@@ -319,11 +276,8 @@ class ParamBuilder {
    *
    * @param options The padding options
    */
-  public pad<T extends ForwardType>(
-    this: T,
-    options: PaddingOptions,
-  ): OmitTransformer<T, 'pad'> {
-    this.modifiers.push(pad(options));
+  public pad(this: this, options: PaddingOptions): this {
+    this.modifiers.set('pad', pad(options));
     return this;
   }
 
@@ -336,11 +290,8 @@ class ParamBuilder {
    *
    * @param page The page to use
    */
-  public page<T extends ForwardType>(
-    this: T,
-    options: PageOptions,
-  ): OmitTransformer<T, 'page'> {
-    this.modifiers.push(page(options));
+  public page(this: this, options: PageOptions): this {
+    this.modifiers.set('page', page(options));
     return this;
   }
 
@@ -349,11 +300,8 @@ class ParamBuilder {
    *
    * @param options The size of a pixel
    */
-  public pixelate<T extends ForwardType>(
-    this: T,
-    options: PixelateOptions,
-  ): OmitTransformer<T, 'pixelate'> {
-    this.modifiers.push(pixelate(options));
+  public pixelate(this: this, options: PixelateOptions): this {
+    this.modifiers.set('pixelate', pixelate(options));
     return this;
   }
 
@@ -362,11 +310,8 @@ class ParamBuilder {
    *
    * @param options The png options
    */
-  public pngOptions<T extends ForwardType>(
-    this: T,
-    options: PngOptions,
-  ): OmitTransformer<T, 'pngOptions'> {
-    this.modifiers.push(pngOptions(options));
+  public pngOptions(this: this, options: PngOptions): this {
+    this.modifiers.set('pngOptions', pngOptions(options));
     return this;
   }
 
@@ -375,11 +320,8 @@ class ParamBuilder {
    *
    * @param options The presets
    */
-  public preset<T extends ForwardType>(
-    this: T,
-    options: PresetOptions,
-  ): OmitTransformer<T, 'preset'> {
-    this.modifiers.push(preset(options));
+  public preset(this: this, options: PresetOptions): this {
+    this.modifiers.set('preset', preset(options));
     return this;
   }
 
@@ -388,11 +330,11 @@ class ParamBuilder {
    *
    * @param options The resizing algorithm
    */
-  public resizingAlgorithm<T extends ForwardType>(
-    this: T,
+  public resizingAlgorithm(
+    this: this,
     options: ResizingAlgorithmOptions,
-  ): OmitTransformer<T, 'resizingAlgorithm'> {
-    this.modifiers.push(resizingAlgorithm(options));
+  ): this {
+    this.modifiers.set('resizingAlgorithm', resizingAlgorithm(options));
     return this;
   }
 
@@ -401,11 +343,8 @@ class ParamBuilder {
    *
    * @param options The quality in percentage (between 0 and 1)
    */
-  public quality<T extends ForwardType>(
-    this: T,
-    options: QualityOptions,
-  ): OmitTransformer<T, 'quality'> {
-    this.modifiers.push(quality(options));
+  public quality(this: this, options: QualityOptions): this {
+    this.modifiers.set('quality', quality(options));
     return this;
   }
 
@@ -414,11 +353,8 @@ class ParamBuilder {
    *
    * @param options The resizing options
    */
-  public resize<T extends ForwardType>(
-    this: T,
-    options: ResizeOptions,
-  ): OmitTransformer<T, 'resize'> {
-    this.modifiers.push(resize(options));
+  public resize(this: this, options: ResizeOptions): this {
+    this.modifiers.set('resize', resize(options));
     return this;
   }
 
@@ -427,11 +363,8 @@ class ParamBuilder {
    *
    * @param options The angle
    */
-  public rotate<T extends ForwardType>(
-    this: T,
-    options: RotationOptions,
-  ): OmitTransformer<T, 'rotate'> {
-    this.modifiers.push(rotate(options));
+  public rotate(this: this, options: RotationOptions): this {
+    this.modifiers.set('rotate', rotate(options));
     return this;
   }
 
@@ -441,11 +374,8 @@ class ParamBuilder {
    * @param options A positive floating point number, where 1
    * keeps the saturation unchanged.
    */
-  public saturation<T extends ForwardType>(
-    this: T,
-    options: SaturationOptions,
-  ): OmitTransformer<T, 'saturation'> {
-    this.modifiers.push(saturation(options));
+  public saturation(this: this, options: SaturationOptions): this {
+    this.modifiers.set('saturation', saturation(options));
     return this;
   }
 
@@ -454,31 +384,24 @@ class ParamBuilder {
    *
    * @param sigma The size of the sharpen mask
    */
-  public sharpen<T extends ForwardType>(
-    this: T,
-    options: SharpenOptions,
-  ): OmitTransformer<T, 'sharpen'> {
-    this.modifiers.push(sharpen(options));
+  public sharpen(this: this, options: SharpenOptions): this {
+    this.modifiers.set('sharpen', sharpen(options));
     return this;
   }
 
   /**
    * Strips the color profile from the image
    */
-  public stripColorProfile<T extends ForwardType>(
-    this: T,
-  ): OmitTransformer<T, 'stripColorProfile'> {
-    this.modifiers.push(stripColorProfile());
+  public stripColorProfile(this: this): this {
+    this.modifiers.set('stripColorProfile', stripColorProfile());
     return this;
   }
 
   /**
    * Strips the metadata from the image
    */
-  public stripMetadata<T extends ForwardType>(
-    this: T,
-  ): OmitTransformer<T, 'stripMetadata'> {
-    this.modifiers.push(stripMetadata());
+  public stripMetadata(this: this): this {
+    this.modifiers.set('stripMetadata', stripMetadata());
     return this;
   }
 
@@ -487,11 +410,8 @@ class ParamBuilder {
    *
    * @param options The trimming options
    */
-  public trim<T extends ForwardType>(
-    this: T,
-    options: TrimOptions,
-  ): OmitTransformer<T, 'trim'> {
-    this.modifiers.push(trim(options));
+  public trim(this: this, options: TrimOptions): this {
+    this.modifiers.set('trim', trim(options));
     return this;
   }
 
@@ -500,11 +420,8 @@ class ParamBuilder {
    *
    * @param options The unsharpening options
    */
-  public unsharpen<T extends ForwardType>(
-    this: T,
-    options: UnsharpeningOptions,
-  ): OmitTransformer<T, 'unsharpen'> {
-    this.modifiers.push(unsharpen(options));
+  public unsharpen(this: this, options: UnsharpeningOptions): this {
+    this.modifiers.set('unsharpen', unsharpen(options));
     return this;
   }
 
@@ -514,11 +431,11 @@ class ParamBuilder {
    * @param options The timestamp of the frame in seconds
    * that will be used for a thumbnail.
    */
-  public videoThumbnailSecond<T extends ForwardType>(
-    this: T,
+  public videoThumbnailSecond(
+    this: this,
     options: VideoThumbnailSecondOptions,
-  ): OmitTransformer<T, 'unsharpen'> {
-    this.modifiers.push(videoThumbnailSecond(options));
+  ): this {
+    this.modifiers.set('videoThumbnailSecond', videoThumbnailSecond(options));
     return this;
   }
 
@@ -527,11 +444,8 @@ class ParamBuilder {
    *
    * @param options The size of the blur mask
    */
-  public watermark<T extends ForwardType>(
-    this: T,
-    options: WatermarkOptions,
-  ): OmitTransformer<T, 'watermark'> {
-    this.modifiers.push(watermark(options));
+  public watermark(this: this, options: WatermarkOptions): this {
+    this.modifiers.set('watermark', watermark(options));
     return this;
   }
 
@@ -540,11 +454,8 @@ class ParamBuilder {
    *
    * @param options The watermark URL
    */
-  public watermarkUrl<T extends ForwardType>(
-    this: T,
-    options: WatermarkUrlOptions,
-  ): OmitTransformer<T, 'watermarkUrl'> {
-    this.modifiers.push(watermarkUrl(options));
+  public watermarkUrl(this: this, options: WatermarkUrlOptions): this {
+    this.modifiers.set('watermarkUrl', watermarkUrl(options));
     return this;
   }
 }
