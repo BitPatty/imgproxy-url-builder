@@ -50,7 +50,8 @@
     "**/bower_components": true,
     "**/dist/": true,
     "**/node_modules": true,
-    "**/tmp": true
+    "**/tmp": true,
+    "**/docs/": true
   },
   "todohighlight.keywords": ["@TODO"],
   "typescript.preferences.importModuleSpecifier": "relative",
