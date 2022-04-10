@@ -10,9 +10,16 @@ import contrast, { ContrastOptions } from './transformers/contrast';
 import crop, { CropOptions } from './transformers/crop';
 import dpr, { DprOptions } from './transformers/dpr';
 import enlarge from './transformers/enlarge';
+import expires, { ExpiresOptions } from './transformers/expires';
 import extend from './transformers/extend';
+import fallbackImageUrl, {
+  FallbackImageUrlOptions,
+} from './transformers/fallback-image-url';
 import fileName, { FileNameOptions } from './transformers/filename';
 import format, { FormatOptions } from './transformers/format';
+import formatQuality, {
+  FormatQualityOptions,
+} from './transformers/format-quality';
 import gifOptions, { GifOptions } from './transformers/gif-options';
 import gravity, { GravityOptions } from './transformers/gravity';
 import jpegOptions, { JpegOptions } from './transformers/jpeg-options';
@@ -30,17 +37,28 @@ import resizingAlgorithm, {
 import rotate, { RotationOptions } from './transformers/rotate';
 import saturation, { SaturationOptions } from './transformers/saturation';
 import sharpen, { SharpenOptions } from './transformers/sharpen';
+import skipProcessing, {
+  SkipProcessingOptions,
+} from './transformers/skip-processing';
 import stripColorProfile from './transformers/strip-color-profile';
 import stripMetadata from './transformers/strip-metadata';
+import style, { StyleOptions } from './transformers/style';
 import trim, { TrimOptions } from './transformers/trim';
 import unsharpen, { UnsharpeningOptions } from './transformers/unsharpen';
 import videoThumbnailSecond, {
   VideoThumbnailSecondOptions,
 } from './transformers/video-thumbnail-second';
 import watermark, { WatermarkOptions } from './transformers/watermark';
+import watermarkSize, {
+  WatermarkSizeOptions,
+} from './transformers/watermark-size';
+import watermarkText, {
+  WatermarkTextOptions,
+} from './transformers/watermark-text';
 import watermarkUrl, {
   WatermarkUrlOptions,
 } from './transformers/watermark-url';
+import zoom, { ZoomOptions } from './transformers/zoom';
 
 import { encodeFilePath, generateSignature } from './utils';
 
@@ -201,10 +219,30 @@ class ParamBuilder {
   }
 
   /**
+   * Returns a 404 if the provided timestamp expired
+   *
+   * @param options The expiration date / timestamp
+   */
+  public expires(this: this, options: ExpiresOptions): this {
+    this.modifiers.set('expires', expires(options));
+    return this;
+  }
+
+  /**
    * Extends the image of it is smaller than the given size
    */
   public extend(this: this): this {
     this.modifiers.set('extend', extend());
+    return this;
+  }
+
+  /**
+   * Sets the fallback image url
+   *
+   * @param options The image URL
+   */
+  public fallbackImageUrl(this: this, options: FallbackImageUrlOptions): this {
+    this.modifiers.set('fallbackImageUrl', fallbackImageUrl(options));
     return this;
   }
 
@@ -225,6 +263,16 @@ class ParamBuilder {
    */
   public format(this: this, options: FormatOptions): this {
     this.modifiers.set('format', format(options));
+    return this;
+  }
+
+  /**
+   * Specifies the format quality
+   *
+   * @param options The format quality options
+   */
+  public formatQuality(this: this, options: FormatQualityOptions): this {
+    this.modifiers.set('formatQuality', formatQuality(options));
     return this;
   }
 
@@ -390,6 +438,16 @@ class ParamBuilder {
   }
 
   /**
+   * Skips the processing for the specified extensions
+   *
+   * @param options The list of formats / extensions
+   */
+  public skipProcessing(this: this, options: SkipProcessingOptions): this {
+    this.modifiers.set('skipProcessing', skipProcessing(options));
+    return this;
+  }
+
+  /**
    * Strips the color profile from the image
    */
   public stripColorProfile(this: this): this {
@@ -402,6 +460,16 @@ class ParamBuilder {
    */
   public stripMetadata(this: this): this {
     this.modifiers.set('stripMetadata', stripMetadata());
+    return this;
+  }
+
+  /**
+   * Applies the specified CSS styles to an SVG source image
+   *
+   * @param options The CSS styles
+   */
+  public style(this: this, options: StyleOptions): this {
+    this.modifiers.set('style', style(options));
     return this;
   }
 
@@ -450,12 +518,43 @@ class ParamBuilder {
   }
 
   /**
+   * Sets the watermark size
+   *
+   * @param options The watermark size
+   */
+  public watermarkSize(this: this, options: WatermarkSizeOptions): this {
+    this.modifiers.set('watermarkSize', watermarkSize(options));
+    return this;
+  }
+
+  /**
+   * Sets the watermark Text
+   *
+   * @param options The watermark text
+   */
+  public watermarkText(this: this, options: WatermarkTextOptions): this {
+    this.modifiers.set('watermarkText', watermarkText(options));
+    return this;
+  }
+
+  /**
    * Sets the watermark URL
    *
    * @param options The watermark URL
    */
   public watermarkUrl(this: this, options: WatermarkUrlOptions): this {
     this.modifiers.set('watermarkUrl', watermarkUrl(options));
+    return this;
+  }
+
+  /**
+   * Multiplies the image according to the specified factors.
+   * The values must be greater than 0.
+   *
+   * @param options The zoom options
+   */
+  public zoom(this: this, options: ZoomOptions): this {
+    this.modifiers.set('zoom', zoom(options));
     return this;
   }
 }

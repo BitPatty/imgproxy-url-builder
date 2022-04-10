@@ -1,4 +1,4 @@
-// Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#background-alpha-idbackground-alpha
+// Reference: https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/generating_the_url.md#background-alpha-idbackground-alpha
 
 import { stringifyOptions } from '../utils';
 

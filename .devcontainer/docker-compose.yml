@@ -53,14 +53,14 @@ services:
   # Imgproxy
   imgproxy-url-builder-imgproxy:
     container_name: imgproxy-url-builder-imgproxy
-    image: darthsim/imgproxy:v2.17
+    image: darthsim/imgproxy:v3.4.0
     network_mode: service:application
     env_file:
       - ./imgproxy.env
 
   imgproxy-url-builder-imgproxy-unsigned:
     container_name: imgproxy-url-builder-imgproxy-unsigned
-    image: darthsim/imgproxy:v2.17
+    image: darthsim/imgproxy:v3.4.0
     network_mode: service:application
     env_file:
       - ./imgproxy-unsigned.env

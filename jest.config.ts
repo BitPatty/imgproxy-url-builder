@@ -8,7 +8,7 @@ export default (): Config.InitialOptions => {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     verbose: true,
     testMatch: [
-      '**/test/crypto/*.test.ts',
+      // '**/test/crypto/*.test.ts',
       '**/test/misc/*.test.ts',
       '**/test/transformers/*.test.ts',
     ],

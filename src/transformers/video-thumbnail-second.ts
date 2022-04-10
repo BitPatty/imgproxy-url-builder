@@ -1,4 +1,4 @@
-// Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#video-thumbnail-second-idvideo-thumbnail-second
+// Reference: https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second
 
 import { stringifyOptions } from '../utils';
 
