@@ -93,7 +93,7 @@ class ParamBuilder {
     const res = mods.join('/');
 
     // If no signature is calculated add a - as placeholder
-    // See https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_basic.md#signature
+    // See https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/signing_the_url.md
     const finalPath = signature
       ? `${generateSignature(res, signature.key, signature.salt)}/${res}`
       : `-/${res}`;
