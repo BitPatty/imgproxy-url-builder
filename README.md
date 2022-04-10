@@ -55,6 +55,19 @@ pb().rotate(90).blur(10).build({
   path: 's3://mybucket/myimage.png',
   baseUrl: 'https://my-imgproxy-instance.example.com',
 });
+
+// You can clone the current configuration for templating / reuse
+const template = pb().rotate(90);
+const copy = template.clone();
+
+// To remove a modifier, use the `unset` function
+const t = pb().rotate(90).blur(10);
+t.unset('rotate');
+
+// ... Or you can replace the previous setting by calling the
+// modifier again
+const t = pb().rotate(90).blur(10); // rotate: 90, blur: 10
+t.rotate(34); // rotate: 34, blur: 10
 ```
 
 ## Supported Imgproxy Transformations
