@@ -1,6 +1,6 @@
 # imgproxy-url-builder
 
-A helper library for building Imgproxy URLs.
+A helper library for building [imgproxy](https://github.com/imgproxy/imgproxy) URLs.
 
 ## Installation
 
