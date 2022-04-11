@@ -35,7 +35,7 @@
     "@types/mmmagic": "0.4.30",
     "@types/node": "16.11.5",
     "@types/tmp": "0.2.2",
-    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/eslint-plugin": "5.18.0",
     "@typescript-eslint/parser": "5.2.0",
     "axios": "0.26.0",
     "eslint": "8.1.0",
