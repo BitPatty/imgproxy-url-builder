@@ -5,7 +5,8 @@
   "author": "Matteias Collet <matteias.collet@bluewin.ch>",
   "main": "dist/index.js",
   "scripts": {
-    "build": "rimraf dist && rollup -c",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
     "test": "jest --verbose",
     "docs": "typedoc src/index.ts"
   },
