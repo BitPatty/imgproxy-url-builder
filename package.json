@@ -31,7 +31,7 @@
   "homepage": "https://github.com/BitPatty/imgproxy-url-builder#readme",
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "0.27.0",
-    "@types/get-pixels": "3.3.1",
+    "@types/get-pixels": "3.3.2",
     "@types/jest": "27.0.2",
     "@types/mmmagic": "0.4.30",
     "@types/node": "16.11.5",
