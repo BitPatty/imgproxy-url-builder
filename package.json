@@ -45,7 +45,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "get-pixels": "3.3.3",
     "mmmagic": "0.5.3",
-    "prettier": "2.4.1",
+    "prettier": "2.7.0",
     "rimraf": "3.0.2",
     "rollup": "2.58.0",
     "rollup-plugin-typescript2": "0.31.2",
