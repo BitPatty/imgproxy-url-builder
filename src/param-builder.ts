@@ -55,7 +55,7 @@ import { encodeFilePath, generateSignature } from './utils';
 /**
  * The build options
  */
-type BuildOptions = {
+export type BuildOptions = {
   /**
    * The path to the target image, e.g. `https://example.com/foo.png`
    */

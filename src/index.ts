@@ -1,4 +1,4 @@
-import pb, { ParamBuilder } from './param-builder';
+import pb, { ParamBuilder, BuildOptions } from './param-builder';
 
 import GravityType from './enums/gravity-type.enum';
 import ResizeType from './enums/resize-type.enum';
@@ -53,6 +53,7 @@ import { ExtendOptions } from './transformers/extend';
 export default pb;
 export {
   // Param builder itself
+  BuildOptions,
   ParamBuilder,
   // Enums
   GravityType,
