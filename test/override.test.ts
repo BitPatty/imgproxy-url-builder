@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-
-import pb from '../../src';
+import pb from '../src';
 
 describe('Override', () => {
   test('Overrides a modifier', () => {

@@ -1,5 +1,3 @@
-// Reference: https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/generating_the_url.md#crop
-
 import GravityType from '../enums/gravity-type.enum';
 import { stringifyOptions } from '../utils';
 
@@ -55,13 +53,13 @@ type CropOptions = {
  *
  * @returns The cropping params
  */
-const crop = (options: CropOptions): string =>
+const crop = (options?: CropOptions): string =>
   stringifyOptions('c', [
-    options.width ?? 0,
-    options.height ?? 0,
-    options.gravity?.type,
-    options.gravity?.offset?.x,
-    options.gravity?.offset?.y,
+    options?.width ?? 0,
+    options?.height ?? 0,
+    options?.gravity?.type,
+    options?.gravity?.offset?.x,
+    options?.gravity?.offset?.y,
   ]);
 
 export default crop;

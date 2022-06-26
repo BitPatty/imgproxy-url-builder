@@ -1,4 +1,5 @@
-// Reference: https://github.com/imgproxy/imgproxy/blob/master/docs/generating_the_url_advanced.md#gif-options-idgif-options
+// Removed in version 3.0.0
+// See: https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/CHANGELOG.md#removed
 
 import { stringifyOptions } from '../utils';
 

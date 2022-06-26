@@ -2,6 +2,9 @@
 
 import { stringifyOptions } from '../utils';
 
+/**
+ * The size of a pixel
+ */
 type PixelateOptions = number;
 
 /**

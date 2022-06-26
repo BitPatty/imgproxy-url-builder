@@ -1,5 +1,3 @@
-// Reference: https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/generating_the_url.md#gravity
-
 import GravityType from '../enums/gravity-type.enum';
 import { stringifyOptions } from '../utils';
 

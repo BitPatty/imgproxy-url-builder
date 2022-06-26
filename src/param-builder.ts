@@ -1,68 +1,92 @@
 import autoRotate from './transformers/auto-rotate';
-import background, { BackgroundOptions } from './transformers/background';
-import backgroundAlpha, {
-  BackgroundAlphaOptions,
-} from './transformers/background-alpha';
-import blur, { BlurOptions } from './transformers/blur';
-import brightness, { BrightnessOptions } from './transformers/brightness';
-import cacheBuster, { CacheBusterOptions } from './transformers/cache-buster';
-import contrast, { ContrastOptions } from './transformers/contrast';
-import crop, { CropOptions } from './transformers/crop';
-import dpr, { DprOptions } from './transformers/dpr';
+import background from './transformers/background';
+import backgroundAlpha from './transformers/background-alpha';
+import blur from './transformers/blur';
+import brightness from './transformers/brightness';
+import cacheBuster from './transformers/cache-buster';
+import contrast from './transformers/contrast';
+import crop from './transformers/crop';
+import dpr from './transformers/dpr';
 import enlarge from './transformers/enlarge';
-import expires, { ExpiresOptions } from './transformers/expires';
+import expires from './transformers/expires';
 import extend from './transformers/extend';
-import fallbackImageUrl, {
-  FallbackImageUrlOptions,
-} from './transformers/fallback-image-url';
-import fileName, { FileNameOptions } from './transformers/filename';
-import format, { FormatOptions } from './transformers/format';
-import formatQuality, {
-  FormatQualityOptions,
-} from './transformers/format-quality';
-import gifOptions, { GifOptions } from './transformers/gif-options';
-import gravity, { GravityOptions } from './transformers/gravity';
-import jpegOptions, { JpegOptions } from './transformers/jpeg-options';
-import maxBytes, { MaxBytesOptions } from './transformers/max-bytes';
-import pad, { PaddingOptions } from './transformers/pad';
-import page, { PageOptions } from './transformers/page';
-import pixelate, { PixelateOptions } from './transformers/pixelate';
-import pngOptions, { PngOptions } from './transformers/png-options';
-import preset, { PresetOptions } from './transformers/preset';
-import quality, { QualityOptions } from './transformers/quality';
-import resize, { ResizeOptions } from './transformers/resize';
-import resizingAlgorithm, {
-  ResizingAlgorithmOptions,
-} from './transformers/resizing-algorithm';
-import rotate, { RotationOptions } from './transformers/rotate';
-import saturation, { SaturationOptions } from './transformers/saturation';
-import sharpen, { SharpenOptions } from './transformers/sharpen';
-import skipProcessing, {
-  SkipProcessingOptions,
-} from './transformers/skip-processing';
+import fallbackImageUrl from './transformers/fallback-image-url';
+import fileName from './transformers/filename';
+import format from './transformers/format';
+import formatQuality from './transformers/format-quality';
+import gifOptions from './transformers/gif-options';
+import gravity from './transformers/gravity';
+import jpegOptions from './transformers/jpeg-options';
+import maxBytes from './transformers/max-bytes';
+import minHeight from './transformers/min-height';
+import minWidth from './transformers/min-width';
+import pad from './transformers/pad';
+import page from './transformers/page';
+import pixelate from './transformers/pixelate';
+import pngOptions from './transformers/png-options';
+import preset from './transformers/preset';
+import quality from './transformers/quality';
+import resize from './transformers/resize';
+import resizingAlgorithm from './transformers/resizing-algorithm';
+import rotate from './transformers/rotate';
+import saturation from './transformers/saturation';
+import sharpen from './transformers/sharpen';
+import skipProcessing from './transformers/skip-processing';
 import stripColorProfile from './transformers/strip-color-profile';
 import stripMetadata from './transformers/strip-metadata';
-import style, { StyleOptions } from './transformers/style';
-import trim, { TrimOptions } from './transformers/trim';
-import unsharpen, { UnsharpeningOptions } from './transformers/unsharpen';
-import videoThumbnailSecond, {
-  VideoThumbnailSecondOptions,
-} from './transformers/video-thumbnail-second';
-import watermark, { WatermarkOptions } from './transformers/watermark';
-import watermarkSize, {
-  WatermarkSizeOptions,
-} from './transformers/watermark-size';
-import watermarkText, {
-  WatermarkTextOptions,
-} from './transformers/watermark-text';
-import watermarkUrl, {
-  WatermarkUrlOptions,
-} from './transformers/watermark-url';
-import zoom, { ZoomOptions } from './transformers/zoom';
+import style from './transformers/style';
+import trim from './transformers/trim';
+import unsharpen from './transformers/unsharpen';
+import videoThumbnailSecond from './transformers/video-thumbnail-second';
+import watermark from './transformers/watermark';
+import watermarkSize from './transformers/watermark-size';
+import watermarkText from './transformers/watermark-text';
+import watermarkUrl from './transformers/watermark-url';
+import zoom from './transformers/zoom';
 
 import { encodeFilePath, generateSignature } from './utils';
 
+/**
+ * The build options
+ */
+type BuildOptions = {
+  /**
+   * The path to the target image, e.g. `https://example.com/foo.png`
+   */
+  path: string;
+
+  /**
+   * The base URL of the imgproxy instance, e.g. https://my-imgproxy.test
+   */
+  baseUrl?: string;
+
+  /**
+   * Whether to append the {@link BuildOptions.path} in plain.
+   *
+   * Defaults to false. If true, encodes the path to a  base64url
+   */
+  plain?: boolean;
+
+  /**
+   * The signature to apply
+   */
+  signature?: {
+    /**
+     * The hex-encoded key of the signature
+     */
+    key: string;
+
+    /**
+     * The hex encoded salt of the signature
+     */
+    salt: string;
+  };
+};
+
 class ParamBuilder {
+  /**
+   * The currently applied imgproxy modifiers
+   */
   public readonly modifiers: Map<keyof ParamBuilder, string>;
 
   public constructor(
@@ -72,8 +96,8 @@ class ParamBuilder {
   }
 
   /**
-   * Creates a new param builder instance with the
-   * current modifiers
+   * Creates a new param builder instance with a copy of the
+   * current {@link ParamBuilder.modifiers}
    *
    * @returns A copy of this param builder
    */
@@ -82,7 +106,8 @@ class ParamBuilder {
   }
 
   /**
-   * Unsets the specified modifier
+   * Removes the specified modifier from the currently applied
+   * modifiers
    *
    * @param modifier  The modifier
    */
@@ -94,16 +119,16 @@ class ParamBuilder {
   /**
    * Builds the imgproxy URL
    *
-   * @param options The URL options
+   * If {@link BuildOptions.path} is supplied, the full URL path will be returned,
+   * else only the stringified modifiers will be returned.
+   *
+   * If {@link BuildOptions.baseUrl} is supplied, the full imgproxy URL will be returned.
+   *
+   * @param options The build options
    *
    * @returns The imgproxy URL
    */
-  public build(options?: {
-    path: string;
-    baseUrl?: string;
-    plain?: boolean;
-    signature?: { key: string; salt: string };
-  }): string {
+  public build(options?: BuildOptions): string {
     const { baseUrl, path, plain, signature } = options ?? {};
     const mods = Array.from(this.modifiers.values());
     if (!path) return mods.join('/');
@@ -123,8 +148,7 @@ class ParamBuilder {
   }
 
   /**
-   * Automatically rotates the image based on
-   * the EXIF orientation parameter
+   * Automatically rotates the image based on the EXIF orientation parameter
    */
   public autoRotate(this: this): this {
     this.modifiers.set('autoRotate', autoRotate());
@@ -133,60 +157,61 @@ class ParamBuilder {
 
   /**
    * Fills the image background with the specified color
-   *
-   * @param options The background color (hex encoded string or RGB object)
    */
-  public background(this: this, options: BackgroundOptions): this {
-    this.modifiers.set('background', background(options));
+  public background(
+    this: this,
+    ...options: Parameters<typeof background>
+  ): this {
+    this.modifiers.set('background', background(...options));
     return this;
   }
 
   /**
    * Adds alpha channel to background.
-   *
-   * @param options A positive floating point number between 0 and 1.
    */
-  public backgroundAlpha(this: this, options: BackgroundAlphaOptions): this {
-    this.modifiers.set('backgroundAlpha', backgroundAlpha(options));
+  public backgroundAlpha(
+    this: this,
+    ...options: Parameters<typeof backgroundAlpha>
+  ): this {
+    this.modifiers.set('backgroundAlpha', backgroundAlpha(...options));
     return this;
   }
 
   /**
    * Applies a gaussian blur filter to the image
-   *
-   * @param sigma The size of the blur mask
    */
-  public blur(this: this, options: BlurOptions): this {
-    this.modifiers.set('blur', blur(options));
+  public blur(this: this, ...options: Parameters<typeof blur>): this {
+    this.modifiers.set('blur', blur(...options));
     return this;
   }
 
   /**
    * When set, imgproxy will adjust brightness of the resulting image.
-   *
-   * @param options An integer number in range from -255 to 255.
    */
-  public brightness(this: this, options: BrightnessOptions): this {
-    this.modifiers.set('brightness', brightness(options));
+  public brightness(
+    this: this,
+    ...options: Parameters<typeof brightness>
+  ): this {
+    this.modifiers.set('brightness', brightness(...options));
     return this;
   }
 
   /**
    * Adds a cache buster to the imgproxy params
    */
-  public cacheBuster(this: this, options: CacheBusterOptions): this {
-    this.modifiers.set('cacheBuster', cacheBuster(options));
+  public cacheBuster(
+    this: this,
+    ...options: Parameters<typeof cacheBuster>
+  ): this {
+    this.modifiers.set('cacheBuster', cacheBuster(...options));
     return this;
   }
 
   /**
    * When set, imgproxy will adjust contrast of the resulting image.
-   *
-   * @param percentage A positive floating point number, where 1
-   * keeps the contrast unchanged.
    */
-  public contrast(this: this, options: ContrastOptions): this {
-    this.modifiers.set('contrast', contrast(options));
+  public contrast(this: this, ...options: Parameters<typeof contrast>): this {
+    this.modifiers.set('contrast', contrast(...options));
     return this;
   }
 
@@ -195,18 +220,16 @@ class ParamBuilder {
    *
    * @param options The cropping options
    */
-  public crop(this: this, options: CropOptions): this {
-    this.modifiers.set('crop', crop(options));
+  public crop(this: this, ...options: Parameters<typeof crop>): this {
+    this.modifiers.set('crop', crop(...options));
     return this;
   }
 
   /**
    * Multiplies the dimensions according to the specified factor
-   *
-   * @param options the Dpr factor (must be greater than 0)
    */
-  public dpr(this: this, options: DprOptions): this {
-    this.modifiers.set('dpr', dpr(options));
+  public dpr(this: this, ...options: Parameters<typeof dpr>): this {
+    this.modifiers.set('dpr', dpr(...options));
     return this;
   }
 
@@ -220,11 +243,9 @@ class ParamBuilder {
 
   /**
    * Returns a 404 if the provided timestamp expired
-   *
-   * @param options The expiration date / timestamp
    */
-  public expires(this: this, options: ExpiresOptions): this {
-    this.modifiers.set('expires', expires(options));
+  public expires(this: this, ...options: Parameters<typeof expires>): this {
+    this.modifiers.set('expires', expires(...options));
     return this;
   }
 
@@ -238,71 +259,72 @@ class ParamBuilder {
 
   /**
    * Sets the fallback image url
-   *
-   * @param options The image URL
    */
-  public fallbackImageUrl(this: this, options: FallbackImageUrlOptions): this {
-    this.modifiers.set('fallbackImageUrl', fallbackImageUrl(options));
+  public fallbackImageUrl(
+    this: this,
+    ...options: Parameters<typeof fallbackImageUrl>
+  ): this {
+    this.modifiers.set('fallbackImageUrl', fallbackImageUrl(...options));
     return this;
   }
 
   /**
    * Sets the filename for the Content-Disposition header
-   *
-   * @param options The filename
    */
-  public filename(this: this, options: FileNameOptions): this {
-    this.modifiers.set('filename', fileName(options));
+  public filename(this: this, ...options: Parameters<typeof fileName>): this {
+    this.modifiers.set('filename', fileName(...options));
     return this;
   }
 
   /**
    * Specifies the resulting image format
-   *
-   * @param options The target format
    */
-  public format(this: this, options: FormatOptions): this {
-    this.modifiers.set('format', format(options));
+  public format(this: this, ...options: Parameters<typeof format>): this {
+    this.modifiers.set('format', format(...options));
     return this;
   }
 
   /**
    * Specifies the format quality
-   *
-   * @param options The format quality options
    */
-  public formatQuality(this: this, options: FormatQualityOptions): this {
-    this.modifiers.set('formatQuality', formatQuality(options));
+  public formatQuality(
+    this: this,
+    ...options: Parameters<typeof formatQuality>
+  ): this {
+    this.modifiers.set('formatQuality', formatQuality(...options));
     return this;
   }
 
   /**
    * Allows redefining GIF saving options
    *
-   * @param options The gif options
+   * @deprecated  GIF optimizations are automatically applied when using
+   *              imgproxy version 3.0.0 or newer.
    */
-  public gifOptions(this: this, options: GifOptions): this {
-    this.modifiers.set('gifOptions', gifOptions(options));
+  public gifOptions(
+    this: this,
+    ...options: Parameters<typeof gifOptions>
+  ): this {
+    this.modifiers.set('gifOptions', gifOptions(...options));
     return this;
   }
 
   /**
    * Sets the gravity
-   *
-   * @param options The gravity options
    */
-  public gravity(this: this, options: GravityOptions): this {
-    this.modifiers.set('gravity', gravity(options));
+  public gravity(this: this, ...options: Parameters<typeof gravity>): this {
+    this.modifiers.set('gravity', gravity(...options));
     return this;
   }
 
   /**
    * Allows redefining JPEG saving options
-   *
-   * @param options The jpeg options
    */
-  public jpegOptions(this: this, options: JpegOptions): this {
-    this.modifiers.set('jpegOptions', jpegOptions(options));
+  public jpegOptions(
+    this: this,
+    ...options: Parameters<typeof jpegOptions>
+  ): this {
+    this.modifiers.set('jpegOptions', jpegOptions(...options));
     return this;
   }
 
@@ -311,21 +333,33 @@ class ParamBuilder {
    * number of bytes
    *
    * Note: only applicable to jpg, webp, heic and tiff
-   *
-   * @param options The number of bytes
    */
-  public maxBytes(this: this, options: MaxBytesOptions): this {
-    this.modifiers.set('maxBytes', maxBytes(options));
+  public maxBytes(this: this, ...options: Parameters<typeof maxBytes>): this {
+    this.modifiers.set('maxBytes', maxBytes(...options));
+    return this;
+  }
+
+  /**
+   * Defines the minimum height of the resulting image.
+   */
+  public minHeight(this: this, ...options: Parameters<typeof minHeight>): this {
+    this.modifiers.set('maxBytes', minHeight(...options));
+    return this;
+  }
+
+  /**
+   * Defines the minimum width of the resulting image.
+   */
+  public minWidth(this: this, ...options: Parameters<typeof minWidth>): this {
+    this.modifiers.set('maxBytes', minWidth(...options));
     return this;
   }
 
   /**
    * Applies the specified padding to the image
-   *
-   * @param options The padding options
    */
-  public pad(this: this, options: PaddingOptions): this {
-    this.modifiers.set('pad', pad(options));
+  public pad(this: this, ...options: Parameters<typeof pad>): this {
+    this.modifiers.set('pad', pad(...options));
     return this;
   }
 
@@ -335,115 +369,101 @@ class ParamBuilder {
    * specifying the page to use.
    *
    * Pages numeration starts from zero.
-   *
-   * @param page The page to use
    */
-  public page(this: this, options: PageOptions): this {
-    this.modifiers.set('page', page(options));
+  public page(this: this, ...options: Parameters<typeof page>): this {
+    this.modifiers.set('page', page(...options));
     return this;
   }
 
   /**
    * Applies a pixelate filter to the resulting image.
-   *
-   * @param options The size of a pixel
    */
-  public pixelate(this: this, options: PixelateOptions): this {
-    this.modifiers.set('pixelate', pixelate(options));
+  public pixelate(this: this, ...options: Parameters<typeof pixelate>): this {
+    this.modifiers.set('pixelate', pixelate(...options));
     return this;
   }
 
   /**
    * Allows redefining PNG saving options
-   *
-   * @param options The png options
    */
-  public pngOptions(this: this, options: PngOptions): this {
-    this.modifiers.set('pngOptions', pngOptions(options));
+  public pngOptions(
+    this: this,
+    ...options: Parameters<typeof pngOptions>
+  ): this {
+    this.modifiers.set('pngOptions', pngOptions(...options));
     return this;
   }
 
   /**
    * Sets one or many presets to be used by the imgproxy
-   *
-   * @param options The presets
    */
-  public preset(this: this, options: PresetOptions): this {
-    this.modifiers.set('preset', preset(options));
+  public preset(this: this, ...options: Parameters<typeof preset>): this {
+    this.modifiers.set('preset', preset(...options));
     return this;
   }
 
   /**
    * Defines the algorithm that imgproxy will use for resizing.
-   *
-   * @param options The resizing algorithm
    */
   public resizingAlgorithm(
     this: this,
-    options: ResizingAlgorithmOptions,
+    ...options: Parameters<typeof resizingAlgorithm>
   ): this {
-    this.modifiers.set('resizingAlgorithm', resizingAlgorithm(options));
+    this.modifiers.set('resizingAlgorithm', resizingAlgorithm(...options));
     return this;
   }
 
   /**
    * Redefines the quality of the resulting image
-   *
-   * @param options The quality in percentage (between 0 and 1)
    */
-  public quality(this: this, options: QualityOptions): this {
-    this.modifiers.set('quality', quality(options));
+  public quality(this: this, ...options: Parameters<typeof quality>): this {
+    this.modifiers.set('quality', quality(...options));
     return this;
   }
 
   /**
    * Resizes the image
-   *
-   * @param options The resizing options
    */
-  public resize(this: this, options: ResizeOptions): this {
-    this.modifiers.set('resize', resize(options));
+  public resize(this: this, ...options: Parameters<typeof resize>): this {
+    this.modifiers.set('resize', resize(...options));
     return this;
   }
 
   /**
    * Rotates the image by the specified angle
-   *
-   * @param options The angle
    */
-  public rotate(this: this, options: RotationOptions): this {
-    this.modifiers.set('rotate', rotate(options));
+  public rotate(this: this, ...options: Parameters<typeof rotate>): this {
+    this.modifiers.set('rotate', rotate(...options));
     return this;
   }
 
   /**
    * When set, imgproxy will adjust saturation of the resulting image.
-   *
-   * @param options A positive floating point number, where 1
-   * keeps the saturation unchanged.
    */
-  public saturation(this: this, options: SaturationOptions): this {
-    this.modifiers.set('saturation', saturation(options));
+  public saturation(
+    this: this,
+    ...options: Parameters<typeof saturation>
+  ): this {
+    this.modifiers.set('saturation', saturation(...options));
     return this;
   }
 
   /**
    * Applies a sharpen filter to the image
-   *
-   * @param sigma The size of the sharpen mask
    */
-  public sharpen(this: this, options: SharpenOptions): this {
-    this.modifiers.set('sharpen', sharpen(options));
+  public sharpen(this: this, ...options: Parameters<typeof sharpen>): this {
+    this.modifiers.set('sharpen', sharpen(...options));
     return this;
   }
 
   /**
    * Skips the processing for the specified extensions
-   *
-   * @param options The list of formats / extensions
    */
-  public skipProcessing(this: this, options: SkipProcessingOptions): this {
-    this.modifiers.set('skipProcessing', skipProcessing(options));
+  public skipProcessing(
+    this: this,
+    ...options: Parameters<typeof skipProcessing>
+  ): this {
+    this.modifiers.set('skipProcessing', skipProcessing(...options));
     return this;
   }
 
@@ -465,96 +485,89 @@ class ParamBuilder {
 
   /**
    * Applies the specified CSS styles to an SVG source image
-   *
-   * @param options The CSS styles
    */
-  public style(this: this, options: StyleOptions): this {
-    this.modifiers.set('style', style(options));
+  public style(this: this, ...options: Parameters<typeof style>): this {
+    this.modifiers.set('style', style(...options));
     return this;
   }
 
   /**
    * Trims the image background
-   *
-   * @param options The trimming options
    */
-  public trim(this: this, options: TrimOptions): this {
-    this.modifiers.set('trim', trim(options));
+  public trim(this: this, ...options: Parameters<typeof trim>): this {
+    this.modifiers.set('trim', trim(...options));
     return this;
   }
 
   /**
    * Allows redefining unsharpening options.
-   *
-   * @param options The unsharpening options
    */
-  public unsharpen(this: this, options: UnsharpeningOptions): this {
-    this.modifiers.set('unsharpen', unsharpen(options));
+  public unsharpen(this: this, ...options: Parameters<typeof unsharpen>): this {
+    this.modifiers.set('unsharpen', unsharpen(...options));
     return this;
   }
 
   /**
    * Redefines the second used for the thumbnail
-   *
-   * @param options The timestamp of the frame in seconds
-   * that will be used for a thumbnail.
    */
   public videoThumbnailSecond(
     this: this,
-    options: VideoThumbnailSecondOptions,
+    ...options: Parameters<typeof videoThumbnailSecond>
   ): this {
-    this.modifiers.set('videoThumbnailSecond', videoThumbnailSecond(options));
+    this.modifiers.set(
+      'videoThumbnailSecond',
+      videoThumbnailSecond(...options),
+    );
     return this;
   }
 
   /**
    * Applies a gaussian blur filter to the image
-   *
-   * @param options The size of the blur mask
    */
-  public watermark(this: this, options: WatermarkOptions): this {
-    this.modifiers.set('watermark', watermark(options));
+  public watermark(this: this, ...options: Parameters<typeof watermark>): this {
+    this.modifiers.set('watermark', watermark(...options));
     return this;
   }
 
   /**
    * Sets the watermark size
-   *
-   * @param options The watermark size
    */
-  public watermarkSize(this: this, options: WatermarkSizeOptions): this {
-    this.modifiers.set('watermarkSize', watermarkSize(options));
+  public watermarkSize(
+    this: this,
+    ...options: Parameters<typeof watermarkSize>
+  ): this {
+    this.modifiers.set('watermarkSize', watermarkSize(...options));
     return this;
   }
 
   /**
    * Sets the watermark Text
-   *
-   * @param options The watermark text
    */
-  public watermarkText(this: this, options: WatermarkTextOptions): this {
-    this.modifiers.set('watermarkText', watermarkText(options));
+  public watermarkText(
+    this: this,
+    ...options: Parameters<typeof watermarkText>
+  ): this {
+    this.modifiers.set('watermarkText', watermarkText(...options));
     return this;
   }
 
   /**
    * Sets the watermark URL
-   *
-   * @param options The watermark URL
    */
-  public watermarkUrl(this: this, options: WatermarkUrlOptions): this {
-    this.modifiers.set('watermarkUrl', watermarkUrl(options));
+  public watermarkUrl(
+    this: this,
+    ...options: Parameters<typeof watermarkUrl>
+  ): this {
+    this.modifiers.set('watermarkUrl', watermarkUrl(...options));
     return this;
   }
 
   /**
    * Multiplies the image according to the specified factors.
    * The values must be greater than 0.
-   *
-   * @param options The zoom options
    */
-  public zoom(this: this, options: ZoomOptions): this {
-    this.modifiers.set('zoom', zoom(options));
+  public zoom(this: this, ...options: Parameters<typeof zoom>): this {
+    this.modifiers.set('zoom', zoom(...options));
     return this;
   }
 }
