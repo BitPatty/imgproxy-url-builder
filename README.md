@@ -102,10 +102,10 @@ t.rotate(34); // rotate: 34, blur: 10
 - [page](#page-imgproxy-docs)
 - [pixelate](#pixelate-imgproxy-docs)
 - [pngOptions](#pngoptions-imgproxy-docs)
-- [resizingAlgorithm](#resizingalgorithm-imgproxy-docs)
-- [returnAttachment](#returnattachment-imgproxy-docs)
 - [quality](#quality-imgproxy-docs)
 - [resize](#resize-imgproxy-docs)
+- [resizingAlgorithm](#resizingalgorithm-imgproxy-docs)
+- [returnAttachment](#returnattachment-imgproxy-docs)
 - [rotate](#rotate-imgproxy-docs)
 - [saturation](#saturation-imgproxy-docs)
 - [sharpen](#sharpen-imgproxy-docs)
@@ -484,26 +484,6 @@ pb().pngOptions({
 });
 ```
 
-### resizingAlgorithm ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset))
-
-Defines the algorithm that imgproxy will use for resizing.
-
-#### Example
-
-```typescript
-pb().resizingAlgorithm(ResizingAlgorithm.NEAREST));
-```
-
-### returnAttachment ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment))
-
-Returns attachment in the Content-Disposition header.
-
-#### Example
-
-```typescript
-pb().returnAttachment();
-```
-
 ### quality ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality))
 
 Redefines the quality of the resulting image.
@@ -526,6 +506,26 @@ pb().resize({
   width: 100,             // optional
   height: 50              // optional
 });
+```
+
+### resizingAlgorithm ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset))
+
+Defines the algorithm that imgproxy will use for resizing.
+
+#### Example
+
+```typescript
+pb().resizingAlgorithm(ResizingAlgorithm.NEAREST));
+```
+
+### returnAttachment ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment))
+
+Returns attachment in the Content-Disposition header.
+
+#### Example
+
+```typescript
+pb().returnAttachment();
 ```
 
 ### rotate ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#rotate))

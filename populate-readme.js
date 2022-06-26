@@ -86,24 +86,30 @@ for (let i = 0; i < commentsWithExamples.length; i++) {
     transformers.push({ description, url, example, functionName });
 }
 
+const sortedTransformers = transformers.sort((a, b) =>
+  a.functionName.trim().toLowerCase() < b.functionName.trim().toLowerCase()
+    ? -1
+    : 1,
+);
+
 const toc = [];
 const markdown = [];
-for (let i = 0; i < transformers.length; i++) {
+for (let i = 0; i < sortedTransformers.length; i++) {
   toc.push(
-    `- [${transformers[i].functionName}](#${transformers[
+    `- [${sortedTransformers[i].functionName}](#${sortedTransformers[
       i
     ].functionName.toLowerCase()}-imgproxy-docs)`,
   );
   markdown.push('');
   markdown.push(
-    `### ${transformers[i].functionName} ([imgproxy docs](${transformers[i].url}))`,
+    `### ${sortedTransformers[i].functionName} ([imgproxy docs](${sortedTransformers[i].url}))`,
   );
   markdown.push('');
-  markdown.push(transformers[i].description.trim());
+  markdown.push(sortedTransformers[i].description.trim());
   markdown.push('');
   markdown.push('#### Example');
   markdown.push('');
-  markdown.push(transformers[i].example.trim());
+  markdown.push(sortedTransformers[i].example.trim());
 }
 
 let newReadme = [];

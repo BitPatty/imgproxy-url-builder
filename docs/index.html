@@ -52,10 +52,10 @@
 <li><a href="#page-imgproxy-docs">page</a></li>
 <li><a href="#pixelate-imgproxy-docs">pixelate</a></li>
 <li><a href="#pngoptions-imgproxy-docs">pngOptions</a></li>
-<li><a href="#resizingalgorithm-imgproxy-docs">resizingAlgorithm</a></li>
-<li><a href="#returnattachment-imgproxy-docs">returnAttachment</a></li>
 <li><a href="#quality-imgproxy-docs">quality</a></li>
 <li><a href="#resize-imgproxy-docs">resize</a></li>
+<li><a href="#resizingalgorithm-imgproxy-docs">resizingAlgorithm</a></li>
+<li><a href="#returnattachment-imgproxy-docs">returnAttachment</a></li>
 <li><a href="#rotate-imgproxy-docs">rotate</a></li>
 <li><a href="#saturation-imgproxy-docs">saturation</a></li>
 <li><a href="#sharpen-imgproxy-docs">sharpen</a></li>
@@ -392,34 +392,12 @@
 <pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">pngOptions</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">interlaced:</span><span class="hl-1"> </span><span class="hl-8">true</span><span class="hl-1">,         </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">quantize:</span><span class="hl-1"> </span><span class="hl-8">false</span><span class="hl-1">,          </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">quantization_colors:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">   </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
 </code></pre>
 
-<a href="#resizingalgorithm-imgproxy-docs" id="resizingalgorithm-imgproxy-docs" style="color: inherit; text-decoration: none;">
-  <h3>resizingAlgorithm (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset">imgproxy docs</a>)</h3>
-</a>
-<p>Defines the algorithm that imgproxy will use for resizing.</p>
-
-<a href="#example-29" id="example-29" style="color: inherit; text-decoration: none;">
-  <h4>Example</h4>
-</a>
-<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">resizingAlgorithm</span><span class="hl-1">(</span><span class="hl-2">ResizingAlgorithm</span><span class="hl-1">.</span><span class="hl-6">NEAREST</span><span class="hl-1">));</span>
-</code></pre>
-
-<a href="#returnattachment-imgproxy-docs" id="returnattachment-imgproxy-docs" style="color: inherit; text-decoration: none;">
-  <h3>returnAttachment (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment">imgproxy docs</a>)</h3>
-</a>
-<p>Returns attachment in the Content-Disposition header.</p>
-
-<a href="#example-30" id="example-30" style="color: inherit; text-decoration: none;">
-  <h4>Example</h4>
-</a>
-<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">returnAttachment</span><span class="hl-1">();</span>
-</code></pre>
-
 <a href="#quality-imgproxy-docs" id="quality-imgproxy-docs" style="color: inherit; text-decoration: none;">
   <h3>quality (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality">imgproxy docs</a>)</h3>
 </a>
 <p>Redefines the quality of the resulting image.</p>
 
-<a href="#example-31" id="example-31" style="color: inherit; text-decoration: none;">
+<a href="#example-29" id="example-29" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">quality</span><span class="hl-1">(</span><span class="hl-3">80</span><span class="hl-1">);</span>
@@ -430,10 +408,32 @@
 </a>
 <p>Resizes the image.</p>
 
-<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
+<a href="#example-30" id="example-30" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">resize</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">ResizeType</span><span class="hl-1">.</span><span class="hl-6">AUTO</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">width:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,             </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">height:</span><span class="hl-1"> </span><span class="hl-3">50</span><span class="hl-1">              </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#resizingalgorithm-imgproxy-docs" id="resizingalgorithm-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>resizingAlgorithm (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset">imgproxy docs</a>)</h3>
+</a>
+<p>Defines the algorithm that imgproxy will use for resizing.</p>
+
+<a href="#example-31" id="example-31" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">resizingAlgorithm</span><span class="hl-1">(</span><span class="hl-2">ResizingAlgorithm</span><span class="hl-1">.</span><span class="hl-6">NEAREST</span><span class="hl-1">));</span>
+</code></pre>
+
+<a href="#returnattachment-imgproxy-docs" id="returnattachment-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>returnAttachment (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment">imgproxy docs</a>)</h3>
+</a>
+<p>Returns attachment in the Content-Disposition header.</p>
+
+<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">returnAttachment</span><span class="hl-1">();</span>
 </code></pre>
 
 <a href="#rotate-imgproxy-docs" id="rotate-imgproxy-docs" style="color: inherit; text-decoration: none;">
