@@ -7,7 +7,7 @@ enum GravityType {
   NORTHWEST = 'nowe',
   SOUTHEAST = 'soea',
   SOUTHWEST = 'sowe',
-  CENTER = 'center',
+  CENTER = 'ce',
   SMART = 'sm',
   FOCUS_POINT = 'fp',
 }
