@@ -6,7 +6,7 @@ import { stringifyOptions } from '../common';
 type ContrastOptions = number;
 
 /**
- * When set, imgproxy will adjust contrast of the resulting image.
+ * Adjust contrast of the resulting image.
  *
  * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#contrast-idcontrast}. for the imgproxy documentation
  *

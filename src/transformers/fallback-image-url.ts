@@ -7,7 +7,7 @@ import { stringifyOptions } from '../common';
 type FallbackImageUrlOptions = string;
 
 /**
- * Sets a custom fallback image by specifying its URL
+ * Sets a custom fallback image by specifying its URL.
  *
  * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#fallback-image-url-idfallback-image-url}. for the imgproxy documentation
  *

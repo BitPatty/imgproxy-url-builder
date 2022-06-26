@@ -29,8 +29,7 @@ type ExtendOptions = {
 };
 
 /**
- * If true, imgproxy will extend the image if it is smaller
- * than the given size.
+ * Extends the image if it is smaller than the given size.
  *
  * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#extend}. for the imgproxy documentation
  *

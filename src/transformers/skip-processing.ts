@@ -6,7 +6,7 @@ import { stringifyOptions } from '../common';
 type SkipProcessingOptions = string[];
 
 /**
- * When set, imgproxy will skip the processing of the listed formats
+ * Skip the processing of the listed formats.
  *
  * Note: Processing can only be skipped when the requested format is
  * the same as the source format.

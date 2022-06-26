@@ -6,7 +6,7 @@ import { stringifyOptions } from '../common';
 type SaturationOptions = number;
 
 /**
- * When set, imgproxy will adjust saturation of the resulting image.
+ * Adjust saturation of the resulting image.
  *
  * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#saturation-idsaturation}. for the imgproxy documentation
  *

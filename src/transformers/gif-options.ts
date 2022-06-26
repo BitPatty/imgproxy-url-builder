@@ -19,7 +19,7 @@ type GifOptions = {
 };
 
 /**
- * Allows redefining GIF saving options
+ * Allows redefining GIF saving options.
  *
  * @deprecated     Automatically applied since version 3.0.0
  * @param options  The gif options
