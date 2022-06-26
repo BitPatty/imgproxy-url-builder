@@ -590,7 +590,7 @@ pb().stripMetadata();
 
 ### style ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#style-idstyle))
 
-Prepend a <style> node with the provided CSS styles to the  <svg> node of a source SVG image.
+Prepend a `<style>` node with the provided CSS styles to the `<svg>` node of a source SVG image.
 
 #### Example
 
