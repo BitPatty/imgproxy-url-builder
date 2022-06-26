@@ -6,14 +6,19 @@ import ResizingAlgorithm from './enums/resizing-algorithm.enum';
 import UnsharpeningMode from './enums/unsharpening-mode.enum';
 import WatermarkPosition from './enums/watermark-position.enum';
 
+import { AdjustOptions } from './transformers/adjust';
 import { BackgroundAlphaOptions } from './transformers/background-alpha';
 import { BackgroundOptions } from './transformers/background';
+import { BlurDetectionOptions } from './transformers/blur-detections';
 import { BlurOptions } from './transformers/blur';
+import { BrightnessOptions } from './transformers/brightness';
 import { CacheBusterOptions } from './transformers/cache-buster';
 import { ContrastOptions } from './transformers/contrast';
 import { CropOptions } from './transformers/crop';
 import { DprOptions } from './transformers/dpr';
+import { DrawDetectionOptions } from './transformers/draw-detections';
 import { ExpiresOptions } from './transformers/expires';
+import { ExtendOptions } from './transformers/extend';
 import { FallbackImageUrlOptions } from './transformers/fallback-image-url';
 import { FileNameOptions } from './transformers/filename';
 import { FormatOptions } from './transformers/format';
@@ -22,8 +27,8 @@ import { GifOptions } from './transformers/gif-options';
 import { GravityOptions } from './transformers/gravity';
 import { JpegOptions } from './transformers/jpeg-options';
 import { MaxBytesOptions } from './transformers/max-bytes';
-import { MinWidthOptions } from './transformers/min-width';
 import { MinHeightOptions } from './transformers/min-height';
+import { MinWidthOptions } from './transformers/min-width';
 import { PaddingOptions } from './transformers/pad';
 import { PageOptions } from './transformers/page';
 import { PixelateOptions } from './transformers/pixelate';
@@ -45,10 +50,6 @@ import { WatermarkSizeOptions } from './transformers/watermark-size';
 import { WatermarkTextOptions } from './transformers/watermark-text';
 import { WatermarkUrlOptions } from './transformers/watermark-url';
 import { ZoomOptions } from './transformers/zoom';
-import { AdjustOptions } from './transformers/adjust';
-import { BlurDetectionOptions } from './transformers/blur-detections';
-import { DrawDetectionOptions } from './transformers/draw-detections';
-import { ExtendOptions } from './transformers/extend';
 
 export default pb;
 export {
@@ -67,6 +68,7 @@ export {
   BackgroundOptions,
   BlurDetectionOptions,
   BlurOptions,
+  BrightnessOptions,
   CacheBusterOptions,
   ContrastOptions,
   CropOptions,
