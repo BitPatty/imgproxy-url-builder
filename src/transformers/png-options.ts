@@ -19,7 +19,7 @@ type PngOptions = {
    *
    * Should be between 2 and 256.
    */
-  quantization_colors?: boolean;
+  quantization_colors?: number;
 };
 
 /**
