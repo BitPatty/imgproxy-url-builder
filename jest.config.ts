@@ -7,6 +7,6 @@ export default (): Config.InitialOptions => {
     coverageReporters: ['lcov', 'html', 'json'],
     setupFilesAfterEnv: ['./jest.setup.ts'],
     verbose: true,
-    testMatch: ['**/test/**/*.test.ts'],
+    testMatch: ['**/test/**/transformers.test.ts'],
   };
 };

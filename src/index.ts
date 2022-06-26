@@ -45,6 +45,10 @@ import { WatermarkSizeOptions } from './transformers/watermark-size';
 import { WatermarkTextOptions } from './transformers/watermark-text';
 import { WatermarkUrlOptions } from './transformers/watermark-url';
 import { ZoomOptions } from './transformers/zoom';
+import { AdjustOptions } from './transformers/adjust';
+import { BlurDetectionOptions } from './transformers/blur-detections';
+import { DrawDetectionOptions } from './transformers/draw-detections';
+import { ExtendOptions } from './transformers/extend';
 
 export default pb;
 export {
@@ -57,14 +61,18 @@ export {
   UnsharpeningMode,
   WatermarkPosition,
   // Modifiers
+  AdjustOptions,
   BackgroundAlphaOptions,
   BackgroundOptions,
+  BlurDetectionOptions,
   BlurOptions,
   CacheBusterOptions,
   ContrastOptions,
   CropOptions,
   DprOptions,
+  DrawDetectionOptions,
   ExpiresOptions,
+  ExtendOptions,
   FallbackImageUrlOptions,
   FileNameOptions,
   FormatOptions,

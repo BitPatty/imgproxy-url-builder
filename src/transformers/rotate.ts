@@ -1,6 +1,6 @@
 import { stringifyOptions } from '../utils';
 
-type RotationOptions = 90 | 180 | 270;
+type RotationOptions = 0 | 90 | 180 | 270;
 
 /**
  * Rotates the image by the specified angle

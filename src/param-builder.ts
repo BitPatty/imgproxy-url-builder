@@ -1,12 +1,16 @@
+import adjust from './transformers/adjust';
 import autoRotate from './transformers/auto-rotate';
 import background from './transformers/background';
 import backgroundAlpha from './transformers/background-alpha';
 import blur from './transformers/blur';
+import blurDetections from './transformers/blur-detections';
 import brightness from './transformers/brightness';
 import cacheBuster from './transformers/cache-buster';
 import contrast from './transformers/contrast';
 import crop from './transformers/crop';
 import dpr from './transformers/dpr';
+import drawDetections from './transformers/draw-detections';
+import enforceThumbnail from './transformers/enforce-thumbnail';
 import enlarge from './transformers/enlarge';
 import expires from './transformers/expires';
 import extend from './transformers/extend';
@@ -17,6 +21,7 @@ import formatQuality from './transformers/format-quality';
 import gifOptions from './transformers/gif-options';
 import gravity from './transformers/gravity';
 import jpegOptions from './transformers/jpeg-options';
+import keepCopyright from './transformers/keep-copypright';
 import maxBytes from './transformers/max-bytes';
 import minHeight from './transformers/min-height';
 import minWidth from './transformers/min-width';
@@ -28,6 +33,7 @@ import preset from './transformers/preset';
 import quality from './transformers/quality';
 import resize from './transformers/resize';
 import resizingAlgorithm from './transformers/resizing-algorithm';
+import returnAttachment from './transformers/return-attachment';
 import rotate from './transformers/rotate';
 import saturation from './transformers/saturation';
 import sharpen from './transformers/sharpen';
@@ -148,6 +154,14 @@ class ParamBuilder {
   }
 
   /**
+   * Defines the brightness, contrast, and saturation.
+   */
+  public adjust(this: this, ...options: Parameters<typeof adjust>): this {
+    this.modifiers.set('adjust', adjust(...options));
+    return this;
+  }
+
+  /**
    * Automatically rotates the image based on the EXIF orientation parameter
    */
   public autoRotate(this: this): this {
@@ -182,6 +196,17 @@ class ParamBuilder {
    */
   public blur(this: this, ...options: Parameters<typeof blur>): this {
     this.modifiers.set('blur', blur(...options));
+    return this;
+  }
+
+  /**
+   * Detects objects of the provided classes and blurs them
+   */
+  public blurDetections(
+    this: this,
+    ...options: Parameters<typeof blurDetections>
+  ): this {
+    this.modifiers.set('blurDetections', blurDetections(...options));
     return this;
   }
 
@@ -226,10 +251,36 @@ class ParamBuilder {
   }
 
   /**
-   * Multiplies the dimensions according to the specified factor
+   * When set, imgproxy will multiply the image dimensions according to
+   * this factor for HiDPI (Retina) devices. The value must be greater
+   * than 0.
+   *
+   * Note: dpr also sets the `Content-DPR` header in the response so the
+   * browser can correctly render the image.
    */
   public dpr(this: this, ...options: Parameters<typeof dpr>): this {
     this.modifiers.set('dpr', dpr(...options));
+    return this;
+  }
+
+  /**
+   * Detects objects of the provided classes and draws their
+   * bounding boxes
+   */
+  public drawDetections(
+    this: this,
+    ...options: Parameters<typeof drawDetections>
+  ): this {
+    this.modifiers.set('drawDetections', drawDetections(...options));
+    return this;
+  }
+
+  /**
+   * If the source image has an embedded thumbnail, imgproxy will use the
+   * embedded thumbnail instead of the main image
+   */
+  public enforceThumbnail(this: this): this {
+    this.modifiers.set('enforceThumbnail', enforceThumbnail());
     return this;
   }
 
@@ -252,8 +303,8 @@ class ParamBuilder {
   /**
    * Extends the image of it is smaller than the given size
    */
-  public extend(this: this): this {
-    this.modifiers.set('extend', extend());
+  public extend(this: this, ...options: Parameters<typeof extend>): this {
+    this.modifiers.set('extend', extend(...options));
     return this;
   }
 
@@ -325,6 +376,14 @@ class ParamBuilder {
     ...options: Parameters<typeof jpegOptions>
   ): this {
     this.modifiers.set('jpegOptions', jpegOptions(...options));
+    return this;
+  }
+
+  /**
+   *  Preserve the copyright info while stripping metadata.
+   */
+  public keepCopyright(this: this): this {
+    this.modifiers.set('keepCopyright', keepCopyright());
     return this;
   }
 
@@ -410,6 +469,14 @@ class ParamBuilder {
     ...options: Parameters<typeof resizingAlgorithm>
   ): this {
     this.modifiers.set('resizingAlgorithm', resizingAlgorithm(...options));
+    return this;
+  }
+
+  /**
+   * Returns attachment in the Content-Disposition header
+   */
+  public returnAttachment(this: this): this {
+    this.modifiers.set('returnAttachment', returnAttachment());
     return this;
   }
 
@@ -563,7 +630,7 @@ class ParamBuilder {
   }
 
   /**
-   * Multiplies the image according to the specified factors.
+   * When set, imgproxy will multiply the image dimensions according to these factors.
    * The values must be greater than 0.
    */
   public zoom(this: this, ...options: Parameters<typeof zoom>): this {

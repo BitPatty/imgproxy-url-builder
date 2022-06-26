@@ -5,9 +5,22 @@ import pb, {
   UnsharpeningMode,
   WatermarkPosition,
 } from '../src';
+
 import { base64urlEncode, utf8encode } from '../src/crypto/codec';
 
 describe('Transformers', () => {
+  describe('Adjust', () => {
+    test('Applies Modifier', () => {
+      expect(
+        pb().adjust({
+          brightness: 12,
+          contrast: 34,
+          saturation: 56,
+        }),
+      ).toIncludeModifier('a:12:34:56');
+    });
+  });
+
   describe('Auto Rotate', () => {
     test('Applies Modifier', () => {
       expect(pb().autoRotate()).toIncludeModifier('ar:true');
@@ -37,6 +50,17 @@ describe('Transformers', () => {
   describe('Blur', () => {
     test('Applies Modifier', () => {
       expect(pb().blur(10)).toIncludeModifier('bl:10');
+    });
+  });
+
+  describe('Blur Detection', () => {
+    test('Applies Modifier', () => {
+      expect(
+        pb().blurDetections({
+          sigma: 10,
+          classNames: ['foo', 'bar'],
+        }),
+      ).toIncludeModifier('bd:10:foo:bar');
     });
   });
 
@@ -94,6 +118,20 @@ describe('Transformers', () => {
   describe('DPR', () => {
     test('Applies Modifier', () => {
       expect(pb().dpr(10)).toIncludeModifier('dpr:10');
+    });
+  });
+
+  describe('Draw Detection', () => {
+    test('Applies Modifier', () => {
+      expect(
+        pb().drawDetections({ classNames: ['foo', 'bar'] }),
+      ).toIncludeModifier('dd:true:foo:bar');
+    });
+  });
+
+  describe('Enforce Thumbnail', () => {
+    test('Applies Modifier', () => {
+      expect(pb().enforceThumbnail()).toIncludeModifier('eth:true');
     });
   });
 
@@ -197,6 +235,12 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Keep Copyright', () => {
+    test('Applies Modifier', () => {
+      expect(pb().keepCopyright()).toIncludeModifier('kcr:true');
+    });
+  });
+
   describe('Max Bytes', () => {
     test('Applies Modifier', () => {
       expect(pb().maxBytes(10)).toIncludeModifier('mb:10');
@@ -256,6 +300,12 @@ describe('Transformers', () => {
       expect(pb().preset(['foobar1', 'foobar2'])).toIncludeModifier(
         'pr:foobar1:foobar2',
       );
+    });
+  });
+
+  describe('Return Attachment', () => {
+    test('Applies Modifier', () => {
+      expect(pb().returnAttachment()).toIncludeModifier('att:true');
     });
   });
 
