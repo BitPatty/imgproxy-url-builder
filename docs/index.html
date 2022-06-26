@@ -17,4 +17,536 @@
 <p>For a list of available transformations visit the <a href="https://zint.ch/imgproxy-url-builder/classes/ParamBuilder.html">API documentation page</a>.</p>
 <pre><code class="language-typescript"><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">pb</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-9">&#39;@bitpatty/imgproxy-url-builder&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-10">// Just the transformer params</span><br/><span class="hl-10">// Returns rot:90/bl:10</span><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">).</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">).</span><span class="hl-7">build</span><span class="hl-1">();</span><br/><br/><span class="hl-10">// The transformer params with the target image</span><br/><span class="hl-10">// Returns /-/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw</span><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">).</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">).</span><span class="hl-7">build</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">path:</span><span class="hl-1"> </span><span class="hl-9">&#39;s3://mybucket/myimage.png&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-10">// You can disable path encoding by setting &#39;plain&#39; to true</span><br/><span class="hl-10">// Returns /-/rot:90/bl:10/plain/s3://mybucket/myimage.png</span><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">).</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">).</span><span class="hl-7">build</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">plain:</span><span class="hl-1"> </span><span class="hl-8">true</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">path:</span><span class="hl-1"> </span><span class="hl-9">&#39;s3://mybucket/myimage.png&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-10">// To sign your URL provide the key and salt</span><br/><span class="hl-10">// The path is required to sign your URL!</span><br/><span class="hl-10">// Returns /TXf2QXtZkU-ULvrg0pLDqJlWUb7XdHkXD0h6NFWD-mo/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw</span><br/><span class="hl-7">pb</span><span class="hl-1">()</span><br/><span class="hl-1">  .</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">)</span><br/><span class="hl-1">  .</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">)</span><br/><span class="hl-1">  .</span><span class="hl-7">build</span><span class="hl-1">({</span><br/><span class="hl-1">    </span><span class="hl-2">path:</span><span class="hl-1"> </span><span class="hl-9">&#39;s3://mybucket/myimage.png&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">signature:</span><span class="hl-1"> {</span><br/><span class="hl-1">      </span><span class="hl-2">key:</span><span class="hl-1"> </span><span class="hl-9">&#39;a91bdcda48ce22cd7d8d3a0eda93&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-2">salt:</span><span class="hl-1"> </span><span class="hl-9">&#39;a91bdcda48ce22cd7d8d3a0eda93&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">    },</span><br/><span class="hl-1">  });</span><br/><br/><span class="hl-10">// To automatically prepend the imgproxy URL</span><br/><span class="hl-10">// provide it as the &#39;baseUrl&#39; setting</span><br/><span class="hl-10">// Returns https://my-imgproxy-instance.example.com/-/rot:90/bl:10/czM6Ly9teWJ1Y2tldC9teWltYWdlLnBuZw</span><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">).</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">).</span><span class="hl-7">build</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">path:</span><span class="hl-1"> </span><span class="hl-9">&#39;s3://mybucket/myimage.png&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">baseUrl:</span><span class="hl-1"> </span><span class="hl-9">&#39;https://my-imgproxy-instance.example.com&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-10">// You can clone the current configuration for templating / reuse</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-6">template</span><span class="hl-1"> = </span><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">);</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-6">copy</span><span class="hl-1"> = </span><span class="hl-2">template</span><span class="hl-1">.</span><span class="hl-7">clone</span><span class="hl-1">();</span><br/><br/><span class="hl-10">// To remove a modifier, use the `unset` function</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-6">t</span><span class="hl-1"> = </span><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">).</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">);</span><br/><span class="hl-2">t</span><span class="hl-1">.</span><span class="hl-7">unset</span><span class="hl-1">(</span><span class="hl-9">&#39;rotate&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-10">// ... Or you can replace the previous setting by calling the</span><br/><span class="hl-10">// modifier again</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-6">t</span><span class="hl-1"> = </span><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">).</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">); </span><span class="hl-10">// rotate: 90, blur: 10</span><br/><span class="hl-2">t</span><span class="hl-1">.</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">34</span><span class="hl-1">); </span><span class="hl-10">// rotate: 34, blur: 10</span>
 </code></pre>
+
+<a href="#modifiers" id="modifiers" style="color: inherit; text-decoration: none;">
+  <h2>Modifiers</h2>
+</a>
+
+<a href="#adjust-imgproxy-docs" id="adjust-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>adjust (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#adjust-idadjust">imgproxy docs</a>)</h3>
+</a>
+<p>Defines the brightness, contrast, and saturation.</p>
+
+<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">adjust</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">brightness:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">contrast:</span><span class="hl-1"> </span><span class="hl-3">0.8</span><span class="hl-1">,    </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">saturation:</span><span class="hl-1"> </span><span class="hl-3">0.9</span><span class="hl-1">   </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#autorotate-imgproxy-docs" id="autorotate-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>autoRotate (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#auto-rotate">imgproxy docs</a>)</h3>
+</a>
+<p>Automatically rotates the image based on the EXIF orientation parameter.</p>
+
+<a href="#example-1" id="example-1" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">autoRotate</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#background-imgproxy-docs" id="background-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>background (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background">imgproxy docs</a>)</h3>
+</a>
+<p>Fills the image background with the specified color.</p>
+
+<a href="#example-2" id="example-2" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">background</span><span class="hl-1">(</span><span class="hl-9">&#39;ff0000&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">background</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">r:</span><span class="hl-1"> </span><span class="hl-3">255</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">g:</span><span class="hl-1"> </span><span class="hl-3">0</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">b:</span><span class="hl-1"> </span><span class="hl-3">0</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#backgroundalpha-imgproxy-docs" id="backgroundalpha-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>backgroundAlpha (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background-alpha-idbackground-alpha">imgproxy docs</a>)</h3>
+</a>
+<p>Adds alpha channel to background.</p>
+
+<a href="#example-3" id="example-3" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">backgroundAlpha</span><span class="hl-1">(</span><span class="hl-3">0.4</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#blur-imgproxy-docs" id="blur-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>blur (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur">imgproxy docs</a>)</h3>
+</a>
+<p>Applies a gaussian blur filter to the image.</p>
+
+<a href="#example-4" id="example-4" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">blur</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#blurdetections-imgproxy-docs" id="blurdetections-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>blurDetections (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur-detections-idblur-detections">imgproxy docs</a>)</h3>
+</a>
+<p>Detects objects of the provided classes and blurs them.</p>
+
+<a href="#example-5" id="example-5" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">blurDetections</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">sigma:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">classNames:</span><span class="hl-1"> [</span><span class="hl-9">&#39;face&#39;</span><span class="hl-1">]</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-1">### </span><span class="hl-7">brightness</span><span class="hl-1"> ([</span><span class="hl-2">imgproxy</span><span class="hl-1"> </span><span class="hl-2">docs</span><span class="hl-1">](</span><span class="hl-2">https</span><span class="hl-1">:</span><span class="hl-10">//github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#brightness-idbrightness))</span><br/><br/><span class="hl-2">Adjusts</span><span class="hl-1"> </span><span class="hl-2">the</span><span class="hl-1"> </span><span class="hl-2">brightness</span><span class="hl-1"> </span><span class="hl-8">of</span><span class="hl-1"> </span><span class="hl-2">an</span><span class="hl-1"> </span><span class="hl-2">image</span><span class="hl-1">.</span><br/><br/><span class="hl-1">#### </span><span class="hl-2">Example</span><br/><br/><span class="hl-9">```typescript</span><br/><span class="hl-9">pb().brightness(-100);</span>
+</code></pre>
+
+<a href="#cachebuster-imgproxy-docs" id="cachebuster-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>cacheBuster (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#cache-buster">imgproxy docs</a>)</h3>
+</a>
+<p>Adds a cache buster to the imgproxy params.</p>
+
+<a href="#example-6" id="example-6" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">cacheBuster</span><span class="hl-1">(</span><span class="hl-9">&quot;abcdef123&quot;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#contrast-imgproxy-docs" id="contrast-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>contrast (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#contrast-idcontrast">imgproxy docs</a>)</h3>
+</a>
+<p>Adjust contrast of the resulting image.</p>
+
+<a href="#example-7" id="example-7" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">contrast</span><span class="hl-1">(</span><span class="hl-3">0.3</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#crop-imgproxy-docs" id="crop-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>crop (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#crop">imgproxy docs</a>)</h3>
+</a>
+<p>Crops the image.</p>
+
+<a href="#example-8" id="example-8" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">crop</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">width:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,                  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">height:</span><span class="hl-1"> </span><span class="hl-3">50</span><span class="hl-1">,                  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">gravity:</span><span class="hl-1"> {                   </span><span class="hl-10">// optional</span><br/><span class="hl-1">    </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">GravityType</span><span class="hl-1">.</span><span class="hl-6">CENTER</span><span class="hl-1">,  </span><span class="hl-10">// required</span><br/><span class="hl-1">    </span><span class="hl-2">offset:</span><span class="hl-1"> {                  </span><span class="hl-10">// optional</span><br/><span class="hl-1">       </span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-3">20</span><span class="hl-1">,                  </span><span class="hl-10">// required</span><br/><span class="hl-1">       </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-3">20</span><span class="hl-1">                   </span><span class="hl-10">// required</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">})</span>
+</code></pre>
+
+<a href="#dpr-imgproxy-docs" id="dpr-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>dpr (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr">imgproxy docs</a>)</h3>
+</a>
+<p>Multiplies the dimensions according to the specified factor.</p>
+
+<a href="#example-9" id="example-9" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">dpr</span><span class="hl-1">(</span><span class="hl-3">18</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#drawdetections-imgproxy-docs" id="drawdetections-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>drawDetections (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#draw-detections-iddraw-detections">imgproxy docs</a>)</h3>
+</a>
+<p>Detects objects of the provided classes and draws their bounding boxes.</p>
+
+<a href="#example-10" id="example-10" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">drawDetections</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">classNames:</span><span class="hl-1"> [</span><span class="hl-9">&quot;face&quot;</span><span class="hl-1">]</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#enforcethumbnail-imgproxy-docs" id="enforcethumbnail-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>enforceThumbnail (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enforce-thumbnail">imgproxy docs</a>)</h3>
+</a>
+<p>If the source image has an embedded thumbnail, imgproxy will use the embedded thumbnail instead of the main image.</p>
+
+<a href="#example-11" id="example-11" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">enforceThumbnail</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#enlarge-imgproxy-docs" id="enlarge-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>enlarge (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enlarge">imgproxy docs</a>)</h3>
+</a>
+<p>Enlarges the image if it is smaller than the given size.</p>
+
+<a href="#example-12" id="example-12" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">enlarge</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#expires-imgproxy-docs" id="expires-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>expires (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#expires">imgproxy docs</a>)</h3>
+</a>
+<p>Returns a 404 if the expiration date is reached.</p>
+
+<a href="#example-13" id="example-13" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">expires</span><span class="hl-1">((</span><span class="hl-8">new</span><span class="hl-1"> </span><span class="hl-5">Date</span><span class="hl-1">()).</span><span class="hl-7">getTime</span><span class="hl-1">());</span><br/><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">expires</span><span class="hl-1">(</span><span class="hl-3">166666666</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#extend-imgproxy-docs" id="extend-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>extend (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#extend">imgproxy docs</a>)</h3>
+</a>
+<p>Extends the image if it is smaller than the given size.</p>
+
+<a href="#example-14" id="example-14" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">extend</span><span class="hl-1">();</span><br/><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">extend</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">gravity:</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">GravityType</span><span class="hl-1">.</span><span class="hl-6">NORTH</span><span class="hl-1">  </span><span class="hl-10">// required</span><br/><span class="hl-1">    </span><span class="hl-2">offset</span><span class="hl-1">: {                </span><span class="hl-10">// optional</span><br/><span class="hl-1">      </span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">;                 </span><span class="hl-10">// required</span><br/><span class="hl-1">      </span><span class="hl-2">y</span><span class="hl-1">: </span><span class="hl-3">20</span><span class="hl-1">;                 </span><span class="hl-10">// required</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#fallbackimageurl-imgproxy-docs" id="fallbackimageurl-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>fallbackImageUrl (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#fallback-image-url-idfallback-image-url">imgproxy docs</a>)</h3>
+</a>
+<p>Sets a custom fallback image by specifying its URL.</p>
+
+<a href="#example-15" id="example-15" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">fallbackImageUrl</span><span class="hl-1">(</span><span class="hl-9">&#39;https://example.com&#39;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#filename-imgproxy-docs" id="filename-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>fileName (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#filename">imgproxy docs</a>)</h3>
+</a>
+<p>Sets the filename for the Content-Disposition header.</p>
+
+<a href="#example-16" id="example-16" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">fileName</span><span class="hl-1">(</span><span class="hl-9">&#39;filename.png&#39;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#format-imgproxy-docs" id="format-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>format (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format">imgproxy docs</a>)</h3>
+</a>
+<p>Specifies the resulting image format.</p>
+
+<a href="#example-17" id="example-17" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">format</span><span class="hl-1">(</span><span class="hl-9">&#39;png&#39;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#formatquality-imgproxy-docs" id="formatquality-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>formatQuality (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format-quality">imgproxy docs</a>)</h3>
+</a>
+<p>Sets the desired quality for each format.</p>
+
+<a href="#example-18" id="example-18" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">formatQuality</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">jpeg:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">png:</span><span class="hl-1"> </span><span class="hl-3">50</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-10">// ...</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#gravity-imgproxy-docs" id="gravity-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>gravity (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#gravity">imgproxy docs</a>)</h3>
+</a>
+<p>Sets the gravity.</p>
+
+<a href="#example-19" id="example-19" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">gravity</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">GravityType</span><span class="hl-1">.</span><span class="hl-6">NORTH</span><span class="hl-1">  </span><span class="hl-10">// required</span><br/><span class="hl-1">  </span><span class="hl-2">offset</span><span class="hl-1">: {                </span><span class="hl-10">// optional</span><br/><span class="hl-1">    </span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">,                 </span><span class="hl-10">// required</span><br/><span class="hl-1">    </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-3">20</span><span class="hl-1">                  </span><span class="hl-10">// required</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#jpegoptions-imgproxy-docs" id="jpegoptions-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>jpegOptions (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#jpeg-options-idjpeg-options">imgproxy docs</a>)</h3>
+</a>
+<p>Allows redefining JPEG saving options.</p>
+
+<a href="#example-20" id="example-20" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">jpegOptions</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">progressive:</span><span class="hl-1"> </span><span class="hl-2">boolean</span><span class="hl-1">,         </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">noSubsample:</span><span class="hl-1"> </span><span class="hl-2">boolean</span><span class="hl-1">,         </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">trellisQuant:</span><span class="hl-1"> </span><span class="hl-2">boolean</span><span class="hl-1">,        </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">overshootDeringing:</span><span class="hl-1"> </span><span class="hl-2">boolean</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">optimizeScans:</span><span class="hl-1"> </span><span class="hl-2">boolean</span><span class="hl-1">,       </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">quantizationTable:</span><span class="hl-1"> </span><span class="hl-3">7</span><span class="hl-1">          </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#keepcopyright-imgproxy-docs" id="keepcopyright-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>keepCopyright (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#keep-copyright">imgproxy docs</a>)</h3>
+</a>
+<p>Preserve the copyright info while stripping metadata.</p>
+
+<a href="#example-21" id="example-21" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">keepCopyright</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#maxbytes-imgproxy-docs" id="maxbytes-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>maxBytes (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#max-bytes">imgproxy docs</a>)</h3>
+</a>
+<p>Limits the file size to the specified number of bytes.</p>
+
+<a href="#example-22" id="example-22" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">maxBytes</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#minheight-imgproxy-docs" id="minheight-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>minHeight (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-height">imgproxy docs</a>)</h3>
+</a>
+<p>Defines the minimum height of the resulting image.</p>
+
+<a href="#example-23" id="example-23" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">minHeight</span><span class="hl-1">(</span><span class="hl-3">100</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#minwidth-imgproxy-docs" id="minwidth-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>minWidth (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-width">imgproxy docs</a>)</h3>
+</a>
+<p>Defines the minimum width of the resulting image.</p>
+
+<a href="#example-24" id="example-24" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">minWidth</span><span class="hl-1">(</span><span class="hl-3">100</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#pad-imgproxy-docs" id="pad-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>pad (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#padding">imgproxy docs</a>)</h3>
+</a>
+<p>Applies the specified padding to the image.</p>
+
+<a href="#example-25" id="example-25" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">pad</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">top:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,    </span><span class="hl-10">// optional (Note: sets all other sides if not set explicitly)</span><br/><span class="hl-1">  </span><span class="hl-2">right:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">bottom:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">left:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">     </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#page-imgproxy-docs" id="page-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>page (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#page-idpage">imgproxy docs</a>)</h3>
+</a>
+<p>When source image supports pagination (PDF, TIFF) or animation (GIF, WebP), this option allows specifying the page to use.</p>
+
+<a href="#example-26" id="example-26" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">page</span><span class="hl-1">(</span><span class="hl-3">10</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#pixelate-imgproxy-docs" id="pixelate-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>pixelate (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#pixelate">imgproxy docs</a>)</h3>
+</a>
+<p>Apply the pixelate filter to the resulting image.</p>
+
+<a href="#example-27" id="example-27" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">pixelate</span><span class="hl-1">(</span><span class="hl-3">5</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#pngoptions-imgproxy-docs" id="pngoptions-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>pngOptions (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#png-options-idpng-options">imgproxy docs</a>)</h3>
+</a>
+<p>Allows redefining PNG saving options.</p>
+
+<a href="#example-28" id="example-28" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">pngOptions</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">interlaced:</span><span class="hl-1"> </span><span class="hl-8">true</span><span class="hl-1">,         </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">quantize:</span><span class="hl-1"> </span><span class="hl-8">false</span><span class="hl-1">,          </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">quantization_colors:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">   </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#resizingalgorithm-imgproxy-docs" id="resizingalgorithm-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>resizingAlgorithm (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset">imgproxy docs</a>)</h3>
+</a>
+<p>Defines the algorithm that imgproxy will use for resizing.</p>
+
+<a href="#example-29" id="example-29" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">resizingAlgorithm</span><span class="hl-1">(</span><span class="hl-2">ResizingAlgorithm</span><span class="hl-1">.</span><span class="hl-6">NEAREST</span><span class="hl-1">));</span>
+</code></pre>
+
+<a href="#returnattachment-imgproxy-docs" id="returnattachment-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>returnAttachment (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment">imgproxy docs</a>)</h3>
+</a>
+<p>Returns attachment in the Content-Disposition header.</p>
+
+<a href="#example-30" id="example-30" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">returnAttachment</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#quality-imgproxy-docs" id="quality-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>quality (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality">imgproxy docs</a>)</h3>
+</a>
+<p>Redefines the quality of the resulting image.</p>
+
+<a href="#example-31" id="example-31" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">quality</span><span class="hl-1">(</span><span class="hl-3">80</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#resize-imgproxy-docs" id="resize-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>resize (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resize">imgproxy docs</a>)</h3>
+</a>
+<p>Resizes the image.</p>
+
+<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">resize</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">type:</span><span class="hl-1"> </span><span class="hl-2">ResizeType</span><span class="hl-1">.</span><span class="hl-6">AUTO</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">width:</span><span class="hl-1"> </span><span class="hl-3">100</span><span class="hl-1">,             </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">height:</span><span class="hl-1"> </span><span class="hl-3">50</span><span class="hl-1">              </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#rotate-imgproxy-docs" id="rotate-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>rotate (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#rotate">imgproxy docs</a>)</h3>
+</a>
+<p>Rotates the image by the specified angle.</p>
+
+<a href="#example-33" id="example-33" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">rotate</span><span class="hl-1">(</span><span class="hl-3">90</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#saturation-imgproxy-docs" id="saturation-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>saturation (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#saturation-idsaturation">imgproxy docs</a>)</h3>
+</a>
+<p>Adjust saturation of the resulting image.</p>
+
+<a href="#example-34" id="example-34" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">saturation</span><span class="hl-1">(</span><span class="hl-3">0.3</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#sharpen-imgproxy-docs" id="sharpen-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>sharpen (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#sharpen">imgproxy docs</a>)</h3>
+</a>
+<p>Applies a sharpen filter to the image.</p>
+
+<a href="#example-35" id="example-35" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">sharpen</span><span class="hl-1">(</span><span class="hl-3">3</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#skipprocessing-imgproxy-docs" id="skipprocessing-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>skipProcessing (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#skip-processing">imgproxy docs</a>)</h3>
+</a>
+<p>Skip the processing of the listed formats.</p>
+
+<a href="#example-36" id="example-36" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">skipProcessing</span><span class="hl-1">([</span><span class="hl-9">&#39;png&#39;</span><span class="hl-1">, </span><span class="hl-9">&#39;svg&#39;</span><span class="hl-1">]);</span>
+</code></pre>
+
+<a href="#stripcolorprofile-imgproxy-docs" id="stripcolorprofile-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>stripColorProfile (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-color-profile">imgproxy docs</a>)</h3>
+</a>
+<p>Strips the color profile from the image.</p>
+
+<a href="#example-37" id="example-37" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">stripColorProfile</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#stripmetadata-imgproxy-docs" id="stripmetadata-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>stripMetadata (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-metadata">imgproxy docs</a>)</h3>
+</a>
+<p>Strips the metadata from the image.</p>
+
+<a href="#example-38" id="example-38" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">stripMetadata</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#style-imgproxy-docs" id="style-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>style (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#style-idstyle">imgproxy docs</a>)</h3>
+</a>
+<p>Prepend a <style> node with the provided CSS styles to the  <svg> node of a source SVG image.</p>
+
+<a href="#example-39" id="example-39" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">style</span><span class="hl-1">(</span><span class="hl-9">&#39;fill:red;width:30px;&#39;</span><span class="hl-1">);</span><br/><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">style</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">fill:</span><span class="hl-1"> </span><span class="hl-9">&#39;red&#39;</span><span class="hl-1">;</span><br/><span class="hl-1">  </span><span class="hl-2">width</span><span class="hl-1">: </span><span class="hl-9">&#39;30px&#39;</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#trim-imgproxy-docs" id="trim-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>trim (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#trim">imgproxy docs</a>)</h3>
+</a>
+<p>Trims the image background.</p>
+
+<a href="#example-40" id="example-40" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">trim</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">threshold:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">,       </span><span class="hl-10">// required</span><br/><span class="hl-1">  </span><span class="hl-2">color:</span><span class="hl-1"> </span><span class="hl-9">&#39;ffffff&#39;</span><span class="hl-1">,     </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">equal:</span><span class="hl-1"> {             </span><span class="hl-10">// optional</span><br/><span class="hl-1">    </span><span class="hl-2">horizontal:</span><span class="hl-1"> </span><span class="hl-8">true</span><span class="hl-1">,  </span><span class="hl-10">// optional</span><br/><span class="hl-1">    </span><span class="hl-2">vertical:</span><span class="hl-1"> </span><span class="hl-8">true</span><span class="hl-1">     </span><span class="hl-10">// optional</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#unsharpen-imgproxy-docs" id="unsharpen-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>unsharpen (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#unsharpening-idunsharpening">imgproxy docs</a>)</h3>
+</a>
+<p>Allows redefining unsharpening options.</p>
+
+<a href="#example-41" id="example-41" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">unsharpen</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">mode:</span><span class="hl-1"> </span><span class="hl-2">UnsharpeningMode</span><span class="hl-1">.</span><span class="hl-6">AUTO</span><span class="hl-1">,   </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">weight:</span><span class="hl-1"> </span><span class="hl-3">11</span><span class="hl-1">,                    </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">dividor:</span><span class="hl-1"> </span><span class="hl-3">24</span><span class="hl-1">                    </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#videothumbnailsecond-imgproxy-docs" id="videothumbnailsecond-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>videoThumbnailSecond (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second">imgproxy docs</a>)</h3>
+</a>
+<p>Redefines the second used for the thumbnail.</p>
+
+<a href="#example-42" id="example-42" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">videoThumbnailSecond</span><span class="hl-1">(</span><span class="hl-3">3</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#watermark-imgproxy-docs" id="watermark-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>watermark (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark">imgproxy docs</a>)</h3>
+</a>
+<p>Places a watermark on the processed image.</p>
+
+<a href="#example-43" id="example-43" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">watermark</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">opacity:</span><span class="hl-1"> </span><span class="hl-3">0.8</span><span class="hl-1">,                          </span><span class="hl-10">// required</span><br/><span class="hl-1">  </span><span class="hl-2">position:</span><span class="hl-1"> </span><span class="hl-2">WatermarkPosition</span><span class="hl-1">.</span><span class="hl-6">REPLICATE</span><span class="hl-1">  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">scale</span><span class="hl-1">: </span><span class="hl-3">2</span><span class="hl-1">                               </span><span class="hl-10">// optional</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">watermark</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">opacity:</span><span class="hl-1"> </span><span class="hl-3">1.0</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">scale:</span><span class="hl-1"> </span><span class="hl-3">1</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">position:</span><span class="hl-1"> </span><span class="hl-2">WatermarkPosition</span><span class="hl-1">.</span><span class="hl-6">WEST</span><span class="hl-1">  </span><span class="hl-10">// optional</span><br/><span class="hl-1">  </span><span class="hl-2">offset</span><span class="hl-1">: {                         </span><span class="hl-10">// optional</span><br/><span class="hl-1">    </span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">,                          </span><span class="hl-10">// optional</span><br/><span class="hl-1">    </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-3">10</span><span class="hl-1">                           </span><span class="hl-10">// optional</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">})</span>
+</code></pre>
+
+<a href="#watermarksize-imgproxy-docs" id="watermarksize-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>watermarkSize (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-size-idwatermark-size">imgproxy docs</a>)</h3>
+</a>
+<p>Defines the desired width and height of the watermark. imgproxy always uses <code>fit</code> resizing type when resizing watermarks and enlarges them when needed.</p>
+
+<a href="#example-44" id="example-44" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">watermarkSize</span><span class="hl-1">({</span><br/><span class="hl-1">  </span><span class="hl-2">width:</span><span class="hl-1"> </span><span class="hl-3">30</span><span class="hl-1">,  </span><span class="hl-10">// required</span><br/><span class="hl-1">  </span><span class="hl-2">height:</span><span class="hl-1"> </span><span class="hl-3">30</span><span class="hl-1">  </span><span class="hl-10">// required</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#watermarktext-imgproxy-docs" id="watermarktext-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>watermarkText (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-text-idwatermark-text">imgproxy docs</a>)</h3>
+</a>
+<p>Generate an image from the provided text and use it as a watermark.</p>
+
+<a href="#example-45" id="example-45" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">watermarkText</span><span class="hl-1">(</span><span class="hl-9">&quot;my watermark&quot;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#watermarkurl-imgproxy-docs" id="watermarkurl-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>watermarkUrl (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-url-idwatermark-url">imgproxy docs</a>)</h3>
+</a>
+<p>Use the image from the specified URL as a watermark.</p>
+
+<a href="#example-46" id="example-46" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">watermarkUrl</span><span class="hl-1">(</span><span class="hl-9">&#39;https://example.com&#39;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#zoom-imgproxy-docs" id="zoom-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>zoom (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#zoom">imgproxy docs</a>)</h3>
+</a>
+<p>Multiply the image dimensions according to the specified factors.</p>
+
+<a href="#example-47" id="example-47" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-7">pb</span><span class="hl-1">().</span><span class="hl-7">zoom</span><span class="hl-1">(</span><span class="hl-3">3</span><span class="hl-1">);</span>
+</code></pre>
 </div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-enum"><a href="enums/GravityType.html" class="tsd-kind-icon">Gravity<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/ResizeType.html" class="tsd-kind-icon">Resize<wbr/>Type</a></li><li class="tsd-kind-enum"><a href="enums/ResizingAlgorithm.html" class="tsd-kind-icon">Resizing<wbr/>Algorithm</a></li><li class="tsd-kind-enum"><a href="enums/UnsharpeningMode.html" class="tsd-kind-icon">Unsharpening<wbr/>Mode</a></li><li class="tsd-kind-enum"><a href="enums/WatermarkPosition.html" class="tsd-kind-icon">Watermark<wbr/>Position</a></li><li class="tsd-kind-class"><a href="classes/ParamBuilder.html" class="tsd-kind-icon">Param<wbr/>Builder</a></li><li class="tsd-kind-type-alias"><a href="modules.html#AdjustOptions" class="tsd-kind-icon">Adjust<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#BackgroundAlphaOptions" class="tsd-kind-icon">Background<wbr/>Alpha<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#BackgroundOptions" class="tsd-kind-icon">Background<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#BlurDetectionOptions" class="tsd-kind-icon">Blur<wbr/>Detection<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#BlurOptions" class="tsd-kind-icon">Blur<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#BrightnessOptions" class="tsd-kind-icon">Brightness<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#BuildOptions" class="tsd-kind-icon">Build<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CacheBusterOptions" class="tsd-kind-icon">Cache<wbr/>Buster<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ContrastOptions" class="tsd-kind-icon">Contrast<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#CropOptions" class="tsd-kind-icon">Crop<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DprOptions" class="tsd-kind-icon">Dpr<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#DrawDetectionOptions" class="tsd-kind-icon">Draw<wbr/>Detection<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ExpiresOptions" class="tsd-kind-icon">Expires<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ExtendOptions" class="tsd-kind-icon">Extend<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#FallbackImageUrlOptions" class="tsd-kind-icon">Fallback<wbr/>Image<wbr/>Url<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#FileNameOptions" class="tsd-kind-icon">File<wbr/>Name<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#FormatOptions" class="tsd-kind-icon">Format<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#FormatQualityOptions" class="tsd-kind-icon">Format<wbr/>Quality<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#GifOptions" class="tsd-kind-icon">Gif<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#GravityOptions" class="tsd-kind-icon">Gravity<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#JpegOptions" class="tsd-kind-icon">Jpeg<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#MaxBytesOptions" class="tsd-kind-icon">Max<wbr/>Bytes<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#MinHeightOptions" class="tsd-kind-icon">Min<wbr/>Height<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#MinWidthOptions" class="tsd-kind-icon">Min<wbr/>Width<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#PaddingOptions" class="tsd-kind-icon">Padding<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#PageOptions" class="tsd-kind-icon">Page<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#PixelateOptions" class="tsd-kind-icon">Pixelate<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#PngOptions" class="tsd-kind-icon">Png<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#PresetOptions" class="tsd-kind-icon">Preset<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#QualityOptions" class="tsd-kind-icon">Quality<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ResizeOptions" class="tsd-kind-icon">Resize<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ResizingAlgorithmOptions" class="tsd-kind-icon">Resizing<wbr/>Algorithm<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#RotationOptions" class="tsd-kind-icon">Rotation<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#SaturationOptions" class="tsd-kind-icon">Saturation<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#SharpenOptions" class="tsd-kind-icon">Sharpen<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#SkipProcessingOptions" class="tsd-kind-icon">Skip<wbr/>Processing<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#StyleOptions" class="tsd-kind-icon">Style<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#TrimOptions" class="tsd-kind-icon">Trim<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#UnsharpeningOptions" class="tsd-kind-icon">Unsharpening<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#VideoThumbnailSecondOptions" class="tsd-kind-icon">Video<wbr/>Thumbnail<wbr/>Second<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#WatermarkOptions" class="tsd-kind-icon">Watermark<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#WatermarkSizeOptions" class="tsd-kind-icon">Watermark<wbr/>Size<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#WatermarkTextOptions" class="tsd-kind-icon">Watermark<wbr/>Text<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#WatermarkUrlOptions" class="tsd-kind-icon">Watermark<wbr/>Url<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ZoomOptions" class="tsd-kind-icon">Zoom<wbr/>Options</a></li><li class="tsd-kind-function"><a href="modules.html#default" class="tsd-kind-icon">default</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
