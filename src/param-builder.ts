@@ -160,6 +160,15 @@ class ParamBuilder {
 
   /**
    * Defines the brightness, contrast, and saturation.
+   *
+   * @example
+   * ```typescript
+   * pb().adjust({
+   *   brightness: 100,  // optional
+   *   contrast: 0.8,    // optional
+   *   saturation: 0.9   // optional
+   * });
+   * ```
    */
   public adjust(this: this, ...options: Parameters<typeof adjust>): this {
     this.modifiers.set('adjust', adjust(...options));
@@ -168,6 +177,11 @@ class ParamBuilder {
 
   /**
    * Automatically rotates the image based on the EXIF orientation parameter.
+   *
+   * @example
+   * ```typescript
+   * pb().autoRotate();
+   * ```
    */
   public autoRotate(this: this): this {
     this.modifiers.set('autoRotate', autoRotate());
@@ -176,6 +190,17 @@ class ParamBuilder {
 
   /**
    * Fills the image background with the specified color.
+   *
+   * @example
+   * ```typescript
+   * pb().background('ff0000');
+   *
+   * pb().background({
+   *   r: 255,
+   *   g: 0,
+   *   b: 0
+   * });
+   * ```
    */
   public background(
     this: this,
@@ -187,6 +212,11 @@ class ParamBuilder {
 
   /**
    * Adds alpha channel to background.
+   *
+   * @example
+   * ```typescript
+   * pb().backgroundAlpha(0.4);
+   * ```
    */
   public backgroundAlpha(
     this: this,
@@ -198,6 +228,11 @@ class ParamBuilder {
 
   /**
    * Applies a gaussian blur filter to the image.
+   *
+   * @example
+   * ```typescript
+   * pb().blur(10);
+   * ```
    */
   public blur(this: this, ...options: Parameters<typeof blur>): this {
     this.modifiers.set('blur', blur(...options));
@@ -206,6 +241,13 @@ class ParamBuilder {
 
   /**
    * Detects objects of the provided classes and blurs them.
+   *
+   * @example
+   * ```typescript
+   * pb().blurDetections({
+   *   sigma: 10,
+   *   classNames: ['face']
+   * });
    */
   public blurDetections(
     this: this,
@@ -217,6 +259,11 @@ class ParamBuilder {
 
   /**
    * Adjusts the brightness of an image.
+   *
+   * @example
+   * ```typescript
+   * pb().brightness(-100);
+   * ```
    */
   public brightness(
     this: this,
@@ -228,6 +275,11 @@ class ParamBuilder {
 
   /**
    * Adds a cache buster to the imgproxy params.
+   *
+   * @example
+   * ```typescript
+   * pb().cacheBuster("abcdef123");
+   * ```
    */
   public cacheBuster(
     this: this,
@@ -239,6 +291,11 @@ class ParamBuilder {
 
   /**
    * Adjust contrast of the resulting image.
+   *
+   * @example
+   * ```typescript
+   * pb().contrast(0.3);
+   * ```
    */
   public contrast(this: this, ...options: Parameters<typeof contrast>): this {
     this.modifiers.set('contrast', contrast(...options));
@@ -247,6 +304,21 @@ class ParamBuilder {
 
   /**
    * Crops the image.
+   *
+   * @example
+   * ```typescript
+   * pb().crop({
+   *   width: 100,                  // optional
+   *   height: 50,                  // optional
+   *   gravity: {                   // optional
+   *     type: GravityType.CENTER,  // required
+   *     offset: {                  // optional
+   *        x: 20,                  // required
+   *        y: 20                   // required
+   *     }
+   *   }
+   * })
+   * ```
    */
   public crop(this: this, ...options: Parameters<typeof crop>): this {
     this.modifiers.set('crop', crop(...options));
@@ -255,6 +327,11 @@ class ParamBuilder {
 
   /**
    * Multiplies the dimensions according to the specified factor.
+   *
+   * @example
+   * ```typescript
+   * pb().dpr(18);
+   * ```
    */
   public dpr(this: this, ...options: Parameters<typeof dpr>): this {
     this.modifiers.set('dpr', dpr(...options));
@@ -264,6 +341,13 @@ class ParamBuilder {
   /**
    * Detects objects of the provided classes and draws their
    * bounding boxes.
+   *
+   * @example
+   * ```typescript
+   * pb().drawDetections({
+   *   classNames: ["face"]
+   * });
+   * ```
    */
   public drawDetections(
     this: this,
@@ -276,6 +360,11 @@ class ParamBuilder {
   /**
    * If the source image has an embedded thumbnail, imgproxy will use the
    * embedded thumbnail instead of the main image.
+   *
+   * @example
+   * ```typescript
+   * pb().enforceThumbnail();
+   * ```
    */
   public enforceThumbnail(this: this): this {
     this.modifiers.set('enforceThumbnail', enforceThumbnail());
@@ -284,6 +373,11 @@ class ParamBuilder {
 
   /**
    * Enlarges the image if it is smaller than the given size.
+   *
+   * @example
+   * ```typescript
+   * pb().enlarge();
+   * ```
    */
   public enlarge(this: this): this {
     this.modifiers.set('enlarge', enlarge());
@@ -292,6 +386,13 @@ class ParamBuilder {
 
   /**
    * Returns a 404 if the expiration date is reached.
+   *
+   * @example
+   * ```typescript
+   * pb().expires((new Date()).getTime());
+   *
+   * pb().expires(166666666);
+   * ```
    */
   public expires(this: this, ...options: Parameters<typeof expires>): this {
     this.modifiers.set('expires', expires(...options));
@@ -300,6 +401,21 @@ class ParamBuilder {
 
   /**
    * Extends the image if it is smaller than the given size.
+   *
+   * @example
+   * ```typescript
+   * pb().extend();
+   *
+   * pb().extend({
+   *   gravity: {
+   *     type: GravityType.NORTH  // required
+   *     offset: {                // optional
+   *       x: 10;                 // required
+   *       y: 20;                 // required
+   *     }
+   *   }
+   * });
+   * ```
    */
   public extend(this: this, ...options: Parameters<typeof extend>): this {
     this.modifiers.set('extend', extend(...options));
@@ -308,6 +424,11 @@ class ParamBuilder {
 
   /**
    * Sets a custom fallback image by specifying its URL.
+   *
+   * @example
+   * ```typescript
+   * pb().fallbackImageUrl('https://example.com');
+   * ```
    */
   public fallbackImageUrl(
     this: this,
@@ -319,6 +440,11 @@ class ParamBuilder {
 
   /**
    * Sets the filename for the Content-Disposition header.
+   *
+   * @example
+   * ```typescript
+   * pb().filename('filename.png');
+   * ```
    */
   public filename(this: this, ...options: Parameters<typeof fileName>): this {
     this.modifiers.set('filename', fileName(...options));
@@ -327,6 +453,11 @@ class ParamBuilder {
 
   /**
    * Specifies the resulting image format.
+   *
+   * @example
+   * ```typescript
+   * pb().format('png');
+   * ```
    */
   public format(this: this, ...options: Parameters<typeof format>): this {
     this.modifiers.set('format', format(...options));
@@ -335,6 +466,15 @@ class ParamBuilder {
 
   /**
    * Sets the desired quality for each format.
+   *
+   * @example
+   * ```typescript
+   * pb().formatQuality({
+   *   jpeg: 100,
+   *   png: 50,
+   *   // ...
+   * });
+   * ```
    */
   public formatQuality(
     this: this,
@@ -346,6 +486,14 @@ class ParamBuilder {
 
   /**
    * Allows redefining GIF saving options.
+   *
+   * @example
+   * ```typescript
+   * pb().gifOptions({
+   *   optimizeFrames: true,     // optional
+   *   optimizeTransparency: 50  // optional
+   * });
+   * ```
    */
   public gifOptions(
     this: this,
@@ -357,6 +505,17 @@ class ParamBuilder {
 
   /**
    * Sets the gravity.
+   *
+   * @example
+   * ```typescript
+   * pb().gravity({
+   *   type: GravityType.NORTH  // required
+   *   offset: {                // optional
+   *     x: 10,                 // required
+   *     y: 20                  // required
+   *   }
+   * });
+   * ```
    */
   public gravity(this: this, ...options: Parameters<typeof gravity>): this {
     this.modifiers.set('gravity', gravity(...options));
@@ -365,6 +524,18 @@ class ParamBuilder {
 
   /**
    * Allows redefining JPEG saving options.
+   *
+   * @example
+   * ```typescript
+   * pb().jpegOptions({
+   *   progressive: boolean,         // optional
+   *   noSubsample: boolean,         // optional
+   *   trellisQuant: boolean,        // optional
+   *   overshootDeringing: boolean,  // optional
+   *   optimizeScans: boolean,       // optional
+   *   quantizationTable: 7          // optional
+   * });
+   * ```
    */
   public jpegOptions(
     this: this,
@@ -376,6 +547,11 @@ class ParamBuilder {
 
   /**
    * Preserve the copyright info while stripping metadata.
+   *
+   * @example
+   * ```typescript
+   * pb().keepCopyright();
+   * ```
    */
   public keepCopyright(this: this): this {
     this.modifiers.set('keepCopyright', keepCopyright());
@@ -384,6 +560,11 @@ class ParamBuilder {
 
   /**
    * Limits the file size to the specified number of bytes.
+   *
+   * @example
+   * ```typescript
+   * pb().maxBytes(10);
+   * ```
    */
   public maxBytes(this: this, ...options: Parameters<typeof maxBytes>): this {
     this.modifiers.set('maxBytes', maxBytes(...options));
@@ -392,6 +573,11 @@ class ParamBuilder {
 
   /**
    * Defines the minimum height of the resulting image.
+   *
+   * @example
+   * ```typescript
+   * pb().minHeight(100);
+   * ```
    */
   public minHeight(this: this, ...options: Parameters<typeof minHeight>): this {
     this.modifiers.set('minHeight', minHeight(...options));
@@ -400,6 +586,11 @@ class ParamBuilder {
 
   /**
    * Defines the minimum width of the resulting image.
+   *
+   * @example
+   * ```typescript
+   * pb().minWidth(100);
+   * ```
    */
   public minWidth(this: this, ...options: Parameters<typeof minWidth>): this {
     this.modifiers.set('minWidth', minWidth(...options));
@@ -408,6 +599,16 @@ class ParamBuilder {
 
   /**
    * Applies the specified padding to the image.
+   *
+   * @example
+   * ```typescript
+   * pb().pad({
+   *   top: 100,    // optional (Note: sets all other sides if not set explicitly)
+   *   right: 100,  // optional
+   *   bottom: 10,  // optional
+   *   left: 10     // optional
+   * });
+   * ```
    */
   public pad(this: this, ...options: Parameters<typeof pad>): this {
     this.modifiers.set('pad', pad(...options));
@@ -417,6 +618,11 @@ class ParamBuilder {
   /**
    * When source image supports pagination (PDF, TIFF) or animation (GIF, WebP), this option allows
    * specifying the page to use.
+   *
+   * @example
+   * ```typescript
+   * pb().page(10);
+   * ```
    */
   public page(this: this, ...options: Parameters<typeof page>): this {
     this.modifiers.set('page', page(...options));
@@ -425,6 +631,11 @@ class ParamBuilder {
 
   /**
    * Apply the pixelate filter to the resulting image.
+   *
+   * @example
+   * ```typescript
+   * pb().pixelate(5);
+   * ```
    */
   public pixelate(this: this, ...options: Parameters<typeof pixelate>): this {
     this.modifiers.set('pixelate', pixelate(...options));
@@ -433,6 +644,15 @@ class ParamBuilder {
 
   /**
    * Allows redefining PNG saving options.
+   *
+   * @example
+   * ```typescript
+   * pb().pngOptions({
+   *   interlaced: true,         // optional
+   *   quantize: false,          // optional
+   *   quantization_colors: 10   // optional
+   * });
+   * ```
    */
   public pngOptions(
     this: this,
@@ -444,6 +664,13 @@ class ParamBuilder {
 
   /**
    * Sets one or many presets to be used by the imgproxy.
+   *
+   * @example
+   * ```typescript
+   * pb().preset('mypreset');
+   *
+   * pb().preset(['preset1', 'preset2']);
+   * ```
    */
   public preset(this: this, ...options: Parameters<typeof preset>): this {
     this.modifiers.set('preset', preset(...options));
@@ -452,6 +679,11 @@ class ParamBuilder {
 
   /**
    * Defines the algorithm that imgproxy will use for resizing.
+   *
+   * @example
+   * ```typescript
+   * pb().resizingAlgorithm(ResizingAlgorithm.NEAREST));
+   * ```
    */
   public resizingAlgorithm(
     this: this,
@@ -463,6 +695,11 @@ class ParamBuilder {
 
   /**
    * Returns attachment in the Content-Disposition header.
+   *
+   * @example
+   * ```typescript
+   * pb().returnAttachment();
+   * ```
    */
   public returnAttachment(this: this): this {
     this.modifiers.set('returnAttachment', returnAttachment());
@@ -471,6 +708,11 @@ class ParamBuilder {
 
   /**
    * Redefines the quality of the resulting image.
+   *
+   * @example
+   * ```typescript
+   * pb().quality(80);
+   * ```
    */
   public quality(this: this, ...options: Parameters<typeof quality>): this {
     this.modifiers.set('quality', quality(...options));
@@ -479,6 +721,15 @@ class ParamBuilder {
 
   /**
    * Resizes the image.
+   *
+   * @example
+   * ```typescript
+   * pb().resize({
+   *   type: ResizeType.AUTO,  // optional
+   *   width: 100,             // optional
+   *   height: 50              // optional
+   * });
+   * ```
    */
   public resize(this: this, ...options: Parameters<typeof resize>): this {
     this.modifiers.set('resize', resize(...options));
@@ -487,6 +738,11 @@ class ParamBuilder {
 
   /**
    * Rotates the image by the specified angle.
+   *
+   * @example
+   * ```typescript
+   * pb().rotate(90);
+   * ```
    */
   public rotate(this: this, ...options: Parameters<typeof rotate>): this {
     this.modifiers.set('rotate', rotate(...options));
@@ -495,6 +751,11 @@ class ParamBuilder {
 
   /**
    * Adjust saturation of the resulting image.
+   *
+   * @example
+   * ```typescript
+   * pb().saturation(0.3);
+   * ```
    */
   public saturation(
     this: this,
@@ -506,6 +767,11 @@ class ParamBuilder {
 
   /**
    * Applies a sharpen filter to the image.
+   *
+   * @example
+   * ```typescript
+   * pb().sharpen(3);
+   * ```
    */
   public sharpen(this: this, ...options: Parameters<typeof sharpen>): this {
     this.modifiers.set('sharpen', sharpen(...options));
@@ -514,6 +780,11 @@ class ParamBuilder {
 
   /**
    * Skip the processing of the listed formats.
+   *
+   * @example
+   * ```typescript
+   * pb().skipProcessing(['png', 'svg']);
+   * ```
    */
   public skipProcessing(
     this: this,
@@ -525,6 +796,11 @@ class ParamBuilder {
 
   /**
    * Strips the color profile from the image.
+   *
+   * @example
+   * ```typescript
+   * pb().stripColorProfile();
+   * ```
    */
   public stripColorProfile(this: this): this {
     this.modifiers.set('stripColorProfile', stripColorProfile());
@@ -533,6 +809,11 @@ class ParamBuilder {
 
   /**
    * Strips the metadata from the image.
+   *
+   * @example
+   * ```typescript
+   * pb().stripMetadata();
+   * ```
    */
   public stripMetadata(this: this): this {
     this.modifiers.set('stripMetadata', stripMetadata());
@@ -542,6 +823,16 @@ class ParamBuilder {
   /**
    * Prepend a <style> node with the provided CSS styles to the
    *  <svg> node of a source SVG image.
+   *
+   * @example
+   * ```typescript
+   * pb().style('fill:red;width:30px;');
+   *
+   * pb().style({
+   *   fill: 'red';
+   *   width: '30px'
+   * });
+   * ```
    */
   public style(this: this, ...options: Parameters<typeof style>): this {
     this.modifiers.set('style', style(...options));
@@ -550,6 +841,18 @@ class ParamBuilder {
 
   /**
    * Trims the image background.
+   *
+   * @example
+   * ```typescript
+   * pb().trim({
+   *   threshold: 10,       // required
+   *   color: 'ffffff',     // optional
+   *   equal: {             // optional
+   *     horizontal: true,  // optional
+   *     vertical: true     // optional
+   *   }
+   * });
+   * ```
    */
   public trim(this: this, ...options: Parameters<typeof trim>): this {
     this.modifiers.set('trim', trim(...options));
@@ -558,6 +861,15 @@ class ParamBuilder {
 
   /**
    * Allows redefining unsharpening options.
+   *
+   * @example
+   * ```typescript
+   * pb().unsharpen({
+   *   mode: UnsharpeningMode.AUTO,   // optional
+   *   weight: 11,                    // optional
+   *   dividor: 24                    // optional
+   * });
+   * ```
    */
   public unsharpen(this: this, ...options: Parameters<typeof unsharpen>): this {
     this.modifiers.set('unsharpen', unsharpen(...options));
@@ -566,6 +878,11 @@ class ParamBuilder {
 
   /**
    * Redefines the second used for the thumbnail.
+   *
+   * @example
+   * ```typescript
+   * pb().videoThumbnailSecond(3);
+   * ```
    */
   public videoThumbnailSecond(
     this: this,
@@ -580,6 +897,25 @@ class ParamBuilder {
 
   /**
    * Places a watermark on the processed image.
+   *
+   * @example
+   * ```typescript
+   * pb().watermark({
+   *   opacity: 0.8,                          // required
+   *   position: WatermarkPosition.REPLICATE  // optional
+   *   scale: 2                               // optional
+   * });
+   *
+   * pb().watermark({
+   *   opacity: 1.0,
+   *   scale: 1,
+   *   position: WatermarkPosition.WEST  // optional
+   *   offset: {                         // optional
+   *     x: 10,                          // optional
+   *     y: 10                           // optional
+   *   }
+   * })
+   * ```
    */
   public watermark(this: this, ...options: Parameters<typeof watermark>): this {
     this.modifiers.set('watermark', watermark(...options));
@@ -590,6 +926,14 @@ class ParamBuilder {
    * Defines the desired width and height of the watermark. imgproxy always
    * uses `fit` resizing type when resizing watermarks and enlarges them
    * when needed.
+   *
+   * @example
+   * ```typescript
+   * pb().watermarkSize({
+   *   width: 30,  // required
+   *   height: 30  // required
+   * });
+   * ```
    */
   public watermarkSize(
     this: this,
@@ -601,6 +945,11 @@ class ParamBuilder {
 
   /**
    * Generate an image from the provided text and use it as a watermark.
+   *
+   * @example
+   * ```typescript
+   * pb().watermarkText("my watermark");
+   * ```
    */
   public watermarkText(
     this: this,
@@ -612,6 +961,11 @@ class ParamBuilder {
 
   /**
    * Use the image from the specified URL as a watermark.
+   *
+   * @example
+   * ```typescript
+   * pb().watermarkUrl('https://example.com');
+   * ```
    */
   public watermarkUrl(
     this: this,
@@ -623,6 +977,11 @@ class ParamBuilder {
 
   /**
    * Multiply the image dimensions according to the specified factors.
+   *
+   * @example
+   * ```typescript
+   * pb().zoom(3);
+   * ```
    */
   public zoom(this: this, ...options: Parameters<typeof zoom>): this {
     this.modifiers.set('zoom', zoom(...options));

@@ -284,10 +284,10 @@ describe('Transformers', () => {
       expect(
         pb().pngOptions({
           interlaced: true,
-          quantization_colors: true,
+          quantization_colors: 3,
           quantize: true,
         }),
-      ).toIncludeModifier('pngo:true:true:true');
+      ).toIncludeModifier('pngo:true:true:3');
     });
   });
 
