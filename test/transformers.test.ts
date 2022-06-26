@@ -98,7 +98,7 @@ describe('Transformers', () => {
             },
           },
         }),
-      ).toIncludeModifier('c:12:34:center:56:78');
+      ).toIncludeModifier('c:12:34:ce:56:78');
     });
 
     test('Omits Gravity If Not Specified', () => {
