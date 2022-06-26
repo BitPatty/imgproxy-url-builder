@@ -6,6 +6,58 @@ import ResizingAlgorithm from './enums/resizing-algorithm.enum';
 import UnsharpeningMode from './enums/unsharpening-mode.enum';
 import WatermarkPosition from './enums/watermark-position.enum';
 
+import adjust from './transformers/adjust';
+import autoRotate from './transformers/auto-rotate';
+import background from './transformers/background';
+import backgroundAlpha from './transformers/background-alpha';
+import blur from './transformers/blur';
+import blurDetections from './transformers/blur-detections';
+import brightness from './transformers/brightness';
+import cacheBuster from './transformers/cache-buster';
+import contrast from './transformers/contrast';
+import crop from './transformers/crop';
+import dpr from './transformers/dpr';
+import drawDetections from './transformers/draw-detections';
+import enforceThumbnail from './transformers/enforce-thumbnail';
+import enlarge from './transformers/enlarge';
+import expires from './transformers/expires';
+import extend from './transformers/extend';
+import fallbackImageUrl from './transformers/fallback-image-url';
+import fileName from './transformers/filename';
+import format from './transformers/format';
+import formatQuality from './transformers/format-quality';
+import gifOptions from './transformers/gif-options';
+import gravity from './transformers/gravity';
+import jpegOptions from './transformers/jpeg-options';
+import keepCopyright from './transformers/keep-copypright';
+import maxBytes from './transformers/max-bytes';
+import minHeight from './transformers/min-height';
+import minWidth from './transformers/min-width';
+import pad from './transformers/pad';
+import page from './transformers/page';
+import pixelate from './transformers/pixelate';
+import pngOptions from './transformers/png-options';
+import preset from './transformers/preset';
+import quality from './transformers/quality';
+import resize from './transformers/resize';
+import resizingAlgorithm from './transformers/resizing-algorithm';
+import returnAttachment from './transformers/return-attachment';
+import rotate from './transformers/rotate';
+import saturation from './transformers/saturation';
+import sharpen from './transformers/sharpen';
+import skipProcessing from './transformers/skip-processing';
+import stripColorProfile from './transformers/strip-color-profile';
+import stripMetadata from './transformers/strip-metadata';
+import style from './transformers/style';
+import trim from './transformers/trim';
+import unsharpen from './transformers/unsharpen';
+import videoThumbnailSecond from './transformers/video-thumbnail-second';
+import watermark from './transformers/watermark';
+import watermarkSize from './transformers/watermark-size';
+import watermarkText from './transformers/watermark-text';
+import watermarkUrl from './transformers/watermark-url';
+import zoom from './transformers/zoom';
+
 import { AdjustOptions } from './transformers/adjust';
 import { BackgroundAlphaOptions } from './transformers/background-alpha';
 import { BackgroundOptions } from './transformers/background';
@@ -107,4 +159,56 @@ export {
   WatermarkTextOptions,
   WatermarkUrlOptions,
   ZoomOptions,
+  // Modifier functions
+  adjust,
+  autoRotate,
+  background,
+  backgroundAlpha,
+  blur,
+  blurDetections,
+  brightness,
+  cacheBuster,
+  contrast,
+  crop,
+  dpr,
+  drawDetections,
+  enforceThumbnail,
+  enlarge,
+  expires,
+  extend,
+  fallbackImageUrl,
+  fileName,
+  format,
+  formatQuality,
+  gifOptions,
+  gravity,
+  jpegOptions,
+  keepCopyright,
+  maxBytes,
+  minHeight,
+  minWidth,
+  pad,
+  page,
+  pixelate,
+  pngOptions,
+  preset,
+  quality,
+  resize,
+  resizingAlgorithm,
+  returnAttachment,
+  rotate,
+  saturation,
+  sharpen,
+  skipProcessing,
+  stripColorProfile,
+  stripMetadata,
+  style,
+  trim,
+  unsharpen,
+  videoThumbnailSecond,
+  watermark,
+  watermarkSize,
+  watermarkText,
+  watermarkUrl,
+  zoom,
 };

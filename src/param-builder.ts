@@ -67,7 +67,7 @@ export type BuildOptions = {
   baseUrl?: string;
 
   /**
-   * Whether to append the {@link BuildOptions.path} in plain.
+   * Whether to append the path in plain.
    *
    * Defaults to false. If true, encodes the path to a  base64url
    */
@@ -103,7 +103,7 @@ class ParamBuilder {
 
   /**
    * Creates a new param builder instance with a copy of the
-   * current {@link ParamBuilder.modifiers}
+   * current modifiers
    *
    * @returns A copy of this param builder
    */
@@ -117,22 +117,27 @@ class ParamBuilder {
    *
    * @param modifier  The modifier
    */
-  public unset(this: this, modifier: keyof ParamBuilder): this {
-    this.modifiers.delete(modifier);
+  public unset(
+    this: this,
+    modifier: Omit<
+      keyof ParamBuilder,
+      'build' | 'unset' | 'clone' | 'modifiers'
+    >,
+  ): this {
+    this.modifiers.delete(modifier as keyof ParamBuilder);
     return this;
   }
 
   /**
    * Builds the imgproxy URL
    *
-   * If {@link BuildOptions.path} is supplied, the full URL path will be returned,
+   * If a path is supplied, the full URL path will be returned,
    * else only the stringified modifiers will be returned.
    *
-   * If {@link BuildOptions.baseUrl} is supplied, the full imgproxy URL will be returned.
+   * If a base URL is supplied, the full imgproxy URL will be returned.
    *
-   * @param options The build options
-   *
-   * @returns The imgproxy URL
+   * @param options  The build options
+   * @returns        The imgproxy URL
    */
   public build(options?: BuildOptions): string {
     const { baseUrl, path, plain, signature } = options ?? {};
@@ -154,7 +159,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link adjust}
+   * @see {@link adjust}
    */
   public adjust(this: this, ...options: Parameters<typeof adjust>): this {
     this.modifiers.set('adjust', adjust(...options));
@@ -162,7 +167,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link autoRotate}
+   * @see {@link autoRotate}
    */
   public autoRotate(this: this): this {
     this.modifiers.set('autoRotate', autoRotate());
@@ -170,7 +175,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link background}
+   * @see {@link background}
    */
   public background(
     this: this,
@@ -181,7 +186,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link backgroundAlpha}
+   * @see {@link backgroundAlpha}
    */
   public backgroundAlpha(
     this: this,
@@ -192,7 +197,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link blur}
+   * @see {@link blur}
    */
   public blur(this: this, ...options: Parameters<typeof blur>): this {
     this.modifiers.set('blur', blur(...options));
@@ -200,7 +205,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link blurDetections}
+   * @see {@link blurDetections}
    */
   public blurDetections(
     this: this,
@@ -211,7 +216,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link brightness}
+   * @see {@link brightness}
    */
   public brightness(
     this: this,
@@ -222,7 +227,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link cacheBuster}
+   * @see {@link cacheBuster}
    */
   public cacheBuster(
     this: this,
@@ -233,7 +238,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link contrast}
+   * @see {@link contrast}
    */
   public contrast(this: this, ...options: Parameters<typeof contrast>): this {
     this.modifiers.set('contrast', contrast(...options));
@@ -241,7 +246,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link crop}
+   * @see {@link crop}
    */
   public crop(this: this, ...options: Parameters<typeof crop>): this {
     this.modifiers.set('crop', crop(...options));
@@ -249,7 +254,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link dpr}
+   * @see {@link dpr}
    */
   public dpr(this: this, ...options: Parameters<typeof dpr>): this {
     this.modifiers.set('dpr', dpr(...options));
@@ -257,7 +262,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link drawDetections}
+   * @see {@link drawDetections}
    */
   public drawDetections(
     this: this,
@@ -268,7 +273,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link enforceThumbnail}
+   * @see {@link enforceThumbnail}
    */
   public enforceThumbnail(this: this): this {
     this.modifiers.set('enforceThumbnail', enforceThumbnail());
@@ -276,7 +281,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link enlarge}
+   * @see {@link enlarge}
    */
   public enlarge(this: this): this {
     this.modifiers.set('enlarge', enlarge());
@@ -284,7 +289,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link expires}
+   * @see {@link expires}
    */
   public expires(this: this, ...options: Parameters<typeof expires>): this {
     this.modifiers.set('expires', expires(...options));
@@ -292,7 +297,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link extend}
+   * @see {@link extend}
    */
   public extend(this: this, ...options: Parameters<typeof extend>): this {
     this.modifiers.set('extend', extend(...options));
@@ -300,7 +305,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link fallbackImageUrl}
+   * @see {@link fallbackImageUrl}
    */
   public fallbackImageUrl(
     this: this,
@@ -311,7 +316,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link filename}
+   * @see {@link fileName}
    */
   public filename(this: this, ...options: Parameters<typeof fileName>): this {
     this.modifiers.set('filename', fileName(...options));
@@ -319,7 +324,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link format}
+   * @see {@link format}
    */
   public format(this: this, ...options: Parameters<typeof format>): this {
     this.modifiers.set('format', format(...options));
@@ -327,7 +332,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link formatQuality}
+   * @see {@link formatQuality}
    */
   public formatQuality(
     this: this,
@@ -338,7 +343,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link gifOptions}
+   * @see {@link gifOptions}
    */
   public gifOptions(
     this: this,
@@ -349,7 +354,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link gravity}
+   * @see {@link gravity}
    */
   public gravity(this: this, ...options: Parameters<typeof gravity>): this {
     this.modifiers.set('gravity', gravity(...options));
@@ -357,7 +362,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link jpegOptions}
+   * @see {@link jpegOptions}
    */
   public jpegOptions(
     this: this,
@@ -368,7 +373,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link keepCopyright}
+   * @see {@link keepCopyright}
    */
   public keepCopyright(this: this): this {
     this.modifiers.set('keepCopyright', keepCopyright());
@@ -376,7 +381,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link maxBytes}
+   * @see {@link maxBytes}
    */
   public maxBytes(this: this, ...options: Parameters<typeof maxBytes>): this {
     this.modifiers.set('maxBytes', maxBytes(...options));
@@ -384,23 +389,23 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link minHeight}
+   * @see {@link minHeight}
    */
   public minHeight(this: this, ...options: Parameters<typeof minHeight>): this {
-    this.modifiers.set('maxBytes', minHeight(...options));
+    this.modifiers.set('maxBytes', maxBytes(...options));
     return this;
   }
 
   /**
-   * See {@link minWidth}
+   * @see {@link minWidth}
    */
   public minWidth(this: this, ...options: Parameters<typeof minWidth>): this {
-    this.modifiers.set('maxBytes', minWidth(...options));
+    this.modifiers.set('maxBytes', maxBytes(...options));
     return this;
   }
 
   /**
-   * See {@link pad}
+   * @see {@link pad}
    */
   public pad(this: this, ...options: Parameters<typeof pad>): this {
     this.modifiers.set('pad', pad(...options));
@@ -408,7 +413,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link page}
+   * @see {@link page}
    */
   public page(this: this, ...options: Parameters<typeof page>): this {
     this.modifiers.set('page', page(...options));
@@ -416,7 +421,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link pixelate}
+   * @see {@link pixelate}
    */
   public pixelate(this: this, ...options: Parameters<typeof pixelate>): this {
     this.modifiers.set('pixelate', pixelate(...options));
@@ -424,7 +429,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link pngOptions}
+   * @see {@link pngOptions}
    */
   public pngOptions(
     this: this,
@@ -435,7 +440,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link preset}
+   * @see {@link preset}
    */
   public preset(this: this, ...options: Parameters<typeof preset>): this {
     this.modifiers.set('preset', preset(...options));
@@ -443,7 +448,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link resizingAlgorithm}
+   * @see {@link resizingAlgorithm}
    */
   public resizingAlgorithm(
     this: this,
@@ -454,7 +459,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link returnAttachment}
+   * @see {@link returnAttachment}
    */
   public returnAttachment(this: this): this {
     this.modifiers.set('returnAttachment', returnAttachment());
@@ -462,7 +467,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link quality}
+   * @see {@link quality}
    */
   public quality(this: this, ...options: Parameters<typeof quality>): this {
     this.modifiers.set('quality', quality(...options));
@@ -470,7 +475,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link resize}
+   * @see {@link resize}
    */
   public resize(this: this, ...options: Parameters<typeof resize>): this {
     this.modifiers.set('resize', resize(...options));
@@ -478,7 +483,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link rotate}
+   * @see {@link rotate}
    */
   public rotate(this: this, ...options: Parameters<typeof rotate>): this {
     this.modifiers.set('rotate', rotate(...options));
@@ -486,7 +491,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link saturation}
+   * @see {@link saturation}
    */
   public saturation(
     this: this,
@@ -497,7 +502,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link sharpen}
+   * @see {@link sharpen}
    */
   public sharpen(this: this, ...options: Parameters<typeof sharpen>): this {
     this.modifiers.set('sharpen', sharpen(...options));
@@ -505,7 +510,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link skipProcessing}
+   * @see {@link skipProcessing}
    */
   public skipProcessing(
     this: this,
@@ -516,7 +521,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link stripColorProfile}
+   * @see {@link stripColorProfile}
    */
   public stripColorProfile(this: this): this {
     this.modifiers.set('stripColorProfile', stripColorProfile());
@@ -524,7 +529,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link stripMetadata}
+   * @see {@link stripMetadata}
    */
   public stripMetadata(this: this): this {
     this.modifiers.set('stripMetadata', stripMetadata());
@@ -532,7 +537,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link style}
+   * @see {@link style}
    */
   public style(this: this, ...options: Parameters<typeof style>): this {
     this.modifiers.set('style', style(...options));
@@ -540,7 +545,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link trim}
+   * @see {@link trim}
    */
   public trim(this: this, ...options: Parameters<typeof trim>): this {
     this.modifiers.set('trim', trim(...options));
@@ -548,7 +553,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link unsharpen}
+   * @see {@link unsharpen}
    */
   public unsharpen(this: this, ...options: Parameters<typeof unsharpen>): this {
     this.modifiers.set('unsharpen', unsharpen(...options));
@@ -556,7 +561,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link videoThumbnailSecond}
+   * @see {@link videoThumbnailSecond}
    */
   public videoThumbnailSecond(
     this: this,
@@ -570,7 +575,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link watermark}
+   * @see {@link watermark}
    */
   public watermark(this: this, ...options: Parameters<typeof watermark>): this {
     this.modifiers.set('watermark', watermark(...options));
@@ -578,7 +583,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link watermarkSize}
+   * @see {@link watermarkSize}
    */
   public watermarkSize(
     this: this,
@@ -589,7 +594,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link watermarkText}
+   * @see {@link watermarkText}
    */
   public watermarkText(
     this: this,
@@ -600,7 +605,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link watermarkUrl}
+   * @see {@link watermarkUrl}
    */
   public watermarkUrl(
     this: this,
@@ -611,7 +616,7 @@ class ParamBuilder {
   }
 
   /**
-   * See {@link zoom}
+   * @see {@link zoom}
    */
   public zoom(this: this, ...options: Parameters<typeof zoom>): this {
     this.modifiers.set('zoom', zoom(...options));

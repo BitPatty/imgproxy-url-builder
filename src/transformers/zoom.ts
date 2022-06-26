@@ -9,7 +9,7 @@ type ZoomOptions = number | [number, number];
 /**
  * When set, imgproxy will multiply the image dimensions according to these factors.
  *
- * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#zoom}.
+ * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#zoom}. for the imgproxy documentation
  *
  * The values must be greater than 0.
  *
