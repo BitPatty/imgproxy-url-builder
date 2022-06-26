@@ -1,15 +1,18 @@
 import { base64urlEncode, utf8encode } from '../crypto/codec';
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
+/**
+ * The watermark URL
+ */
 type WatermarkUrlOptions = string;
 
 /**
- * When set, imgproxy will use the image
- * from the specified URL as a watermark.
+ * When set, imgproxy will use the image from the specified URL as a watermark.
  *
- * @param url The watermark URL
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-url-idwatermark-url}.
  *
- * @returns The watermark url param string
+ * @param url  The watermark URL
+ * @returns    The watermark URL param string
  */
 const watermarkUrl = (url: WatermarkUrlOptions): string =>
   stringifyOptions('wmu', [base64urlEncode(utf8encode(url))]);

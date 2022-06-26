@@ -1,5 +1,8 @@
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
+/**
+ * The PNG options
+ */
 type PngOptions = {
   /**
    * If true, enables interlaced PNG compression
@@ -20,11 +23,12 @@ type PngOptions = {
 };
 
 /**
- * Allows redefining PNG saving options
+ * Allows redefining PNG saving options.
  *
- * @param options The png options
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#png-options-idpng-options}.
  *
- * @returns The png option params
+ * @param options  The png options
+ * @returns        The png option param string
  */
 const pngOptions = (options: PngOptions): string =>
   stringifyOptions('pngo', [

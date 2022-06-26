@@ -1,6 +1,9 @@
 import UnsharpeningMode from '../enums/unsharpening-mode.enum';
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
+/**
+ * The unsharpening options
+ */
 type UnsharpeningOptions = {
   /**
    * The mode in which the unsharpening mask
@@ -32,9 +35,10 @@ type UnsharpeningOptions = {
 /**
  * Allows redefining unsharpening options.
  *
- * @param options The unsharpening options
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#unsharpening-idunsharpening}.
  *
- * @returns The unsharpening params
+ * @param options  The unsharpening options
+ * @returns        The unsharpening param string
  */
 const unsharpen = (options: UnsharpeningOptions): string =>
   stringifyOptions('ush', [options.mode, options.weight, options.dividor]);

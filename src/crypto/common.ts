@@ -7,9 +7,8 @@ const BLOCK_SIZE = 512;
  * Converts an array of 8-bit bytes to an array
  * of 32-bit words
  *
- * @param arr The array of 8-bit bytes
- *
- * @returns The array of 32-bit words
+ * @param arr  The array of 8-bit bytes
+ * @returns    The array of 32-bit words
  */
 const byteArrayToWordArray = (arr: number[]): number[] => {
   const res = [];
@@ -26,8 +25,8 @@ const byteArrayToWordArray = (arr: number[]): number[] => {
  * Converts an array of 32-bit words to an array
  * of 8-bit bytes
  *
- * @param arr The array of 32-bit words
- * @returns The array of 8-bit words
+ * @param arr  The array of 32-bit words
+ * @returns    The array of 8-bit words
  */
 const wordArrayToByteArray = (arr: number[]): number[] => {
   const res = [];

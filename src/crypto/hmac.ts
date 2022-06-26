@@ -4,10 +4,9 @@ import { BLOCK_SIZE, wordArrayToByteArray } from './common';
 /**
  * Pads the specified byte-array to the block size
  *
- * @param arr The array
- * @param val The value to pad the array with
- *
- * @returns The padded array
+ * @param arr  The array
+ * @param val  The value to pad the array with
+ * @returns    The padded array
  */
 const blockPad = (arr: number[], val = 0): number[] => {
   return [
@@ -19,9 +18,8 @@ const blockPad = (arr: number[], val = 0): number[] => {
 /**
  * Gets the block-padded key
  *
- * @param keyBytes The key bytes
- *
- * @returns The padded key
+ * @param keyBytes  The key bytes
+ * @returns         The padded key
  */
 const getBlockKey = (keyBytes: number[]): number[] => {
   if (keyBytes.length * 8 === BLOCK_SIZE) return keyBytes;
@@ -32,10 +30,9 @@ const getBlockKey = (keyBytes: number[]): number[] => {
 /**
  * Creates the HMAC of the specified message
  *
- * @param key The key (byte-array)
- * @param message The message (byte-array)
- *
- * @returns The HMAC as array of 32 bit words
+ * @param key      The key (byte-array)
+ * @param message  The message (byte-array)
+ * @returns        The HMAC as array of 32 bit words
  */
 const hmac = (key: number[], message: number[]): number[] => {
   const bK = getBlockKey(key);

@@ -1,6 +1,9 @@
 import WatermarkPosition from '../enums/watermark-position.enum';
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
+/**
+ * The watermark options
+ */
 type WatermarkOptions = {
   /**
    * The opacity.
@@ -43,11 +46,12 @@ type WatermarkOptions = {
 );
 
 /**
- * Applies a gaussian blur filter to the image
+ * Places a watermark on the processed image.
  *
- * @param options The size of the blur mask
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark}.
  *
- * @returns The blur params
+ * @param options  The watermark options
+ * @returns        The watermark param string
  */
 const watermark = (options: WatermarkOptions): string =>
   stringifyOptions('wm', [

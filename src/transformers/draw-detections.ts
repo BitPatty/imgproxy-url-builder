@@ -1,5 +1,8 @@
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
+/**
+ * The draw detection options
+ */
 type DrawDetectionOptions = {
   /**
    * The class names. If omitted, imgproxy draws the
@@ -10,10 +13,12 @@ type DrawDetectionOptions = {
 
 /**
  * Detects objects of the provided classes and draws their
- * bounding boxes
+ * bounding boxes.
  *
- * @param options The detection options
- * @returns       The draw detection params
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#draw-detections-iddraw-detections}.
+ *
+ * @param options  The detection options
+ * @returns        The draw detection param string
  */
 const drawDetections = (options: DrawDetectionOptions): string =>
   stringifyOptions('dd', [true, ...(options.classNames ?? [])]);

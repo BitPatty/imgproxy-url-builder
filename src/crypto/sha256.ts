@@ -20,13 +20,11 @@ const ROUND_CONSTANTS = [
 ];
 
 /**
- * Rotates the word right by the specified
- * number of bits
+ * Rotates the word right by the specified number of bits
  *
- * @param word The word
- * @param cnt The number of rotations
- *
- * @returns The rotated word
+ * @param word  The word
+ * @param cnt   The number of rotations
+ * @returns     The rotated word
  */
 const rotr = (word: number, cnt: number): number => {
   return (word >>> cnt) | (word << (32 - cnt));
@@ -35,9 +33,8 @@ const rotr = (word: number, cnt: number): number => {
 /**
  * Prepares the message for chunking
  *
- * @param bytes The message bytes
- *
- * @returns The padded message (32-bit word array)
+ * @param bytes  The message bytes
+ * @returns      The padded message (32-bit word array)
  */
 const prepareMessage = (bytes: number[]): number[] => {
   const msgLen = bytes.length * 8;
@@ -112,8 +109,8 @@ const processChunk = (chunk: number[], hv: number[]): number[] => {
  * Calculates the SHA256 of the specified
  * byte array
  *
- * @param bytes The byte array
- * @returns The SHA256 as 32-bit word array
+ * @param bytes  The byte array
+ * @returns      The SHA256 as 32-bit word array
  */
 const sha256 = (bytes: number[]): number[] => {
   const pm = prepareMessage(bytes);

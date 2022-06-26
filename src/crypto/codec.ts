@@ -1,9 +1,8 @@
 /**
  * Masks the lowest 6 bits of the specified number
  *
- * @param num The number
- *
- * @returns The lowest 6 bits
+ * @param num  The number
+ * @returns    The lowest 6 bits
  */
 const low6 = (num: number): number => {
   return num & 0b0011_1111;
@@ -12,9 +11,8 @@ const low6 = (num: number): number => {
 /**
  * UTF-8 encodes the specified message
  *
- * @param msg The message
- *
- * @returns The encoded message as array of bytes
+ * @param msg  The message
+ * @returns    The encoded message as array of bytes
  */
 const utf8encode = (msg: string): number[] => {
   const arr: number[] = [];
@@ -81,9 +79,8 @@ const utf8encode = (msg: string): number[] => {
 /**
  * Parses a hex character and returns its numeric value
  *
- * @param char The hex char
- *
- * @returns The numeric value
+ * @param char  The hex char
+ * @returns     The numeric value
  */
 const parseHexChar = (char: string): number => {
   if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(char))
@@ -110,9 +107,8 @@ const parseHexChar = (char: string): number => {
  * Parses a string containing hex characters
  * into an array of bytes
  *
- * @param str The string
- *
- * @returns The array of parsed bytes
+ * @param str  The string
+ * @returns    The array of parsed bytes
  */
 const parseHexString = (str: string): number[] => {
   const res = [];
@@ -131,9 +127,8 @@ const parseHexString = (str: string): number[] => {
  * Encodes the lowest 6 bits of the specified
  * number to its base64url representation
  *
- * @param b The number
- *
- * @returns The base64url encoded bits
+ * @param b  The number
+ * @returns  The base64url encoded bits
  */
 const base64urlChar = (b: number): string => {
   const r = (b & 0b0011_1111) >>> 0;
@@ -160,9 +155,8 @@ const base64urlChar = (b: number): string => {
  * Encodes the specified array of bytes to
  * its base64url representation
  *
- * @param bytes The bytes
- *
- * @returns The base64url string
+ * @param bytes  The bytes
+ * @returns      The base64url string
  */
 const base64urlEncode = (bytes: number[]): string => {
   let res = '';

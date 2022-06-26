@@ -50,7 +50,7 @@ import watermarkText from './transformers/watermark-text';
 import watermarkUrl from './transformers/watermark-url';
 import zoom from './transformers/zoom';
 
-import { encodeFilePath, generateSignature } from './utils';
+import { encodeFilePath, generateSignature } from './common';
 
 /**
  * The build options
@@ -154,7 +154,7 @@ class ParamBuilder {
   }
 
   /**
-   * Defines the brightness, contrast, and saturation.
+   * See {@link adjust}
    */
   public adjust(this: this, ...options: Parameters<typeof adjust>): this {
     this.modifiers.set('adjust', adjust(...options));
@@ -162,7 +162,7 @@ class ParamBuilder {
   }
 
   /**
-   * Automatically rotates the image based on the EXIF orientation parameter
+   * See {@link autoRotate}
    */
   public autoRotate(this: this): this {
     this.modifiers.set('autoRotate', autoRotate());
@@ -170,7 +170,7 @@ class ParamBuilder {
   }
 
   /**
-   * Fills the image background with the specified color
+   * See {@link background}
    */
   public background(
     this: this,
@@ -181,7 +181,7 @@ class ParamBuilder {
   }
 
   /**
-   * Adds alpha channel to background.
+   * See {@link backgroundAlpha}
    */
   public backgroundAlpha(
     this: this,
@@ -192,7 +192,7 @@ class ParamBuilder {
   }
 
   /**
-   * Applies a gaussian blur filter to the image
+   * See {@link blur}
    */
   public blur(this: this, ...options: Parameters<typeof blur>): this {
     this.modifiers.set('blur', blur(...options));
@@ -200,7 +200,7 @@ class ParamBuilder {
   }
 
   /**
-   * Detects objects of the provided classes and blurs them
+   * See {@link blurDetections}
    */
   public blurDetections(
     this: this,
@@ -211,7 +211,7 @@ class ParamBuilder {
   }
 
   /**
-   * When set, imgproxy will adjust brightness of the resulting image.
+   * See {@link brightness}
    */
   public brightness(
     this: this,
@@ -222,7 +222,7 @@ class ParamBuilder {
   }
 
   /**
-   * Adds a cache buster to the imgproxy params
+   * See {@link cacheBuster}
    */
   public cacheBuster(
     this: this,
@@ -233,7 +233,7 @@ class ParamBuilder {
   }
 
   /**
-   * When set, imgproxy will adjust contrast of the resulting image.
+   * See {@link contrast}
    */
   public contrast(this: this, ...options: Parameters<typeof contrast>): this {
     this.modifiers.set('contrast', contrast(...options));
@@ -241,9 +241,7 @@ class ParamBuilder {
   }
 
   /**
-   * Crops the image
-   *
-   * @param options The cropping options
+   * See {@link crop}
    */
   public crop(this: this, ...options: Parameters<typeof crop>): this {
     this.modifiers.set('crop', crop(...options));
@@ -251,12 +249,7 @@ class ParamBuilder {
   }
 
   /**
-   * When set, imgproxy will multiply the image dimensions according to
-   * this factor for HiDPI (Retina) devices. The value must be greater
-   * than 0.
-   *
-   * Note: dpr also sets the `Content-DPR` header in the response so the
-   * browser can correctly render the image.
+   * See {@link dpr}
    */
   public dpr(this: this, ...options: Parameters<typeof dpr>): this {
     this.modifiers.set('dpr', dpr(...options));
@@ -264,8 +257,7 @@ class ParamBuilder {
   }
 
   /**
-   * Detects objects of the provided classes and draws their
-   * bounding boxes
+   * See {@link drawDetections}
    */
   public drawDetections(
     this: this,
@@ -276,8 +268,7 @@ class ParamBuilder {
   }
 
   /**
-   * If the source image has an embedded thumbnail, imgproxy will use the
-   * embedded thumbnail instead of the main image
+   * See {@link enforceThumbnail}
    */
   public enforceThumbnail(this: this): this {
     this.modifiers.set('enforceThumbnail', enforceThumbnail());
@@ -285,7 +276,7 @@ class ParamBuilder {
   }
 
   /**
-   * Enlarges the image of it is smaller than the given size
+   * See {@link enlarge}
    */
   public enlarge(this: this): this {
     this.modifiers.set('enlarge', enlarge());
@@ -293,7 +284,7 @@ class ParamBuilder {
   }
 
   /**
-   * Returns a 404 if the provided timestamp expired
+   * See {@link expires}
    */
   public expires(this: this, ...options: Parameters<typeof expires>): this {
     this.modifiers.set('expires', expires(...options));
@@ -301,7 +292,7 @@ class ParamBuilder {
   }
 
   /**
-   * Extends the image of it is smaller than the given size
+   * See {@link extend}
    */
   public extend(this: this, ...options: Parameters<typeof extend>): this {
     this.modifiers.set('extend', extend(...options));
@@ -309,7 +300,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets the fallback image url
+   * See {@link fallbackImageUrl}
    */
   public fallbackImageUrl(
     this: this,
@@ -320,7 +311,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets the filename for the Content-Disposition header
+   * See {@link filename}
    */
   public filename(this: this, ...options: Parameters<typeof fileName>): this {
     this.modifiers.set('filename', fileName(...options));
@@ -328,7 +319,7 @@ class ParamBuilder {
   }
 
   /**
-   * Specifies the resulting image format
+   * See {@link format}
    */
   public format(this: this, ...options: Parameters<typeof format>): this {
     this.modifiers.set('format', format(...options));
@@ -336,7 +327,7 @@ class ParamBuilder {
   }
 
   /**
-   * Specifies the format quality
+   * See {@link formatQuality}
    */
   public formatQuality(
     this: this,
@@ -347,10 +338,7 @@ class ParamBuilder {
   }
 
   /**
-   * Allows redefining GIF saving options
-   *
-   * @deprecated  GIF optimizations are automatically applied when using
-   *              imgproxy version 3.0.0 or newer.
+   * See {@link gifOptions}
    */
   public gifOptions(
     this: this,
@@ -361,7 +349,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets the gravity
+   * See {@link gravity}
    */
   public gravity(this: this, ...options: Parameters<typeof gravity>): this {
     this.modifiers.set('gravity', gravity(...options));
@@ -369,7 +357,7 @@ class ParamBuilder {
   }
 
   /**
-   * Allows redefining JPEG saving options
+   * See {@link jpegOptions}
    */
   public jpegOptions(
     this: this,
@@ -380,7 +368,7 @@ class ParamBuilder {
   }
 
   /**
-   *  Preserve the copyright info while stripping metadata.
+   * See {@link keepCopyright}
    */
   public keepCopyright(this: this): this {
     this.modifiers.set('keepCopyright', keepCopyright());
@@ -388,10 +376,7 @@ class ParamBuilder {
   }
 
   /**
-   * Limits the file size to the specified
-   * number of bytes
-   *
-   * Note: only applicable to jpg, webp, heic and tiff
+   * See {@link maxBytes}
    */
   public maxBytes(this: this, ...options: Parameters<typeof maxBytes>): this {
     this.modifiers.set('maxBytes', maxBytes(...options));
@@ -399,7 +384,7 @@ class ParamBuilder {
   }
 
   /**
-   * Defines the minimum height of the resulting image.
+   * See {@link minHeight}
    */
   public minHeight(this: this, ...options: Parameters<typeof minHeight>): this {
     this.modifiers.set('maxBytes', minHeight(...options));
@@ -407,7 +392,7 @@ class ParamBuilder {
   }
 
   /**
-   * Defines the minimum width of the resulting image.
+   * See {@link minWidth}
    */
   public minWidth(this: this, ...options: Parameters<typeof minWidth>): this {
     this.modifiers.set('maxBytes', minWidth(...options));
@@ -415,7 +400,7 @@ class ParamBuilder {
   }
 
   /**
-   * Applies the specified padding to the image
+   * See {@link pad}
    */
   public pad(this: this, ...options: Parameters<typeof pad>): this {
     this.modifiers.set('pad', pad(...options));
@@ -423,11 +408,7 @@ class ParamBuilder {
   }
 
   /**
-   * When source image supports pagination (PDF, TIFF)
-   * or animation (GIF, WebP), this option allows
-   * specifying the page to use.
-   *
-   * Pages numeration starts from zero.
+   * See {@link page}
    */
   public page(this: this, ...options: Parameters<typeof page>): this {
     this.modifiers.set('page', page(...options));
@@ -435,7 +416,7 @@ class ParamBuilder {
   }
 
   /**
-   * Applies a pixelate filter to the resulting image.
+   * See {@link pixelate}
    */
   public pixelate(this: this, ...options: Parameters<typeof pixelate>): this {
     this.modifiers.set('pixelate', pixelate(...options));
@@ -443,7 +424,7 @@ class ParamBuilder {
   }
 
   /**
-   * Allows redefining PNG saving options
+   * See {@link pngOptions}
    */
   public pngOptions(
     this: this,
@@ -454,7 +435,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets one or many presets to be used by the imgproxy
+   * See {@link preset}
    */
   public preset(this: this, ...options: Parameters<typeof preset>): this {
     this.modifiers.set('preset', preset(...options));
@@ -462,7 +443,7 @@ class ParamBuilder {
   }
 
   /**
-   * Defines the algorithm that imgproxy will use for resizing.
+   * See {@link resizingAlgorithm}
    */
   public resizingAlgorithm(
     this: this,
@@ -473,7 +454,7 @@ class ParamBuilder {
   }
 
   /**
-   * Returns attachment in the Content-Disposition header
+   * See {@link returnAttachment}
    */
   public returnAttachment(this: this): this {
     this.modifiers.set('returnAttachment', returnAttachment());
@@ -481,7 +462,7 @@ class ParamBuilder {
   }
 
   /**
-   * Redefines the quality of the resulting image
+   * See {@link quality}
    */
   public quality(this: this, ...options: Parameters<typeof quality>): this {
     this.modifiers.set('quality', quality(...options));
@@ -489,7 +470,7 @@ class ParamBuilder {
   }
 
   /**
-   * Resizes the image
+   * See {@link resize}
    */
   public resize(this: this, ...options: Parameters<typeof resize>): this {
     this.modifiers.set('resize', resize(...options));
@@ -497,7 +478,7 @@ class ParamBuilder {
   }
 
   /**
-   * Rotates the image by the specified angle
+   * See {@link rotate}
    */
   public rotate(this: this, ...options: Parameters<typeof rotate>): this {
     this.modifiers.set('rotate', rotate(...options));
@@ -505,7 +486,7 @@ class ParamBuilder {
   }
 
   /**
-   * When set, imgproxy will adjust saturation of the resulting image.
+   * See {@link saturation}
    */
   public saturation(
     this: this,
@@ -516,7 +497,7 @@ class ParamBuilder {
   }
 
   /**
-   * Applies a sharpen filter to the image
+   * See {@link sharpen}
    */
   public sharpen(this: this, ...options: Parameters<typeof sharpen>): this {
     this.modifiers.set('sharpen', sharpen(...options));
@@ -524,7 +505,7 @@ class ParamBuilder {
   }
 
   /**
-   * Skips the processing for the specified extensions
+   * See {@link skipProcessing}
    */
   public skipProcessing(
     this: this,
@@ -535,7 +516,7 @@ class ParamBuilder {
   }
 
   /**
-   * Strips the color profile from the image
+   * See {@link stripColorProfile}
    */
   public stripColorProfile(this: this): this {
     this.modifiers.set('stripColorProfile', stripColorProfile());
@@ -543,7 +524,7 @@ class ParamBuilder {
   }
 
   /**
-   * Strips the metadata from the image
+   * See {@link stripMetadata}
    */
   public stripMetadata(this: this): this {
     this.modifiers.set('stripMetadata', stripMetadata());
@@ -551,7 +532,7 @@ class ParamBuilder {
   }
 
   /**
-   * Applies the specified CSS styles to an SVG source image
+   * See {@link style}
    */
   public style(this: this, ...options: Parameters<typeof style>): this {
     this.modifiers.set('style', style(...options));
@@ -559,7 +540,7 @@ class ParamBuilder {
   }
 
   /**
-   * Trims the image background
+   * See {@link trim}
    */
   public trim(this: this, ...options: Parameters<typeof trim>): this {
     this.modifiers.set('trim', trim(...options));
@@ -567,7 +548,7 @@ class ParamBuilder {
   }
 
   /**
-   * Allows redefining unsharpening options.
+   * See {@link unsharpen}
    */
   public unsharpen(this: this, ...options: Parameters<typeof unsharpen>): this {
     this.modifiers.set('unsharpen', unsharpen(...options));
@@ -575,7 +556,7 @@ class ParamBuilder {
   }
 
   /**
-   * Redefines the second used for the thumbnail
+   * See {@link videoThumbnailSecond}
    */
   public videoThumbnailSecond(
     this: this,
@@ -589,7 +570,7 @@ class ParamBuilder {
   }
 
   /**
-   * Applies a gaussian blur filter to the image
+   * See {@link watermark}
    */
   public watermark(this: this, ...options: Parameters<typeof watermark>): this {
     this.modifiers.set('watermark', watermark(...options));
@@ -597,7 +578,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets the watermark size
+   * See {@link watermarkSize}
    */
   public watermarkSize(
     this: this,
@@ -608,7 +589,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets the watermark Text
+   * See {@link watermarkText}
    */
   public watermarkText(
     this: this,
@@ -619,7 +600,7 @@ class ParamBuilder {
   }
 
   /**
-   * Sets the watermark URL
+   * See {@link watermarkUrl}
    */
   public watermarkUrl(
     this: this,
@@ -630,8 +611,7 @@ class ParamBuilder {
   }
 
   /**
-   * When set, imgproxy will multiply the image dimensions according to these factors.
-   * The values must be greater than 0.
+   * See {@link zoom}
    */
   public zoom(this: this, ...options: Parameters<typeof zoom>): this {
     this.modifiers.set('zoom', zoom(...options));
@@ -639,6 +619,11 @@ class ParamBuilder {
   }
 }
 
+/**
+ * Creates a new param builder instance
+ *
+ * @returns  The param builder instance
+ */
 const pb = (): ParamBuilder => new ParamBuilder();
 
 export default pb;

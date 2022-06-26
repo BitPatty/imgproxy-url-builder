@@ -1,6 +1,4 @@
-// Reference: https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/generating_the_url.md#pixelate
-
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
 /**
  * The size of a pixel
@@ -10,9 +8,10 @@ type PixelateOptions = number;
 /**
  * When set, imgproxy will apply the pixelate filter to the resulting image.
  *
- * @param pixelSize The size of a pixel
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#pixelate}.
  *
- * @returns The pixelate params
+ * @param pixelSize  The size of a pixel
+ * @returns          The pixelate param string
  */
 const pixelate = (pixelSize: PixelateOptions): string =>
   stringifyOptions('pix', [pixelSize]);

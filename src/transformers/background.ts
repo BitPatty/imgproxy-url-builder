@@ -1,5 +1,8 @@
-import { stringifyOptions } from '../utils';
+import { stringifyOptions } from '../common';
 
+/**
+ * The background color
+ */
 type BackgroundOptions =
   | string
   | {
@@ -22,9 +25,10 @@ type BackgroundOptions =
 /**
  * Fills the image background with the specified color
  *
- * @param options The background color (hex encoded string or RGB object)
+ * View the documentation at {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background}.
  *
- * @returns The background params
+ * @param options  The background color (hex encoded string or RGB object)
+ * @returns        The background param string
  */
 const background = (options: BackgroundOptions): string =>
   stringifyOptions('bg', [

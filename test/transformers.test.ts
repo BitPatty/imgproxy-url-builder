@@ -35,8 +35,8 @@ describe('Transformers', () => {
     });
 
     test('Applies Modifier (Hex Encoded)', () => {
-      expect(pb().background('#123456')).toIncludeModifier(
-        'bg:' + encodeURIComponent('#123456'),
+      expect(pb().background('123456')).toIncludeModifier(
+        'bg:' + encodeURIComponent('123456'),
       );
     });
   });
@@ -390,13 +390,13 @@ describe('Transformers', () => {
       expect(
         pb().trim({
           threshold: 12,
-          color: '#123123',
+          color: '123123',
           equal: {
             horizontal: true,
             vertical: true,
           },
         }),
-      ).toIncludeModifier('t:12:%23123123:true:true');
+      ).toIncludeModifier('t:12:123123:true:true');
     });
   });
 

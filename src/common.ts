@@ -3,13 +3,12 @@ import { wordArrayToByteArray } from './crypto/common';
 import hmac from './crypto/hmac';
 
 /**
- * Stringifies the imgproxy modifier for use
- * within the imgproxy URL
+ * Stringifies the imgproxy modifier for use within the
+ * imgproxy URL.
  *
- * @param opCode The operation eky
- * @param values The values
- *
- * @returns The stringified modifier
+ * @param opCode  The operation eky
+ * @param values  The values
+ * @returns       The stringified modifier
  */
 const stringifyOptions = (
   opCode: string,
@@ -24,24 +23,22 @@ const stringifyOptions = (
 };
 
 /**
- * Encodes the filepath to base64
+ * Encodes the filepath to base64.
  *
- * @param filePath The file path
- *
- * @returns The encoded file path
+ * @param filePath  The file path
+ * @returns         The encoded file path
  */
 const encodeFilePath = (filePath: string): string => {
   return base64urlEncode(utf8encode(filePath));
 };
 
 /**
- * Generates the URL for the specified imgproxy
- * param string
+ * Generates the URL for the specified imgproxy param string.
  *
- * @param paramString The param string
- * @param key The hex encoded key
- * @param salt The hex encoded salt
- * @returns The signature
+ * @param paramString  The param string
+ * @param key          The hex encoded key
+ * @param salt         The hex encoded salt
+ * @returns            The signature
  */
 const generateSignature = (
   paramString: string,
