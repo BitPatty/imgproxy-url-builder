@@ -46,7 +46,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "get-pixels": "3.3.3",
     "mmmagic": "0.5.3",
-    "npm-check-updates": "14.0.2",
+    "npm-check-updates": "14.1.1",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
     "rollup": "2.75.7",
