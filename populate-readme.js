@@ -86,8 +86,14 @@ for (let i = 0; i < commentsWithExamples.length; i++) {
     transformers.push({ description, url, example, functionName });
 }
 
+const toc = [];
 const markdown = [];
 for (let i = 0; i < transformers.length; i++) {
+  toc.push(
+    `- [${transformers[i].functionName}](#${transformers[
+      i
+    ].functionName.toLowerCase()}-imgproxy-docs)`,
+  );
   markdown.push('');
   markdown.push(
     `### ${transformers[i].functionName} ([imgproxy docs](${transformers[i].url}))`,
@@ -110,6 +116,8 @@ for (let i = 0; i < readmeLines.length; i++) {
   }
 }
 
+newReadme.push('');
+newReadme.push(...toc);
 newReadme.push(...markdown);
 
 fs.writeFileSync('README.md', newReadme.join('\n'));
