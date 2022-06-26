@@ -394,7 +394,7 @@ class ParamBuilder {
    * Defines the minimum height of the resulting image.
    */
   public minHeight(this: this, ...options: Parameters<typeof minHeight>): this {
-    this.modifiers.set('maxBytes', maxBytes(...options));
+    this.modifiers.set('minHeight', minHeight(...options));
     return this;
   }
 
@@ -402,7 +402,7 @@ class ParamBuilder {
    * Defines the minimum width of the resulting image.
    */
   public minWidth(this: this, ...options: Parameters<typeof minWidth>): this {
-    this.modifiers.set('maxBytes', maxBytes(...options));
+    this.modifiers.set('minWidth', minWidth(...options));
     return this;
   }
 
