@@ -161,6 +161,8 @@ class ParamBuilder {
   /**
    * Defines the brightness, contrast, and saturation.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#adjust-idadjust}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().adjust({
@@ -178,6 +180,8 @@ class ParamBuilder {
   /**
    * Automatically rotates the image based on the EXIF orientation parameter.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#auto-rotate}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().autoRotate();
@@ -190,6 +194,8 @@ class ParamBuilder {
 
   /**
    * Fills the image background with the specified color.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -213,6 +219,8 @@ class ParamBuilder {
   /**
    * Adds alpha channel to background.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background-alpha-idbackground-alpha}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().backgroundAlpha(0.4);
@@ -229,6 +237,8 @@ class ParamBuilder {
   /**
    * Applies a gaussian blur filter to the image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().blur(10);
@@ -241,6 +251,8 @@ class ParamBuilder {
 
   /**
    * Detects objects of the provided classes and blurs them.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur-detections-idblur-detections} for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -260,6 +272,8 @@ class ParamBuilder {
   /**
    * Adjusts the brightness of an image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#brightness-idbrightness}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().brightness(-100);
@@ -275,6 +289,8 @@ class ParamBuilder {
 
   /**
    * Adds a cache buster to the imgproxy params.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#cache-buster}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -292,6 +308,8 @@ class ParamBuilder {
   /**
    * Adjust contrast of the resulting image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#contrast-idcontrast}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().contrast(0.3);
@@ -304,6 +322,8 @@ class ParamBuilder {
 
   /**
    * Crops the image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#crop}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -328,6 +348,8 @@ class ParamBuilder {
   /**
    * Multiplies the dimensions according to the specified factor.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().dpr(18);
@@ -341,6 +363,8 @@ class ParamBuilder {
   /**
    * Detects objects of the provided classes and draws their
    * bounding boxes.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#draw-detections-iddraw-detections}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -361,6 +385,8 @@ class ParamBuilder {
    * If the source image has an embedded thumbnail, imgproxy will use the
    * embedded thumbnail instead of the main image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enforce-thumbnail}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().enforceThumbnail();
@@ -374,6 +400,8 @@ class ParamBuilder {
   /**
    * Enlarges the image if it is smaller than the given size.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enlarge}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().enlarge();
@@ -386,6 +414,8 @@ class ParamBuilder {
 
   /**
    * Returns a 404 if the expiration date is reached.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#expires}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -401,6 +431,8 @@ class ParamBuilder {
 
   /**
    * Extends the image if it is smaller than the given size.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#extend}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -425,6 +457,8 @@ class ParamBuilder {
   /**
    * Sets a custom fallback image by specifying its URL.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#fallback-image-url-idfallback-image-url}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().fallbackImageUrl('https://example.com');
@@ -441,18 +475,22 @@ class ParamBuilder {
   /**
    * Sets the filename for the Content-Disposition header.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#filename}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
-   * pb().filename('filename.png');
+   * pb().fileName('filename.png');
    * ```
    */
-  public filename(this: this, ...options: Parameters<typeof fileName>): this {
-    this.modifiers.set('filename', fileName(...options));
+  public fileName(this: this, ...options: Parameters<typeof fileName>): this {
+    this.modifiers.set('fileName', fileName(...options));
     return this;
   }
 
   /**
    * Specifies the resulting image format.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -466,6 +504,8 @@ class ParamBuilder {
 
   /**
    * Sets the desired quality for each format.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format-quality}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -487,6 +527,7 @@ class ParamBuilder {
   /**
    * Allows redefining GIF saving options.
    *
+   * @deprecated     Automatically applied since version 3.0.0
    * @example
    * ```typescript
    * pb().gifOptions({
@@ -506,6 +547,8 @@ class ParamBuilder {
   /**
    * Sets the gravity.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#gravity}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().gravity({
@@ -524,6 +567,8 @@ class ParamBuilder {
 
   /**
    * Allows redefining JPEG saving options.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#jpeg-options-idjpeg-options}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -548,6 +593,8 @@ class ParamBuilder {
   /**
    * Preserve the copyright info while stripping metadata.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#keep-copyright}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().keepCopyright();
@@ -560,6 +607,8 @@ class ParamBuilder {
 
   /**
    * Limits the file size to the specified number of bytes.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#max-bytes}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -574,6 +623,8 @@ class ParamBuilder {
   /**
    * Defines the minimum height of the resulting image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-height}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().minHeight(100);
@@ -587,6 +638,8 @@ class ParamBuilder {
   /**
    * Defines the minimum width of the resulting image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-width}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().minWidth(100);
@@ -599,6 +652,8 @@ class ParamBuilder {
 
   /**
    * Applies the specified padding to the image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#padding}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -619,6 +674,8 @@ class ParamBuilder {
    * When source image supports pagination (PDF, TIFF) or animation (GIF, WebP), this option allows
    * specifying the page to use.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#page-idpage}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().page(10);
@@ -632,6 +689,8 @@ class ParamBuilder {
   /**
    * Apply the pixelate filter to the resulting image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#pixelate}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().pixelate(5);
@@ -644,6 +703,8 @@ class ParamBuilder {
 
   /**
    * Allows redefining PNG saving options.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#png-options-idpng-options}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -680,6 +741,8 @@ class ParamBuilder {
   /**
    * Defines the algorithm that imgproxy will use for resizing.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().resizingAlgorithm(ResizingAlgorithm.NEAREST));
@@ -696,6 +759,8 @@ class ParamBuilder {
   /**
    * Returns attachment in the Content-Disposition header.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().returnAttachment();
@@ -709,6 +774,8 @@ class ParamBuilder {
   /**
    * Redefines the quality of the resulting image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().quality(80);
@@ -721,6 +788,8 @@ class ParamBuilder {
 
   /**
    * Resizes the image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resize}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -739,6 +808,8 @@ class ParamBuilder {
   /**
    * Rotates the image by the specified angle.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#rotate}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().rotate(90);
@@ -751,6 +822,8 @@ class ParamBuilder {
 
   /**
    * Adjust saturation of the resulting image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#saturation-idsaturation}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -768,6 +841,8 @@ class ParamBuilder {
   /**
    * Applies a sharpen filter to the image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#sharpen}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().sharpen(3);
@@ -780,6 +855,8 @@ class ParamBuilder {
 
   /**
    * Skip the processing of the listed formats.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#skip-processing} for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -797,6 +874,8 @@ class ParamBuilder {
   /**
    * Strips the color profile from the image.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-color-profile}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().stripColorProfile();
@@ -809,6 +888,8 @@ class ParamBuilder {
 
   /**
    * Strips the metadata from the image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-metadata}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -823,6 +904,8 @@ class ParamBuilder {
   /**
    * Prepend a <style> node with the provided CSS styles to the
    *  <svg> node of a source SVG image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#style-idstyle}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -841,6 +924,8 @@ class ParamBuilder {
 
   /**
    * Trims the image background.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#trim}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -862,6 +947,8 @@ class ParamBuilder {
   /**
    * Allows redefining unsharpening options.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#unsharpening-idunsharpening}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().unsharpen({
@@ -878,6 +965,8 @@ class ParamBuilder {
 
   /**
    * Redefines the second used for the thumbnail.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -897,6 +986,8 @@ class ParamBuilder {
 
   /**
    * Places a watermark on the processed image.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark}. for the imgproxy documentation
    *
    * @example
    * ```typescript
@@ -927,6 +1018,8 @@ class ParamBuilder {
    * uses `fit` resizing type when resizing watermarks and enlarges them
    * when needed.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-size-idwatermark-size} for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().watermarkSize({
@@ -946,6 +1039,8 @@ class ParamBuilder {
   /**
    * Generate an image from the provided text and use it as a watermark.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-text-idwatermark-text}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().watermarkText("my watermark");
@@ -962,6 +1057,8 @@ class ParamBuilder {
   /**
    * Use the image from the specified URL as a watermark.
    *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-url-idwatermark-url}. for the imgproxy documentation
+   *
    * @example
    * ```typescript
    * pb().watermarkUrl('https://example.com');
@@ -977,6 +1074,8 @@ class ParamBuilder {
 
   /**
    * Multiply the image dimensions according to the specified factors.
+   *
+   * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#zoom}. for the imgproxy documentation
    *
    * @example
    * ```typescript

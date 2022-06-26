@@ -3,3 +3,4 @@ dist/**
 scripts/**
 **/*.sh
 rollup.config.js
+populate-readme.js

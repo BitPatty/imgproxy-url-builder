@@ -169,7 +169,7 @@ describe('Transformers', () => {
 
   describe('Filename', () => {
     test('Applies Modifier', () => {
-      expect(pb().filename('foo.png')).toIncludeModifier('fn:foo.png');
+      expect(pb().fileName('foo.png')).toIncludeModifier('fn:foo.png');
     });
   });
 
