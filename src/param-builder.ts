@@ -260,6 +260,7 @@ class ParamBuilder {
    *   sigma: 10,
    *   classNames: ['face']
    * });
+   * ```
    */
   public blurDetections(
     this: this,
