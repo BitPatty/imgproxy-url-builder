@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "esnext",
-    "target": "es6",
+    "outDir": "dist/esm",
+    "module": "ES2015",
+    "target": "ES2020",
+    "moduleResolution": "node",
     "sourceMap": true,
     "allowJs": false,
-    "jsx": "react",
     "declaration": true,
     "emitDeclarationOnly": false,
-    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -19,6 +18,5 @@
     "noUnusedParameters": true,
     "esModuleInterop": true
   },
-  "include": ["src/**/*", "test/**/*", "./*.ts"],
-  "exclude": ["node_modules", "dist", "rollup.config.*"]
+  "include": ["src/**/*"],
 }

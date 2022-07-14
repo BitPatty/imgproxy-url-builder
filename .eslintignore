@@ -2,5 +2,6 @@ coverage/**
 dist/**
 scripts/**
 **/*.sh
-rollup.config.js
-populate-readme.js
+rollup.config.*.js
+populate-readme.cjs
+create-pkg-json.cjs
