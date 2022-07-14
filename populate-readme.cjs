@@ -48,9 +48,7 @@ for (let i = 0; i < commentsWithExamples.length; i++) {
 
   for (let j = 0; j < textLines.length; j++) {
     if (
-      textLines[j]
-        .trim()
-        .startsWith('@see {@link https://github.com/imgproxy/imgproxy')
+      textLines[j].trim().startsWith('See https://github.com/imgproxy/imgproxy')
     ) {
       mode = 'link';
     } else if (textLines[j].startsWith('@example')) {
@@ -64,7 +62,7 @@ for (let i = 0; i < commentsWithExamples.length; i++) {
         description += ` ${textLines[j]}`;
         break;
       case 'link':
-        url = textLines[j].replace(/^.+(https\:\/\/[^}]+).+$/, '$1');
+        url = textLines[j].replace(/^.+(https\:\/\/[^ ]+).+$/, '$1');
         break;
       case 'example':
         for (let k = j + 1; k < textLines.length; k++) {

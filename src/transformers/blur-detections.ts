@@ -18,7 +18,7 @@ type BlurDetectionOptions = {
 /**
  * Detects objects of the provided classes and blurs them.
  *
- * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur-detections-idblur-detections} for the imgproxy documentation
+ * See https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur-detections-idblur-detections for the imgproxy documentation
  *
  * @param options  The detection options
  * @returns        The blur detection param string

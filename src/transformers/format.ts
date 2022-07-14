@@ -17,7 +17,7 @@ type FormatOptions =
 /**
  * Specifies the resulting image format.
  *
- * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format}. for the imgproxy documentation
+ * See https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format for the imgproxy documentation
  *
  * @param imageFormat  The target format
  * @returns            The format param string

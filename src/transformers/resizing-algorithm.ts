@@ -9,7 +9,7 @@ type ResizingAlgorithmOptions = ResizingAlgorithm;
 /**
  * Defines the algorithm that imgproxy will use for resizing.
  *
- * @see {@link https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resizing-algorithm-idresizing-algorithm}. for the imgproxy documentation
+ * See https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resizing-algorithm-idresizing-algorithm for the imgproxy documentation
  *
  * @param algorithm  The resizing algorithm
  * @returns          The resizing algorithm param string
