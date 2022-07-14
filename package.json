@@ -1,6 +1,6 @@
 {
   "name": "@bitpatty/imgproxy-url-builder",
-  "version": "0.6.0",
+  "version": "0.7.0-rc.1",
   "description": "imgproxy param builder",
   "author": "Matteias Collet <matteias.collet@bluewin.ch>",
   "type": "module",
