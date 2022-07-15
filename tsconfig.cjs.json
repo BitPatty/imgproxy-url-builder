@@ -6,17 +6,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "allowJs": false,
-    "declaration": true,
-    "emitDeclarationOnly": false,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "esModuleInterop": true
+    "declaration": false,
   },
   "include": ["src/**/*"],
 }
