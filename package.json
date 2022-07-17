@@ -5,17 +5,17 @@
   "author": "Matteias Collet <matteias.collet@bluewin.ch>",
   "type": "module",
   "main": "dist/cjs/index.js",
-  "module": "dist/mjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/mjs/index.js",
+      "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     }
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "rollup -c rollup.config.cjs.js && rollup -c rollup.config.esm.js && rollup -c rollup.config.types.js && node create-pkg-json.cjs",
+    "build": "rollup -c",
     "test": "jest --verbose",
     "docs": "typedoc",
     "deps:force-upgrade": "npm-check-updates -u && rm -rf node_modules && rm -f package-lock.json && npm i"
