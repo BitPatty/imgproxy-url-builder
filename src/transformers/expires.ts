@@ -15,7 +15,9 @@ type ExpiresOptions = Date | number;
  */
 const expires = (options: ExpiresOptions): string =>
   stringifyOptions('exp', [
-    typeof options === 'number' ? options : options.getTime(),
+    typeof options === 'number'
+      ? options
+      : Math.floor(options.getTime() / 1000),
   ]);
 
 export default expires;

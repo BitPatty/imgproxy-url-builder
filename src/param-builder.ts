@@ -420,9 +420,9 @@ class ParamBuilder {
    *
    * @example
    * ```typescript
-   * pb().expires((new Date()).getTime());
+   * pb().expires(new Date());
    *
-   * pb().expires(166666666);
+   * pb().expires(1661431326);
    * ```
    */
   public expires(this: this, ...options: Parameters<typeof expires>): this {

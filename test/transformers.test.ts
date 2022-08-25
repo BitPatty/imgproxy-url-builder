@@ -144,7 +144,9 @@ describe('Transformers', () => {
   describe('Expires', () => {
     test('Applies Modifier (Date)', () => {
       const date = new Date();
-      expect(pb().expires(date)).toIncludeModifier(`exp:${date.getTime()}`);
+      expect(pb().expires(date)).toIncludeModifier(
+        `exp:${Math.floor(date.getTime() / 1000)}`,
+      );
     });
 
     test('Applies Modifier (Epoch)', () => {
