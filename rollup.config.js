@@ -1,7 +1,7 @@
 import pkg from './package.json';
 
 import fs from 'fs';
-import path from 'path';
+import path, { dirname } from 'path';
 
 import typescript from 'rollup-plugin-typescript2';
 
@@ -35,10 +35,6 @@ export default {
       strict: true,
       compact: false,
     },
-    {
-      file: pkg.types,
-      sourcemap: false,
-    },
   ],
   plugins: [
     typescript({
@@ -47,7 +43,7 @@ export default {
       tsconfigOverride: {
         compilerOptions: {
           declaration: true,
-          declarationDir: './dist/types',
+          declarationDir: dirname(pkg.types),
         },
       },
     }),
