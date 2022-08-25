@@ -7,7 +7,7 @@ import typescript from 'rollup-plugin-typescript2';
 
 const createPackageJson = {
   writeBundle: (opts) => {
-    if (!['es', 'cjs'].includes(opts.format)) return;
+    if (!['es', 'cjs'].includes(opts.format) || opts.file === pkg.types) return;
     const dirName = path.join(__dirname, path.dirname(opts.file));
     const output = JSON.stringify({
       type: opts.format === 'es' ? 'module' : 'commonjs',
@@ -16,76 +16,42 @@ const createPackageJson = {
   },
 };
 
-export default [
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs',
-        exports: 'named',
-        sourcemap: true,
-        strict: true,
-        compact: false,
-      },
-    ],
-    plugins: [
-      typescript({
-        tsconfig: 'tsconfig.build.json',
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: false,
-          },
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+      strict: true,
+      compact: false,
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+      exports: 'named',
+      sourcemap: true,
+      strict: true,
+      compact: false,
+    },
+    {
+      file: pkg.types,
+      sourcemap: false,
+    },
+  ],
+  plugins: [
+    typescript({
+      tsconfig: 'tsconfig.build.json',
+      useTsconfigDeclarationDir: true,
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: true,
+          declarationDir: './dist/types',
         },
-      }),
-      createPackageJson,
-    ],
-    external: [],
-  },
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: pkg.module,
-        format: 'es',
-        exports: 'named',
-        sourcemap: true,
-        strict: true,
-        compact: false,
       },
-    ],
-    plugins: [
-      typescript({
-        tsconfig: 'tsconfig.build.json',
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: false,
-          },
-        },
-      }),
-      createPackageJson,
-    ],
-    external: [],
-  },
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: pkg.types,
-        sourcemap: false,
-      },
-    ],
-    plugins: [
-      typescript({
-        tsconfig: 'tsconfig.build.json',
-        tsconfigOverride: {
-          compilerOptions: {
-            declaration: true,
-            emitDeclarationOnly: true,
-          },
-        },
-      }),
-    ],
-    external: [],
-  },
-];
+    }),
+    createPackageJson,
+  ],
+  external: [],
+};
