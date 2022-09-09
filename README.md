@@ -102,6 +102,7 @@ t.rotate(34); // rotate: 34, blur: 10
 - [page](#page-imgproxy-docs)
 - [pixelate](#pixelate-imgproxy-docs)
 - [pngOptions](#pngoptions-imgproxy-docs)
+- [preset](#preset-imgproxy-docs)
 - [quality](#quality-imgproxy-docs)
 - [resize](#resize-imgproxy-docs)
 - [resizingAlgorithm](#resizingalgorithm-imgproxy-docs)
@@ -485,6 +486,18 @@ pb().pngOptions({
 });
 ```
 
+### preset ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset))
+
+Sets one or many presets to be used by the imgproxy.
+
+#### Example
+
+```typescript
+pb().preset('mypreset');
+
+pb().preset(['preset1', 'preset2']);
+```
+
 ### quality ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality))
 
 Redefines the quality of the resulting image.
@@ -509,7 +522,7 @@ pb().resize({
 });
 ```
 
-### resizingAlgorithm ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset))
+### resizingAlgorithm ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resizing-algorithm-idresizing-algorithm))
 
 Defines the algorithm that imgproxy will use for resizing.
 
