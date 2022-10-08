@@ -66,6 +66,7 @@
 <li><a href="#pngoptions-imgproxy-docs">pngOptions</a></li>
 <li><a href="#preset-imgproxy-docs">preset</a></li>
 <li><a href="#quality-imgproxy-docs">quality</a></li>
+<li><a href="#raw-imgproxy-docs">raw</a></li>
 <li><a href="#resize-imgproxy-docs">resize</a></li>
 <li><a href="#resizingalgorithm-imgproxy-docs">resizingAlgorithm</a></li>
 <li><a href="#returnattachment-imgproxy-docs">returnAttachment</a></li>
@@ -80,6 +81,7 @@
 <li><a href="#unsharpen-imgproxy-docs">unsharpen</a></li>
 <li><a href="#videothumbnailsecond-imgproxy-docs">videoThumbnailSecond</a></li>
 <li><a href="#watermark-imgproxy-docs">watermark</a></li>
+<li><a href="#watermarkshadow-imgproxy-docs">watermarkShadow</a></li>
 <li><a href="#watermarksize-imgproxy-docs">watermarkSize</a></li>
 <li><a href="#watermarktext-imgproxy-docs">watermarkText</a></li>
 <li><a href="#watermarkurl-imgproxy-docs">watermarkUrl</a></li>
@@ -438,12 +440,23 @@
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">quality</span><span class="hl-0">(</span><span class="hl-6">80</span><span class="hl-0">);</span>
 </code></pre>
 
+<a href="#raw-imgproxy-docs" id="raw-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>raw (<a href="https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#raw">imgproxy docs</a>)</h3>
+</a>
+<p>Returns a raw unprocessed and unchecked source image</p>
+
+<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">raw</span><span class="hl-0">();</span>
+</code></pre>
+
 <a href="#resize-imgproxy-docs" id="resize-imgproxy-docs" style="color: inherit; text-decoration: none;">
   <h3>resize (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resize">imgproxy docs</a>)</h3>
 </a>
 <p>Resizes the image.</p>
 
-<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
+<a href="#example-33" id="example-33" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">type:</span><span class="hl-0"> </span><span class="hl-2">ResizeType</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,             </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">              </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
@@ -454,7 +467,7 @@
 </a>
 <p>Defines the algorithm that imgproxy will use for resizing.</p>
 
-<a href="#example-33" id="example-33" style="color: inherit; text-decoration: none;">
+<a href="#example-34" id="example-34" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resizingAlgorithm</span><span class="hl-0">(</span><span class="hl-2">ResizingAlgorithm</span><span class="hl-0">.</span><span class="hl-8">NEAREST</span><span class="hl-0">));</span>
@@ -465,7 +478,7 @@
 </a>
 <p>Returns attachment in the Content-Disposition header.</p>
 
-<a href="#example-34" id="example-34" style="color: inherit; text-decoration: none;">
+<a href="#example-35" id="example-35" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">returnAttachment</span><span class="hl-0">();</span>
@@ -476,7 +489,7 @@
 </a>
 <p>Rotates the image by the specified angle.</p>
 
-<a href="#example-35" id="example-35" style="color: inherit; text-decoration: none;">
+<a href="#example-36" id="example-36" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">rotate</span><span class="hl-0">(</span><span class="hl-6">90</span><span class="hl-0">);</span>
@@ -487,7 +500,7 @@
 </a>
 <p>Adjust saturation of the resulting image.</p>
 
-<a href="#example-36" id="example-36" style="color: inherit; text-decoration: none;">
+<a href="#example-37" id="example-37" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">saturation</span><span class="hl-0">(</span><span class="hl-6">0.3</span><span class="hl-0">);</span>
@@ -498,7 +511,7 @@
 </a>
 <p>Applies a sharpen filter to the image.</p>
 
-<a href="#example-37" id="example-37" style="color: inherit; text-decoration: none;">
+<a href="#example-38" id="example-38" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">sharpen</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
@@ -509,7 +522,7 @@
 </a>
 <p>Skip the processing of the listed formats.</p>
 
-<a href="#example-38" id="example-38" style="color: inherit; text-decoration: none;">
+<a href="#example-39" id="example-39" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">skipProcessing</span><span class="hl-0">([</span><span class="hl-3">&#39;png&#39;</span><span class="hl-0">, </span><span class="hl-3">&#39;svg&#39;</span><span class="hl-0">]);</span>
@@ -520,7 +533,7 @@
 </a>
 <p>Strips the color profile from the image.</p>
 
-<a href="#example-39" id="example-39" style="color: inherit; text-decoration: none;">
+<a href="#example-40" id="example-40" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">stripColorProfile</span><span class="hl-0">();</span>
@@ -531,7 +544,7 @@
 </a>
 <p>Strips the metadata from the image.</p>
 
-<a href="#example-40" id="example-40" style="color: inherit; text-decoration: none;">
+<a href="#example-41" id="example-41" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">stripMetadata</span><span class="hl-0">();</span>
@@ -542,7 +555,7 @@
 </a>
 <p>Prepend a <code>&lt;style&gt;</code> node with the provided CSS styles to the <code>&lt;svg&gt;</code> node of a source SVG image.</p>
 
-<a href="#example-41" id="example-41" style="color: inherit; text-decoration: none;">
+<a href="#example-42" id="example-42" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">style</span><span class="hl-0">(</span><span class="hl-3">&#39;fill:red;width:30px;&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">style</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">fill:</span><span class="hl-0"> </span><span class="hl-3">&#39;red&#39;</span><span class="hl-0">;</span><br/><span class="hl-0">  </span><span class="hl-2">width</span><span class="hl-0">: </span><span class="hl-3">&#39;30px&#39;</span><br/><span class="hl-0">});</span>
@@ -553,7 +566,7 @@
 </a>
 <p>Trims the image background.</p>
 
-<a href="#example-42" id="example-42" style="color: inherit; text-decoration: none;">
+<a href="#example-43" id="example-43" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">trim</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">threshold:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,       </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-2">color:</span><span class="hl-0"> </span><span class="hl-3">&#39;ffffff&#39;</span><span class="hl-0">,     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">equal:</span><span class="hl-0"> {             </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-2">horizontal:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-2">vertical:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
@@ -564,7 +577,7 @@
 </a>
 <p>Allows redefining unsharpening options.</p>
 
-<a href="#example-43" id="example-43" style="color: inherit; text-decoration: none;">
+<a href="#example-44" id="example-44" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">unsharpen</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">mode:</span><span class="hl-0"> </span><span class="hl-2">UnsharpeningMode</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">,   </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">weight:</span><span class="hl-0"> </span><span class="hl-6">11</span><span class="hl-0">,                    </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">dividor:</span><span class="hl-0"> </span><span class="hl-6">24</span><span class="hl-0">                    </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
@@ -575,7 +588,7 @@
 </a>
 <p>Redefines the second used for the thumbnail.</p>
 
-<a href="#example-44" id="example-44" style="color: inherit; text-decoration: none;">
+<a href="#example-45" id="example-45" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">videoThumbnailSecond</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
@@ -586,10 +599,21 @@
 </a>
 <p>Places a watermark on the processed image.</p>
 
-<a href="#example-45" id="example-45" style="color: inherit; text-decoration: none;">
+<a href="#example-46" id="example-46" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermark</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">opacity:</span><span class="hl-0"> </span><span class="hl-6">0.8</span><span class="hl-0">,                          </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-2">position:</span><span class="hl-0"> </span><span class="hl-2">WatermarkPosition</span><span class="hl-0">.</span><span class="hl-8">REPLICATE</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">scale</span><span class="hl-0">: </span><span class="hl-6">2</span><span class="hl-0">                               </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermark</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">opacity:</span><span class="hl-0"> </span><span class="hl-6">1.0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">scale:</span><span class="hl-0"> </span><span class="hl-6">1</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">position:</span><span class="hl-0"> </span><span class="hl-2">WatermarkPosition</span><span class="hl-0">.</span><span class="hl-8">WEST</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-2">offset</span><span class="hl-0">: {                         </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-2">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,                          </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-2">y:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">                           </span><span class="hl-4">// optional</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">})</span>
+</code></pre>
+
+<a href="#watermarkshadow-imgproxy-docs" id="watermarkshadow-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>watermarkShadow (<a href="https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#watermark-shadow-idwatermark-shadow">imgproxy docs</a>)</h3>
+</a>
+<p>Adds a shadow to the watermark.</p>
+
+<a href="#example-47" id="example-47" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkShadow</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
 </code></pre>
 
 <a href="#watermarksize-imgproxy-docs" id="watermarksize-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -597,7 +621,7 @@
 </a>
 <p>Defines the desired width and height of the watermark. imgproxy always uses <code>fit</code> resizing type when resizing watermarks and enlarges them when needed.</p>
 
-<a href="#example-46" id="example-46" style="color: inherit; text-decoration: none;">
+<a href="#example-48" id="example-48" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkSize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">width:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">,  </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-2">height:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">});</span>
@@ -608,7 +632,7 @@
 </a>
 <p>Generate an image from the provided text and use it as a watermark.</p>
 
-<a href="#example-47" id="example-47" style="color: inherit; text-decoration: none;">
+<a href="#example-49" id="example-49" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkText</span><span class="hl-0">(</span><span class="hl-3">&quot;my watermark&quot;</span><span class="hl-0">);</span>
@@ -619,7 +643,7 @@
 </a>
 <p>Use the image from the specified URL as a watermark.</p>
 
-<a href="#example-48" id="example-48" style="color: inherit; text-decoration: none;">
+<a href="#example-50" id="example-50" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkUrl</span><span class="hl-0">(</span><span class="hl-3">&#39;https://example.com&#39;</span><span class="hl-0">);</span>
@@ -630,7 +654,7 @@
 </a>
 <p>Multiply the image dimensions according to the specified factors.</p>
 
-<a href="#example-49" id="example-49" style="color: inherit; text-decoration: none;">
+<a href="#example-51" id="example-51" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">zoom</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
@@ -706,6 +730,7 @@
 <li class="tsd-kind-type-alias"><a href="types/UnsharpeningOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Unsharpening<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/VideoThumbnailSecondOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Video<wbr/>Thumbnail<wbr/>Second<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/WatermarkOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Watermark<wbr/>Options</a></li>
+<li class="tsd-kind-type-alias"><a href="types/WatermarkShadowOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Watermark<wbr/>Shadow<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/WatermarkSizeOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Watermark<wbr/>Size<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/WatermarkTextOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Watermark<wbr/>Text<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/WatermarkUrlOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Watermark<wbr/>Url<wbr/>Options</a></li>

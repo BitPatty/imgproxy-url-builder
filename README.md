@@ -104,6 +104,7 @@ t.rotate(34); // rotate: 34, blur: 10
 - [pngOptions](#pngoptions-imgproxy-docs)
 - [preset](#preset-imgproxy-docs)
 - [quality](#quality-imgproxy-docs)
+- [raw](#raw-imgproxy-docs)
 - [resize](#resize-imgproxy-docs)
 - [resizingAlgorithm](#resizingalgorithm-imgproxy-docs)
 - [returnAttachment](#returnattachment-imgproxy-docs)
@@ -118,6 +119,7 @@ t.rotate(34); // rotate: 34, blur: 10
 - [unsharpen](#unsharpen-imgproxy-docs)
 - [videoThumbnailSecond](#videothumbnailsecond-imgproxy-docs)
 - [watermark](#watermark-imgproxy-docs)
+- [watermarkShadow](#watermarkshadow-imgproxy-docs)
 - [watermarkSize](#watermarksize-imgproxy-docs)
 - [watermarkText](#watermarktext-imgproxy-docs)
 - [watermarkUrl](#watermarkurl-imgproxy-docs)
@@ -508,6 +510,16 @@ Redefines the quality of the resulting image.
 pb().quality(80);
 ```
 
+### raw ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#raw))
+
+Returns a raw unprocessed and unchecked source image
+
+#### Example
+
+```typescript
+pb().raw();
+```
+
 ### resize ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resize))
 
 Resizes the image.
@@ -680,6 +692,16 @@ pb().watermark({
     y: 10                           // optional
   }
 })
+```
+
+### watermarkShadow ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#watermark-shadow-idwatermark-shadow))
+
+Adds a shadow to the watermark.
+
+#### Example
+
+```typescript
+pb().watermarkShadow(10);
 ```
 
 ### watermarkSize ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-size-idwatermark-size))
