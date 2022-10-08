@@ -305,6 +305,12 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Raw', () => {
+    test('Applies Modifier', () => {
+      expect(pb().raw()).toIncludeModifier('raw:true');
+    });
+  });
+
   describe('Return Attachment', () => {
     test('Applies Modifier', () => {
       expect(pb().returnAttachment()).toIncludeModifier('att:true');

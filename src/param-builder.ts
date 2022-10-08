@@ -31,6 +31,7 @@ import pixelate from './transformers/pixelate';
 import pngOptions from './transformers/png-options';
 import preset from './transformers/preset';
 import quality from './transformers/quality';
+import raw from './transformers/raw';
 import resize from './transformers/resize';
 import resizingAlgorithm from './transformers/resizing-algorithm';
 import returnAttachment from './transformers/return-attachment';
@@ -738,6 +739,21 @@ class ParamBuilder {
    */
   public preset(this: this, ...options: Parameters<typeof preset>): this {
     this.modifiers.set('preset', preset(...options));
+    return this;
+  }
+
+  /**
+   * Returns a raw unprocessed and unchecked source image
+   *
+   * See https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#raw for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().raw();
+   * ```
+   */
+  public raw(this: this, ...options: Parameters<typeof raw>): this {
+    this.modifiers.set('preset', raw(...options));
     return this;
   }
 
