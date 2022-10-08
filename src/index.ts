@@ -46,6 +46,7 @@ import { TrimOptions } from './transformers/trim';
 import { UnsharpeningOptions } from './transformers/unsharpen';
 import { VideoThumbnailSecondOptions } from './transformers/video-thumbnail-second';
 import { WatermarkOptions } from './transformers/watermark';
+import { WatermarkShadowOptions } from './transformers/watermark-shadow';
 import { WatermarkSizeOptions } from './transformers/watermark-size';
 import { WatermarkTextOptions } from './transformers/watermark-text';
 import { WatermarkUrlOptions } from './transformers/watermark-url';
@@ -103,6 +104,7 @@ export {
   UnsharpeningOptions,
   VideoThumbnailSecondOptions,
   WatermarkOptions,
+  WatermarkShadowOptions,
   WatermarkSizeOptions,
   WatermarkTextOptions,
   WatermarkUrlOptions,

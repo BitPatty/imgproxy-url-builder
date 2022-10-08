@@ -46,6 +46,7 @@ import trim from './transformers/trim';
 import unsharpen from './transformers/unsharpen';
 import videoThumbnailSecond from './transformers/video-thumbnail-second';
 import watermark from './transformers/watermark';
+import watermarkShadow from './transformers/watermark-shadow';
 import watermarkSize from './transformers/watermark-size';
 import watermarkText from './transformers/watermark-text';
 import watermarkUrl from './transformers/watermark-url';
@@ -753,7 +754,7 @@ class ParamBuilder {
    * ```
    */
   public raw(this: this, ...options: Parameters<typeof raw>): this {
-    this.modifiers.set('preset', raw(...options));
+    this.modifiers.set('raw', raw(...options));
     return this;
   }
 
@@ -1029,6 +1030,24 @@ class ParamBuilder {
    */
   public watermark(this: this, ...options: Parameters<typeof watermark>): this {
     this.modifiers.set('watermark', watermark(...options));
+    return this;
+  }
+
+  /**
+   * Adds a shadow to the watermark.
+   *
+   * See https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#watermark-shadow-idwatermark-shadow for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().watermarkShadow(10);
+   * ```
+   */
+  public watermarkShadow(
+    this: this,
+    ...options: Parameters<typeof watermarkShadow>
+  ): this {
+    this.modifiers.set('watermarkShadow', watermarkShadow(...options));
     return this;
   }
 

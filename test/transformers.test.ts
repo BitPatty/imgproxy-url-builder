@@ -426,6 +426,12 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Watermark Shadow', () => {
+    test('Applies Modifier', () => {
+      expect(pb().watermarkShadow(1)).toIncludeModifier('wmsh:1');
+    });
+  });
+
   describe('Watermark Size', () => {
     test('Applies Modifier', () => {
       expect(
