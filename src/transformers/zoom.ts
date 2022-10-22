@@ -1,4 +1,4 @@
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The zoom level. Can either be specified for both X/Y or

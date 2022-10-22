@@ -1,4 +1,4 @@
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The min width of the resulting image

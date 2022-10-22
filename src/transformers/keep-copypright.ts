@@ -1,4 +1,4 @@
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * Preserve the copyright info while stripping metadata.

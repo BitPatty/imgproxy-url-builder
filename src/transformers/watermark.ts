@@ -1,5 +1,5 @@
 import WatermarkPosition from '../enums/watermark-position.enum';
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The watermark options

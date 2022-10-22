@@ -1,4 +1,4 @@
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * A record consisting of a mapping from extension/format to the quality factor

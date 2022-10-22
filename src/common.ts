@@ -1,6 +1,6 @@
-import { base64urlEncode, parseHexString, utf8encode } from './crypto/codec';
-import { wordArrayToByteArray } from './crypto/common';
-import hmac from './crypto/hmac';
+import { base64urlEncode, parseHexString, utf8encode } from './crypto/codec.js';
+import { wordArrayToByteArray } from './crypto/common.js';
+import hmac from './crypto/hmac.js';
 
 /**
  * Stringifies the imgproxy modifier for use within the

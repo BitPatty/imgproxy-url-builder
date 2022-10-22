@@ -1,4 +1,4 @@
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * Strips the color profile from the image.

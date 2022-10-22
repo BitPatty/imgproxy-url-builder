@@ -1,5 +1,5 @@
 import ResizingAlgorithm from '../enums/resizing-algorithm.enum';
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The resizing algorithm

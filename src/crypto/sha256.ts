@@ -1,4 +1,4 @@
-import { byteArrayToWordArray, BLOCK_SIZE } from './common';
+import { byteArrayToWordArray, BLOCK_SIZE } from './common.js';
 
 const HASH_VALUES: number[] = [
   0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c,

@@ -4,9 +4,9 @@ import pb, {
   ResizingAlgorithm,
   UnsharpeningMode,
   WatermarkPosition,
-} from '../src';
+} from '../src/index.js';
 
-import { base64urlEncode, utf8encode } from '../src/crypto/codec';
+import { base64urlEncode, utf8encode } from '../src/crypto/codec.js';
 
 describe('Transformers', () => {
   describe('Adjust', () => {

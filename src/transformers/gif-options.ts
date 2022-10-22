@@ -1,7 +1,7 @@
 // Removed in version 3.0.0
 // See: https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/CHANGELOG.md#removed
 
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The GIF options

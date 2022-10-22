@@ -1,5 +1,5 @@
-import sha256 from './sha256';
-import { BLOCK_SIZE, wordArrayToByteArray } from './common';
+import sha256 from './sha256.js';
+import { BLOCK_SIZE, wordArrayToByteArray } from './common.js';
 
 /**
  * Pads the specified byte-array to the block size

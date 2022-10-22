@@ -1,5 +1,5 @@
 import UnsharpeningMode from '../enums/unsharpening-mode.enum';
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The unsharpening options

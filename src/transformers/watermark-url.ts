@@ -1,5 +1,5 @@
 import { base64urlEncode, utf8encode } from '../crypto/codec';
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The watermark URL

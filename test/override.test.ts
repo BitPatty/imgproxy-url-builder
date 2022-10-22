@@ -1,4 +1,4 @@
-import pb from '../src';
+import pb from '../src/index.js';
 
 describe('Override', () => {
   test('Overrides a modifier', () => {

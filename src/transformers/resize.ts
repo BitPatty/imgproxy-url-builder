@@ -1,5 +1,5 @@
 import ResizeType from '../enums/resize-type.enum';
-import { stringifyOptions } from '../common';
+import { stringifyOptions } from '../common.js';
 
 /**
  * The resize options
