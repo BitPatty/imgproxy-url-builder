@@ -1,9 +1,12 @@
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
 
 import fs from 'fs';
 import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 import typescript from 'rollup-plugin-typescript2';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const createPackageJson = {
   writeBundle: (opts) => {
