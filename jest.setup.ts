@@ -1,4 +1,4 @@
-import { ParamBuilder } from './src';
+import { ParamBuilder } from './src/index.js';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

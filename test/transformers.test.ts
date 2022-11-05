@@ -1,4 +1,5 @@
 import pb, {
+  GradientDirection,
   GravityType,
   ResizeType,
   ResizingAlgorithm,
@@ -115,6 +116,12 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Disable Animation', () => {
+    test('Applies Modifier', () => {
+      expect(pb().disableAnimation()).toIncludeModifier('da:true');
+    });
+  });
+
   describe('DPR', () => {
     test('Applies Modifier', () => {
       expect(pb().dpr(10)).toIncludeModifier('dpr:10');
@@ -200,6 +207,28 @@ describe('Transformers', () => {
           optimizeTransparency: true,
         }),
       ).toIncludeModifier('gifo:true:true');
+    });
+  });
+
+  describe('Gradient', () => {
+    test('Applies Modifier', () => {
+      expect(
+        pb().gradient({
+          opacity: 1,
+          direction: GradientDirection.UP,
+          color: 'ff0000',
+          start: 1.3,
+          stop: 1.6,
+        }),
+      ).toIncludeModifier('gr:1:ff0000:up:1.3:1.6');
+    });
+
+    test('Applies default values', () => {
+      expect(
+        pb().gradient({
+          opacity: 1,
+        }),
+      ).toIncludeModifier('gr:1:000:down:0.0:1.0');
     });
   });
 

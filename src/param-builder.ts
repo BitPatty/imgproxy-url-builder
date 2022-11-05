@@ -8,6 +8,7 @@ import brightness from './transformers/brightness.js';
 import cacheBuster from './transformers/cache-buster.js';
 import contrast from './transformers/contrast.js';
 import crop from './transformers/crop.js';
+import disableAnimation from './transformers/disable-animation.js';
 import dpr from './transformers/dpr.js';
 import drawDetections from './transformers/draw-detections.js';
 import enforceThumbnail from './transformers/enforce-thumbnail.js';
@@ -19,6 +20,7 @@ import fileName from './transformers/filename.js';
 import format from './transformers/format.js';
 import formatQuality from './transformers/format-quality.js';
 import gifOptions from './transformers/gif-options.js';
+import gradient from './transformers/gradient.js';
 import gravity from './transformers/gravity.js';
 import jpegOptions from './transformers/jpeg-options.js';
 import keepCopyright from './transformers/keep-copypright.js';
@@ -349,6 +351,24 @@ class ParamBuilder {
   }
 
   /**
+   * Use a single frame of animated images.
+   *
+   * See https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#disable-animation-iddisable-animation for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().disableAnimation();
+   * ```
+   */
+  public disableAnimation(
+    this: this,
+    ...options: Parameters<typeof disableAnimation>
+  ): this {
+    this.modifiers.set('disableAnimation', disableAnimation(...options));
+    return this;
+  }
+
+  /**
    * Multiplies the dimensions according to the specified factor.
    *
    * See https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr for the imgproxy documentation
@@ -544,6 +564,27 @@ class ParamBuilder {
     ...options: Parameters<typeof gifOptions>
   ): this {
     this.modifiers.set('gifOptions', gifOptions(...options));
+    return this;
+  }
+
+  /**
+   * Places a gradient on the processed image.
+   *
+   * See https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#gradient-idgradient for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().gradient({
+   *   opacity: 1,       // required
+   *   color: 'ababab',  // optional
+   *   direction: 'up',  // optional
+   *   start: 0.0,       // optional
+   *   stop: 0.7         // optional
+   * });
+   * ```
+   */
+  public gradient(this: this, ...options: Parameters<typeof gradient>): this {
+    this.modifiers.set('gradient', gradient(...options));
     return this;
   }
 

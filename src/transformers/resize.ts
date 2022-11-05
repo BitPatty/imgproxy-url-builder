@@ -1,4 +1,4 @@
-import ResizeType from '../enums/resize-type.enum';
+import ResizeType from '../enums/resize-type.enum.js';
 import { stringifyOptions } from '../common.js';
 
 /**

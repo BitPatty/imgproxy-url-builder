@@ -1,4 +1,4 @@
-import GravityType from '../enums/gravity-type.enum';
+import GravityType from '../enums/gravity-type.enum.js';
 import { stringifyOptions } from '../common.js';
 
 /**

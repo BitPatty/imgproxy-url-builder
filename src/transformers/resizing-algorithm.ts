@@ -1,4 +1,4 @@
-import ResizingAlgorithm from '../enums/resizing-algorithm.enum';
+import ResizingAlgorithm from '../enums/resizing-algorithm.enum.js';
 import { stringifyOptions } from '../common.js';
 
 /**

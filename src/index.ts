@@ -1,5 +1,6 @@
 import pb, { ParamBuilder, BuildOptions } from './param-builder.js';
 
+import GradientDirection from './enums/gradient-direction.enum.js';
 import GravityType from './enums/gravity-type.enum.js';
 import ResizeType from './enums/resize-type.enum.js';
 import ResizingAlgorithm from './enums/resizing-algorithm.enum.js';
@@ -24,6 +25,7 @@ import { FileNameOptions } from './transformers/filename.js';
 import { FormatOptions } from './transformers/format.js';
 import { FormatQualityOptions } from './transformers/format-quality.js';
 import { GifOptions } from './transformers/gif-options.js';
+import { GradientOptions } from './transformers/gradient.js';
 import { GravityOptions } from './transformers/gravity.js';
 import { JpegOptions } from './transformers/jpeg-options.js';
 import { MaxBytesOptions } from './transformers/max-bytes.js';
@@ -58,6 +60,7 @@ export {
   BuildOptions,
   ParamBuilder,
   // Enums
+  GradientDirection,
   GravityType,
   ResizeType,
   ResizingAlgorithm,
@@ -82,6 +85,7 @@ export {
   FormatOptions,
   FormatQualityOptions,
   GifOptions,
+  GradientOptions,
   GravityOptions,
   JpegOptions,
   MaxBytesOptions,

@@ -82,6 +82,7 @@ t.rotate(34); // rotate: 34, blur: 10
 - [cacheBuster](#cachebuster-imgproxy-docs)
 - [contrast](#contrast-imgproxy-docs)
 - [crop](#crop-imgproxy-docs)
+- [disableAnimation](#disableanimation-imgproxy-docs)
 - [dpr](#dpr-imgproxy-docs)
 - [drawDetections](#drawdetections-imgproxy-docs)
 - [enforceThumbnail](#enforcethumbnail-imgproxy-docs)
@@ -92,6 +93,7 @@ t.rotate(34); // rotate: 34, blur: 10
 - [fileName](#filename-imgproxy-docs)
 - [format](#format-imgproxy-docs)
 - [formatQuality](#formatquality-imgproxy-docs)
+- [gradient](#gradient-imgproxy-docs)
 - [gravity](#gravity-imgproxy-docs)
 - [jpegOptions](#jpegoptions-imgproxy-docs)
 - [keepCopyright](#keepcopyright-imgproxy-docs)
@@ -248,6 +250,16 @@ pb().crop({
 })
 ```
 
+### disableAnimation ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#disable-animation-iddisable-animation))
+
+Use a single frame of animated images.
+
+#### Example
+
+```typescript
+pb().disableAnimation();
+```
+
 ### dpr ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr))
 
 Multiplies the dimensions according to the specified factor.
@@ -363,6 +375,22 @@ pb().formatQuality({
   jpeg: 100,
   png: 50,
   // ...
+});
+```
+
+### gradient ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#gradient-idgradient))
+
+Places a gradient on the processed image.
+
+#### Example
+
+```typescript
+pb().gradient({
+  opacity: 1,       // required
+  color: 'ababab',  // optional
+  direction: 'up',  // optional
+  start: 0.0,       // optional
+  stop: 0.7         // optional
 });
 ```
 
