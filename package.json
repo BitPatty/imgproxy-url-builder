@@ -2,7 +2,7 @@
   "name": "@bitpatty/imgproxy-url-builder",
   "version": "1.2.0",
   "description": "imgproxy param builder",
-  "author": "Matteias Collet <matteias.collet@bluewin.ch>",
+  "author": "Matteias Collet <matteias.collet@pm.me>",
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
