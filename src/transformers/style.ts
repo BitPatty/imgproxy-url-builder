@@ -1,4 +1,4 @@
-import { base64urlEncode, utf8encode } from '../crypto/codec';
+import { base64urlEncode, utf8encode } from '../crypto/codec.js';
 import { stringifyOptions } from '../common.js';
 
 /**

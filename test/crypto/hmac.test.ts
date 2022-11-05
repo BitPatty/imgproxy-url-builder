@@ -1,6 +1,6 @@
 import { createHmac } from 'crypto';
-import { utf8encode } from '../../src/crypto/codec';
-import hmac from '../../src/crypto/hmac';
+import { utf8encode } from '../../src/crypto/codec.js';
+import hmac from '../../src/crypto/hmac.js';
 
 describe('HMAC', () => {
   test.each(new Array(1000).fill(0).map((_, idx) => idx))(

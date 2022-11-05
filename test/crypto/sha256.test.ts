@@ -1,6 +1,6 @@
 import { createHash } from 'crypto';
-import { utf8encode } from '../../src/crypto/codec';
-import sha256 from '../../src/crypto/sha256';
+import { utf8encode } from '../../src/crypto/codec.js';
+import sha256 from '../../src/crypto/sha256.js';
 
 describe('SHA256', () => {
   test.each(new Array(1000).fill(0).map((_, idx) => idx))(

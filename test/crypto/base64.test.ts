@@ -1,4 +1,4 @@
-import { base64urlEncode, utf8encode } from '../../src/crypto/codec';
+import { base64urlEncode, utf8encode } from '../../src/crypto/codec.js';
 
 describe('Base 64', () => {
   test.each(new Array(1000).fill(0).map((_, idx) => idx))(
