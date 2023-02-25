@@ -90,6 +90,13 @@ export type BuildOptions = {
      * The hex encoded salt of the signature
      */
     salt: string;
+
+    /**
+     * The number of bytes to use for the signature before encoding to Base64
+     *
+     * Defaults to 32
+     */
+    size?: number;
   };
 };
 
@@ -156,7 +163,12 @@ class ParamBuilder {
     // If no signature is calculated add a - as placeholder
     // See https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/signing_the_url.md
     const finalPath = signature
-      ? `${generateSignature(res, signature.key, signature.salt)}/${res}`
+      ? `${generateSignature(
+          res,
+          signature.key,
+          signature.salt,
+          signature.size ?? 32,
+        )}/${res}`
       : `-/${res}`;
 
     return baseUrl ? `${baseUrl}/${finalPath}` : `/${finalPath}`;
