@@ -40,7 +40,7 @@
   ],
   "homepage": "https://github.com/BitPatty/imgproxy-url-builder#readme",
   "devDependencies": {
-    "@types/jest": "29.4.4",
+    "@types/jest": "29.5.0",
     "@types/node": "18.14.1",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
