@@ -3,27 +3,23 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "application",
   "workspaceFolder": "/workspace",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mikestead.dotenv",
+        "ms-azuretools.vscode-docker",
+        "ms-vsliveshare.vsliveshare",
+        "wayou.vscode-todo-highlight",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
   },
-  "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/workspace/bin"
-  },
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "mikestead.dotenv",
-    "ms-azuretools.vscode-docker",
-    "ms-vsliveshare.vsliveshare",
-    "wayou.vscode-todo-highlight",
-    "streetsidesoftware.code-spell-checker"
-  ],
-  "forwardPorts": [
-    4000,
-    5000,
-    9000,
-    9001
-  ],
+  "forwardPorts": [4000, 5000, 9000, 9001],
   "postCreateCommand": "bash -i .devcontainer/init.sh",
   "remoteUser": "node",
   "portsAttributes": {
