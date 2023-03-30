@@ -90,6 +90,7 @@ t.rotate(34); // rotate: 34, blur: 10
 - [enlarge](#enlarge-imgproxy-docs)
 - [expires](#expires-imgproxy-docs)
 - [extend](#extend-imgproxy-docs)
+- [extendAspectRatio](#extendaspectratio-imgproxy-docs)
 - [fallbackImageUrl](#fallbackimageurl-imgproxy-docs)
 - [fileName](#filename-imgproxy-docs)
 - [format](#format-imgproxy-docs)
@@ -136,9 +137,9 @@ Defines the brightness, contrast, and saturation.
 
 ```typescript
 pb().adjust({
-  brightness: 100, // optional
-  contrast: 0.8, // optional
-  saturation: 0.9, // optional
+  brightness: 100,  // optional
+  contrast: 0.8,    // optional
+  saturation: 0.9   // optional
 });
 ```
 
@@ -164,7 +165,7 @@ pb().background('ff0000');
 pb().background({
   r: 255,
   g: 0,
-  b: 0,
+  b: 0
 });
 ```
 
@@ -197,7 +198,7 @@ Detects objects of the provided classes and blurs them.
 ```typescript
 pb().blurDetections({
   sigma: 10,
-  classNames: ['face'],
+  classNames: ['face']
 });
 ```
 
@@ -218,7 +219,7 @@ Adds a cache buster to the imgproxy params.
 #### Example
 
 ```typescript
-pb().cacheBuster('abcdef123');
+pb().cacheBuster("abcdef123");
 ```
 
 ### contrast ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#contrast-idcontrast))
@@ -239,18 +240,16 @@ Crops the image.
 
 ```typescript
 pb().crop({
-  width: 100, // optional
-  height: 50, // optional
-  gravity: {
-    // optional
-    type: GravityType.CENTER, // required
-    offset: {
-      // optional
-      x: 20, // required
-      y: 20, // required
-    },
-  },
-});
+  width: 100,                  // optional
+  height: 50,                  // optional
+  gravity: {                   // optional
+    type: GravityType.CENTER,  // required
+    offset: {                  // optional
+       x: 20,                  // required
+       y: 20                   // required
+    }
+  }
+})
 ```
 
 ### disableAnimation ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#disable-animation-iddisable-animation))
@@ -281,7 +280,7 @@ Detects objects of the provided classes and draws their bounding boxes.
 
 ```typescript
 pb().drawDetections({
-  classNames: ['face'],
+  classNames: ["face"]
 });
 ```
 
@@ -327,6 +326,26 @@ Extends the image if it is smaller than the given size.
 pb().extend();
 
 pb().extend({
+  gravity: {
+    type: GravityType.NORTH  // required
+    offset: {                // optional
+      x: 10;                 // required
+      y: 20;                 // required
+    }
+  }
+});
+```
+
+### extendAspectRatio ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/1a9768a2c682e88820064aa3d9a05ea234ff3cc4/docs/generating_the_url.md#extend-aspect-ratio))
+
+Extends the image to the requested aspect ratio.
+
+#### Example
+
+```typescript
+pb().extendAspectRatio();
+
+pb().extendAspectRatio({
   gravity: {
     type: GravityType.NORTH  // required
     offset: {                // optional
@@ -389,11 +408,11 @@ Places a gradient on the processed image.
 
 ```typescript
 pb().gradient({
-  opacity: 1, // required
-  color: 'ababab', // optional
-  direction: 'up', // optional
-  start: 0.0, // optional
-  stop: 0.7, // optional
+  opacity: 1,       // required
+  color: 'ababab',  // optional
+  direction: 'up',  // optional
+  start: 0.0,       // optional
+  stop: 0.7         // optional
 });
 ```
 
@@ -421,12 +440,12 @@ Allows redefining JPEG saving options.
 
 ```typescript
 pb().jpegOptions({
-  progressive: boolean, // optional
-  noSubsample: boolean, // optional
-  trellisQuant: boolean, // optional
-  overshootDeringing: boolean, // optional
-  optimizeScans: boolean, // optional
-  quantizationTable: 7, // optional
+  progressive: boolean,         // optional
+  noSubsample: boolean,         // optional
+  trellisQuant: boolean,        // optional
+  overshootDeringing: boolean,  // optional
+  optimizeScans: boolean,       // optional
+  quantizationTable: 7          // optional
 });
 ```
 
@@ -478,10 +497,10 @@ Applies the specified padding to the image.
 
 ```typescript
 pb().pad({
-  top: 100, // optional (Note: sets all other sides if not set explicitly)
-  right: 100, // optional
-  bottom: 10, // optional
-  left: 10, // optional
+  top: 100,    // optional (Note: sets all other sides if not set explicitly)
+  right: 100,  // optional
+  bottom: 10,  // optional
+  left: 10     // optional
 });
 ```
 
@@ -513,9 +532,9 @@ Allows redefining PNG saving options.
 
 ```typescript
 pb().pngOptions({
-  interlaced: true, // optional
-  quantize: false, // optional
-  quantization_colors: 10, // optional
+  interlaced: true,         // optional
+  quantize: false,          // optional
+  quantization_colors: 10   // optional
 });
 ```
 
@@ -559,9 +578,9 @@ Resizes the image.
 
 ```typescript
 pb().resize({
-  type: ResizeType.AUTO, // optional
-  width: 100, // optional
-  height: 50, // optional
+  type: ResizeType.AUTO,  // optional
+  width: 100,             // optional
+  height: 50              // optional
 });
 ```
 
@@ -668,13 +687,12 @@ Trims the image background.
 
 ```typescript
 pb().trim({
-  threshold: 10, // required
-  color: 'ffffff', // optional
-  equal: {
-    // optional
-    horizontal: true, // optional
-    vertical: true, // optional
-  },
+  threshold: 10,       // required
+  color: 'ffffff',     // optional
+  equal: {             // optional
+    horizontal: true,  // optional
+    vertical: true     // optional
+  }
 });
 ```
 
@@ -686,9 +704,9 @@ Allows redefining unsharpening options.
 
 ```typescript
 pb().unsharpen({
-  mode: UnsharpeningMode.AUTO, // optional
-  weight: 11, // optional
-  dividor: 24, // optional
+  mode: UnsharpeningMode.AUTO,   // optional
+  weight: 11,                    // optional
+  dividor: 24                    // optional
 });
 ```
 
@@ -744,8 +762,8 @@ Defines the desired width and height of the watermark. imgproxy always uses `fit
 
 ```typescript
 pb().watermarkSize({
-  width: 30, // required
-  height: 30, // required
+  width: 30,  // required
+  height: 30  // required
 });
 ```
 
@@ -756,7 +774,7 @@ Generate an image from the provided text and use it as a watermark.
 #### Example
 
 ```typescript
-pb().watermarkText('my watermark');
+pb().watermarkText("my watermark");
 ```
 
 ### watermarkUrl ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-url-idwatermark-url))

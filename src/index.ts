@@ -20,6 +20,7 @@ import { DprOptions } from './transformers/dpr.js';
 import { DrawDetectionOptions } from './transformers/draw-detections.js';
 import { ExpiresOptions } from './transformers/expires.js';
 import { ExtendOptions } from './transformers/extend.js';
+import { ExtendAspectRatioOptions } from './transformers/extend-aspect-ratio.js';
 import { FallbackImageUrlOptions } from './transformers/fallback-image-url.js';
 import { FileNameOptions } from './transformers/filename.js';
 import { FormatOptions } from './transformers/format.js';
@@ -80,6 +81,7 @@ export {
   DrawDetectionOptions,
   ExpiresOptions,
   ExtendOptions,
+  ExtendAspectRatioOptions,
   FallbackImageUrlOptions,
   FileNameOptions,
   FormatOptions,

@@ -167,6 +167,26 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Extend Aspect Ratio', () => {
+    test('Applies Modifier', () => {
+      expect(pb().extendAspectRatio()).toIncludeModifier('exar:true');
+    });
+
+    test('Applies Gravity Type', () => {
+      expect(
+        pb().extendAspectRatio({ gravity: { type: GravityType.NORTH } }),
+      ).toIncludeModifier('exar:true:no');
+    });
+
+    test('Applies Gravity Offset', () => {
+      expect(
+        pb().extendAspectRatio({
+          gravity: { type: GravityType.NORTH, offset: { x: 1.1, y: 2.2 } },
+        }),
+      ).toIncludeModifier('exar:true:no:1.1:2.2');
+    });
+  });
+
   describe('Fallback Image URL', () => {
     test('Applies Modifier', () => {
       const url = 'https://test.test';

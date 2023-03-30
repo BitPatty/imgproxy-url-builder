@@ -15,6 +15,7 @@ import enforceThumbnail from './transformers/enforce-thumbnail.js';
 import enlarge from './transformers/enlarge.js';
 import expires from './transformers/expires.js';
 import extend from './transformers/extend.js';
+import extendAspectRatio from './transformers/extend-aspect-ratio.js';
 import fallbackImageUrl from './transformers/fallback-image-url.js';
 import fileName from './transformers/filename.js';
 import format from './transformers/format.js';
@@ -486,6 +487,34 @@ class ParamBuilder {
    */
   public extend(this: this, ...options: Parameters<typeof extend>): this {
     this.modifiers.set('extend', extend(...options));
+    return this;
+  }
+
+  /**
+   * Extends the image to the requested aspect ratio.
+   *
+   * See https://github.com/imgproxy/imgproxy/blob/1a9768a2c682e88820064aa3d9a05ea234ff3cc4/docs/generating_the_url.md#extend-aspect-ratio for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().extendAspectRatio();
+   *
+   * pb().extendAspectRatio({
+   *   gravity: {
+   *     type: GravityType.NORTH  // required
+   *     offset: {                // optional
+   *       x: 10;                 // required
+   *       y: 20;                 // required
+   *     }
+   *   }
+   * });
+   * ```
+   */
+  public extendAspectRatio(
+    this: this,
+    ...options: Parameters<typeof extendAspectRatio>
+  ): this {
+    this.modifiers.set('extend', extendAspectRatio(...options));
     return this;
   }
 
