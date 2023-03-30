@@ -53,6 +53,7 @@
 <li><a href="#enlarge-imgproxy-docs">enlarge</a></li>
 <li><a href="#expires-imgproxy-docs">expires</a></li>
 <li><a href="#extend-imgproxy-docs">extend</a></li>
+<li><a href="#extendaspectratio-imgproxy-docs">extendAspectRatio</a></li>
 <li><a href="#fallbackimageurl-imgproxy-docs">fallbackImageUrl</a></li>
 <li><a href="#filename-imgproxy-docs">fileName</a></li>
 <li><a href="#format-imgproxy-docs">format</a></li>
@@ -100,7 +101,7 @@
 <a href="#example" id="example" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">adjust</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">brightness:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">contrast:</span><span class="hl-0"> </span><span class="hl-6">0.8</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">saturation:</span><span class="hl-0"> </span><span class="hl-6">0.9</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">adjust</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">brightness:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">contrast:</span><span class="hl-0"> </span><span class="hl-6">0.8</span><span class="hl-0">,    </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">saturation:</span><span class="hl-0"> </span><span class="hl-6">0.9</span><span class="hl-0">   </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#autorotate-imgproxy-docs" id="autorotate-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -122,7 +123,7 @@
 <a href="#example-2" id="example-2" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">background</span><span class="hl-0">(</span><span class="hl-1">&#39;ff0000&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">background</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">r:</span><span class="hl-0"> </span><span class="hl-6">255</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">g:</span><span class="hl-0"> </span><span class="hl-6">0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">b:</span><span class="hl-0"> </span><span class="hl-6">0</span><span class="hl-0">,</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">background</span><span class="hl-0">(</span><span class="hl-1">&#39;ff0000&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">background</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">r:</span><span class="hl-0"> </span><span class="hl-6">255</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">g:</span><span class="hl-0"> </span><span class="hl-6">0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">b:</span><span class="hl-0"> </span><span class="hl-6">0</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#backgroundalpha-imgproxy-docs" id="backgroundalpha-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -155,7 +156,7 @@
 <a href="#example-5" id="example-5" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">blurDetections</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">sigma:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">classNames:</span><span class="hl-0"> [</span><span class="hl-1">&#39;face&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">blurDetections</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">sigma:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">classNames:</span><span class="hl-0"> [</span><span class="hl-1">&#39;face&#39;</span><span class="hl-0">]</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#brightness-imgproxy-docs" id="brightness-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -177,7 +178,7 @@
 <a href="#example-7" id="example-7" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">cacheBuster</span><span class="hl-0">(</span><span class="hl-1">&#39;abcdef123&#39;</span><span class="hl-0">);</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">cacheBuster</span><span class="hl-0">(</span><span class="hl-1">&quot;abcdef123&quot;</span><span class="hl-0">);</span>
 </code></pre>
 
 <a href="#contrast-imgproxy-docs" id="contrast-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -199,7 +200,7 @@
 <a href="#example-9" id="example-9" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">crop</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">CENTER</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset:</span><span class="hl-0"> {</span><br/><span class="hl-0">      </span><span class="hl-4">// optional</span><br/><span class="hl-0">      </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">      </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">    },</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">crop</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,                  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">,                  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {                   </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">CENTER</span><span class="hl-0">,  </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset:</span><span class="hl-0"> {                  </span><span class="hl-4">// optional</span><br/><span class="hl-0">       </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">,                  </span><span class="hl-4">// required</span><br/><span class="hl-0">       </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">                   </span><span class="hl-4">// required</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">})</span>
 </code></pre>
 
 <a href="#disableanimation-imgproxy-docs" id="disableanimation-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -232,7 +233,7 @@
 <a href="#example-12" id="example-12" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">drawDetections</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">classNames:</span><span class="hl-0"> [</span><span class="hl-1">&#39;face&#39;</span><span class="hl-0">],</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">drawDetections</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">classNames:</span><span class="hl-0"> [</span><span class="hl-1">&quot;face&quot;</span><span class="hl-0">]</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#enforcethumbnail-imgproxy-docs" id="enforcethumbnail-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -279,12 +280,23 @@
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extend</span><span class="hl-0">();</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extend</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">NORTH</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset</span><span class="hl-0">: {                </span><span class="hl-4">// optional</span><br/><span class="hl-0">      </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">      </span><span class="hl-3">y</span><span class="hl-0">: </span><span class="hl-6">20</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
 </code></pre>
 
+<a href="#extendaspectratio-imgproxy-docs" id="extendaspectratio-imgproxy-docs" style="color: inherit; text-decoration: none;">
+  <h3>extendAspectRatio (<a href="https://github.com/imgproxy/imgproxy/blob/1a9768a2c682e88820064aa3d9a05ea234ff3cc4/docs/generating_the_url.md#extend-aspect-ratio">imgproxy docs</a>)</h3>
+</a>
+<p>Extends the image to the requested aspect ratio.</p>
+
+<a href="#example-17" id="example-17" style="color: inherit; text-decoration: none;">
+  <h4>Example</h4>
+</a>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extendAspectRatio</span><span class="hl-0">();</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extendAspectRatio</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">NORTH</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset</span><span class="hl-0">: {                </span><span class="hl-4">// optional</span><br/><span class="hl-0">      </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">      </span><span class="hl-3">y</span><span class="hl-0">: </span><span class="hl-6">20</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
+</code></pre>
+
 <a href="#fallbackimageurl-imgproxy-docs" id="fallbackimageurl-imgproxy-docs" style="color: inherit; text-decoration: none;">
   <h3>fallbackImageUrl (<a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#fallback-image-url-idfallback-image-url">imgproxy docs</a>)</h3>
 </a>
 <p>Sets a custom fallback image by specifying its URL.</p>
 
-<a href="#example-17" id="example-17" style="color: inherit; text-decoration: none;">
+<a href="#example-18" id="example-18" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">fallbackImageUrl</span><span class="hl-0">(</span><span class="hl-1">&#39;https://example.com&#39;</span><span class="hl-0">);</span>
@@ -295,7 +307,7 @@
 </a>
 <p>Sets the filename for the Content-Disposition header.</p>
 
-<a href="#example-18" id="example-18" style="color: inherit; text-decoration: none;">
+<a href="#example-19" id="example-19" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">fileName</span><span class="hl-0">(</span><span class="hl-1">&#39;filename.png&#39;</span><span class="hl-0">);</span>
@@ -306,7 +318,7 @@
 </a>
 <p>Specifies the resulting image format.</p>
 
-<a href="#example-19" id="example-19" style="color: inherit; text-decoration: none;">
+<a href="#example-20" id="example-20" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">format</span><span class="hl-0">(</span><span class="hl-1">&#39;png&#39;</span><span class="hl-0">);</span>
@@ -317,7 +329,7 @@
 </a>
 <p>Sets the desired quality for each format.</p>
 
-<a href="#example-20" id="example-20" style="color: inherit; text-decoration: none;">
+<a href="#example-21" id="example-21" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">formatQuality</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">jpeg:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">png:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">// ...</span><br/><span class="hl-0">});</span>
@@ -328,10 +340,10 @@
 </a>
 <p>Places a gradient on the processed image.</p>
 
-<a href="#example-21" id="example-21" style="color: inherit; text-decoration: none;">
+<a href="#example-22" id="example-22" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">gradient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">1</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">color:</span><span class="hl-0"> </span><span class="hl-1">&#39;ababab&#39;</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">direction:</span><span class="hl-0"> </span><span class="hl-1">&#39;up&#39;</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">start:</span><span class="hl-0"> </span><span class="hl-6">0.0</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">stop:</span><span class="hl-0"> </span><span class="hl-6">0.7</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">gradient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">1</span><span class="hl-0">,       </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">color:</span><span class="hl-0"> </span><span class="hl-1">&#39;ababab&#39;</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">direction:</span><span class="hl-0"> </span><span class="hl-1">&#39;up&#39;</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">start:</span><span class="hl-0"> </span><span class="hl-6">0.0</span><span class="hl-0">,       </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">stop:</span><span class="hl-0"> </span><span class="hl-6">0.7</span><span class="hl-0">         </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#gravity-imgproxy-docs" id="gravity-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -339,7 +351,7 @@
 </a>
 <p>Sets the gravity.</p>
 
-<a href="#example-22" id="example-22" style="color: inherit; text-decoration: none;">
+<a href="#example-23" id="example-23" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">gravity</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">NORTH</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">offset</span><span class="hl-0">: {                </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,                 </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">                  </span><span class="hl-4">// required</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
@@ -350,10 +362,10 @@
 </a>
 <p>Allows redefining JPEG saving options.</p>
 
-<a href="#example-23" id="example-23" style="color: inherit; text-decoration: none;">
+<a href="#example-24" id="example-24" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">jpegOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">progressive:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">noSubsample:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">trellisQuant:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">overshootDeringing:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">optimizeScans:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantizationTable:</span><span class="hl-0"> </span><span class="hl-6">7</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">jpegOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">progressive:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,         </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">noSubsample:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,         </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">trellisQuant:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,        </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">overshootDeringing:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">optimizeScans:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,       </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantizationTable:</span><span class="hl-0"> </span><span class="hl-6">7</span><span class="hl-0">          </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#keepcopyright-imgproxy-docs" id="keepcopyright-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -361,7 +373,7 @@
 </a>
 <p>Preserve the copyright info while stripping metadata.</p>
 
-<a href="#example-24" id="example-24" style="color: inherit; text-decoration: none;">
+<a href="#example-25" id="example-25" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">keepCopyright</span><span class="hl-0">();</span>
@@ -372,7 +384,7 @@
 </a>
 <p>Limits the file size to the specified number of bytes.</p>
 
-<a href="#example-25" id="example-25" style="color: inherit; text-decoration: none;">
+<a href="#example-26" id="example-26" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">maxBytes</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
@@ -383,7 +395,7 @@
 </a>
 <p>Defines the minimum height of the resulting image.</p>
 
-<a href="#example-26" id="example-26" style="color: inherit; text-decoration: none;">
+<a href="#example-27" id="example-27" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">minHeight</span><span class="hl-0">(</span><span class="hl-6">100</span><span class="hl-0">);</span>
@@ -394,7 +406,7 @@
 </a>
 <p>Defines the minimum width of the resulting image.</p>
 
-<a href="#example-27" id="example-27" style="color: inherit; text-decoration: none;">
+<a href="#example-28" id="example-28" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">minWidth</span><span class="hl-0">(</span><span class="hl-6">100</span><span class="hl-0">);</span>
@@ -405,10 +417,10 @@
 </a>
 <p>Applies the specified padding to the image.</p>
 
-<a href="#example-28" id="example-28" style="color: inherit; text-decoration: none;">
+<a href="#example-29" id="example-29" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pad</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">top:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">, </span><span class="hl-4">// optional (Note: sets all other sides if not set explicitly)</span><br/><span class="hl-0">  </span><span class="hl-3">right:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">bottom:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">left:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pad</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">top:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,    </span><span class="hl-4">// optional (Note: sets all other sides if not set explicitly)</span><br/><span class="hl-0">  </span><span class="hl-3">right:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">bottom:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">left:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">     </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#page-imgproxy-docs" id="page-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -416,7 +428,7 @@
 </a>
 <p>When source image supports pagination (PDF, TIFF) or animation (GIF, WebP), this option allows specifying the page to use.</p>
 
-<a href="#example-29" id="example-29" style="color: inherit; text-decoration: none;">
+<a href="#example-30" id="example-30" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">page</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
@@ -427,7 +439,7 @@
 </a>
 <p>Apply the pixelate filter to the resulting image.</p>
 
-<a href="#example-30" id="example-30" style="color: inherit; text-decoration: none;">
+<a href="#example-31" id="example-31" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pixelate</span><span class="hl-0">(</span><span class="hl-6">5</span><span class="hl-0">);</span>
@@ -438,10 +450,10 @@
 </a>
 <p>Allows redefining PNG saving options.</p>
 
-<a href="#example-31" id="example-31" style="color: inherit; text-decoration: none;">
+<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pngOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">interlaced:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantize:</span><span class="hl-0"> </span><span class="hl-7">false</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantization_colors:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pngOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">interlaced:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">,         </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantize:</span><span class="hl-0"> </span><span class="hl-7">false</span><span class="hl-0">,          </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantization_colors:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">   </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#preset-imgproxy-docs" id="preset-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -449,7 +461,7 @@
 </a>
 <p>Sets one or many presets to be used by the imgproxy.</p>
 
-<a href="#example-32" id="example-32" style="color: inherit; text-decoration: none;">
+<a href="#example-33" id="example-33" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">preset</span><span class="hl-0">(</span><span class="hl-1">&#39;mypreset&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">preset</span><span class="hl-0">([</span><span class="hl-1">&#39;preset1&#39;</span><span class="hl-0">, </span><span class="hl-1">&#39;preset2&#39;</span><span class="hl-0">]);</span>
@@ -460,7 +472,7 @@
 </a>
 <p>Redefines the quality of the resulting image.</p>
 
-<a href="#example-33" id="example-33" style="color: inherit; text-decoration: none;">
+<a href="#example-34" id="example-34" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">quality</span><span class="hl-0">(</span><span class="hl-6">80</span><span class="hl-0">);</span>
@@ -471,7 +483,7 @@
 </a>
 <p>Returns a raw unprocessed and unchecked source image</p>
 
-<a href="#example-34" id="example-34" style="color: inherit; text-decoration: none;">
+<a href="#example-35" id="example-35" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">raw</span><span class="hl-0">();</span>
@@ -482,10 +494,10 @@
 </a>
 <p>Resizes the image.</p>
 
-<a href="#example-35" id="example-35" style="color: inherit; text-decoration: none;">
+<a href="#example-36" id="example-36" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">ResizeType</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">ResizeType</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,             </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">              </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#resizingalgorithm-imgproxy-docs" id="resizingalgorithm-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -493,7 +505,7 @@
 </a>
 <p>Defines the algorithm that imgproxy will use for resizing.</p>
 
-<a href="#example-36" id="example-36" style="color: inherit; text-decoration: none;">
+<a href="#example-37" id="example-37" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resizingAlgorithm</span><span class="hl-0">(</span><span class="hl-3">ResizingAlgorithm</span><span class="hl-0">.</span><span class="hl-8">NEAREST</span><span class="hl-0">));</span>
@@ -504,7 +516,7 @@
 </a>
 <p>Returns attachment in the Content-Disposition header.</p>
 
-<a href="#example-37" id="example-37" style="color: inherit; text-decoration: none;">
+<a href="#example-38" id="example-38" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">returnAttachment</span><span class="hl-0">();</span>
@@ -515,7 +527,7 @@
 </a>
 <p>Rotates the image by the specified angle.</p>
 
-<a href="#example-38" id="example-38" style="color: inherit; text-decoration: none;">
+<a href="#example-39" id="example-39" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">rotate</span><span class="hl-0">(</span><span class="hl-6">90</span><span class="hl-0">);</span>
@@ -526,7 +538,7 @@
 </a>
 <p>Adjust saturation of the resulting image.</p>
 
-<a href="#example-39" id="example-39" style="color: inherit; text-decoration: none;">
+<a href="#example-40" id="example-40" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">saturation</span><span class="hl-0">(</span><span class="hl-6">0.3</span><span class="hl-0">);</span>
@@ -537,7 +549,7 @@
 </a>
 <p>Applies a sharpen filter to the image.</p>
 
-<a href="#example-40" id="example-40" style="color: inherit; text-decoration: none;">
+<a href="#example-41" id="example-41" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">sharpen</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
@@ -548,7 +560,7 @@
 </a>
 <p>Skip the processing of the listed formats.</p>
 
-<a href="#example-41" id="example-41" style="color: inherit; text-decoration: none;">
+<a href="#example-42" id="example-42" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">skipProcessing</span><span class="hl-0">([</span><span class="hl-1">&#39;png&#39;</span><span class="hl-0">, </span><span class="hl-1">&#39;svg&#39;</span><span class="hl-0">]);</span>
@@ -559,7 +571,7 @@
 </a>
 <p>Strips the color profile from the image.</p>
 
-<a href="#example-42" id="example-42" style="color: inherit; text-decoration: none;">
+<a href="#example-43" id="example-43" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">stripColorProfile</span><span class="hl-0">();</span>
@@ -570,7 +582,7 @@
 </a>
 <p>Strips the metadata from the image.</p>
 
-<a href="#example-43" id="example-43" style="color: inherit; text-decoration: none;">
+<a href="#example-44" id="example-44" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">stripMetadata</span><span class="hl-0">();</span>
@@ -581,7 +593,7 @@
 </a>
 <p>Prepend a <code>&lt;style&gt;</code> node with the provided CSS styles to the <code>&lt;svg&gt;</code> node of a source SVG image.</p>
 
-<a href="#example-44" id="example-44" style="color: inherit; text-decoration: none;">
+<a href="#example-45" id="example-45" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">style</span><span class="hl-0">(</span><span class="hl-1">&#39;fill:red;width:30px;&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">style</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">fill:</span><span class="hl-0"> </span><span class="hl-1">&#39;red&#39;</span><span class="hl-0">;</span><br/><span class="hl-0">  </span><span class="hl-3">width</span><span class="hl-0">: </span><span class="hl-1">&#39;30px&#39;</span><br/><span class="hl-0">});</span>
@@ -592,10 +604,10 @@
 </a>
 <p>Trims the image background.</p>
 
-<a href="#example-45" id="example-45" style="color: inherit; text-decoration: none;">
+<a href="#example-46" id="example-46" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">trim</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">threshold:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">color:</span><span class="hl-0"> </span><span class="hl-1">&#39;ffffff&#39;</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">equal:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">horizontal:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">vertical:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  },</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">trim</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">threshold:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,       </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">color:</span><span class="hl-0"> </span><span class="hl-1">&#39;ffffff&#39;</span><span class="hl-0">,     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">equal:</span><span class="hl-0"> {             </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">horizontal:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">vertical:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#unsharpen-imgproxy-docs" id="unsharpen-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -603,10 +615,10 @@
 </a>
 <p>Allows redefining unsharpening options.</p>
 
-<a href="#example-46" id="example-46" style="color: inherit; text-decoration: none;">
+<a href="#example-47" id="example-47" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">unsharpen</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">mode:</span><span class="hl-0"> </span><span class="hl-3">UnsharpeningMode</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">weight:</span><span class="hl-0"> </span><span class="hl-6">11</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">dividor:</span><span class="hl-0"> </span><span class="hl-6">24</span><span class="hl-0">, </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">unsharpen</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">mode:</span><span class="hl-0"> </span><span class="hl-3">UnsharpeningMode</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">,   </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">weight:</span><span class="hl-0"> </span><span class="hl-6">11</span><span class="hl-0">,                    </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">dividor:</span><span class="hl-0"> </span><span class="hl-6">24</span><span class="hl-0">                    </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#videothumbnailsecond-imgproxy-docs" id="videothumbnailsecond-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -614,7 +626,7 @@
 </a>
 <p>Redefines the second used for the thumbnail.</p>
 
-<a href="#example-47" id="example-47" style="color: inherit; text-decoration: none;">
+<a href="#example-48" id="example-48" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">videoThumbnailSecond</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
@@ -625,7 +637,7 @@
 </a>
 <p>Places a watermark on the processed image.</p>
 
-<a href="#example-48" id="example-48" style="color: inherit; text-decoration: none;">
+<a href="#example-49" id="example-49" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermark</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">0.8</span><span class="hl-0">,                          </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">position:</span><span class="hl-0"> </span><span class="hl-3">WatermarkPosition</span><span class="hl-0">.</span><span class="hl-8">REPLICATE</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">scale</span><span class="hl-0">: </span><span class="hl-6">2</span><span class="hl-0">                               </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermark</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">1.0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">scale:</span><span class="hl-0"> </span><span class="hl-6">1</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">position:</span><span class="hl-0"> </span><span class="hl-3">WatermarkPosition</span><span class="hl-0">.</span><span class="hl-8">WEST</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">offset</span><span class="hl-0">: {                         </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,                          </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">                           </span><span class="hl-4">// optional</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">})</span>
@@ -636,7 +648,7 @@
 </a>
 <p>Adds a shadow to the watermark.</p>
 
-<a href="#example-49" id="example-49" style="color: inherit; text-decoration: none;">
+<a href="#example-50" id="example-50" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkShadow</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
@@ -647,10 +659,10 @@
 </a>
 <p>Defines the desired width and height of the watermark. imgproxy always uses <code>fit</code> resizing type when resizing watermarks and enlarges them when needed.</p>
 
-<a href="#example-50" id="example-50" style="color: inherit; text-decoration: none;">
+<a href="#example-51" id="example-51" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkSize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">, </span><span class="hl-4">// required</span><br/><span class="hl-0">});</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkSize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">,  </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">});</span>
 </code></pre>
 
 <a href="#watermarktext-imgproxy-docs" id="watermarktext-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -658,10 +670,10 @@
 </a>
 <p>Generate an image from the provided text and use it as a watermark.</p>
 
-<a href="#example-51" id="example-51" style="color: inherit; text-decoration: none;">
+<a href="#example-52" id="example-52" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
-<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkText</span><span class="hl-0">(</span><span class="hl-1">&#39;my watermark&#39;</span><span class="hl-0">);</span>
+<pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkText</span><span class="hl-0">(</span><span class="hl-1">&quot;my watermark&quot;</span><span class="hl-0">);</span>
 </code></pre>
 
 <a href="#watermarkurl-imgproxy-docs" id="watermarkurl-imgproxy-docs" style="color: inherit; text-decoration: none;">
@@ -669,7 +681,7 @@
 </a>
 <p>Use the image from the specified URL as a watermark.</p>
 
-<a href="#example-52" id="example-52" style="color: inherit; text-decoration: none;">
+<a href="#example-53" id="example-53" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkUrl</span><span class="hl-0">(</span><span class="hl-1">&#39;https://example.com&#39;</span><span class="hl-0">);</span>
@@ -680,7 +692,7 @@
 </a>
 <p>Multiply the image dimensions according to the specified factors.</p>
 
-<a href="#example-53" id="example-53" style="color: inherit; text-decoration: none;">
+<a href="#example-54" id="example-54" style="color: inherit; text-decoration: none;">
   <h4>Example</h4>
 </a>
 <pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">zoom</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
@@ -729,6 +741,7 @@
 <li class="tsd-kind-type-alias"><a href="types/DprOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Dpr<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/DrawDetectionOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Draw<wbr/>Detection<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/ExpiresOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Expires<wbr/>Options</a></li>
+<li class="tsd-kind-type-alias"><a href="types/ExtendAspectRatioOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Extend<wbr/>Aspect<wbr/>Ratio<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/ExtendOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Extend<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/FallbackImageUrlOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Fallback<wbr/>Image<wbr/>Url<wbr/>Options</a></li>
 <li class="tsd-kind-type-alias"><a href="types/FileNameOptions.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>File<wbr/>Name<wbr/>Options</a></li>
