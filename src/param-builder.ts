@@ -514,7 +514,7 @@ class ParamBuilder {
     this: this,
     ...options: Parameters<typeof extendAspectRatio>
   ): this {
-    this.modifiers.set('extend', extendAspectRatio(...options));
+    this.modifiers.set('extendAspectRatio', extendAspectRatio(...options));
     return this;
   }
 
