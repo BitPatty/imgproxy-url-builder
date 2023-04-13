@@ -8,10 +8,12 @@ jobs:
     name: Build Project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '18.15.0'
       - run: npm install
       - run: npm run build
       - run: npm run test
+      - name: Coveralls
+        uses: coverallsapp/github-action@v1

@@ -17,7 +17,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "rollup -c",
-    "test": "jest --verbose",
+    "test": "jest --verbose --coverage",
     "docs": "typedoc",
     "deps:force-upgrade": "npm-check-updates -u && rm -rf node_modules && rm -f package-lock.json && npm i"
   },
