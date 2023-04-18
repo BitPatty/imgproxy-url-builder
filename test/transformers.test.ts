@@ -198,6 +198,10 @@ describe('Transformers', () => {
         pb().drawDetections({ classNames: ['foo', 'bar'] }),
       ).toIncludeModifier('dd:true:foo:bar');
     });
+
+    test('Applies Empty Modifier', () => {
+      expect(pb().drawDetections({})).toIncludeModifier('dd:true');
+    });
   });
 
   describe('Enforce Thumbnail', () => {
@@ -743,6 +747,22 @@ describe('Transformers', () => {
           height: 34,
         }),
       ).toIncludeModifier('wms:12:34');
+    });
+
+    test('Applies Width Only Modifier', () => {
+      expect(
+        pb().watermarkSize({
+          width: 12,
+        }),
+      ).toIncludeModifier('wms:12:0');
+    });
+
+    test('Applies Height Only Modifier', () => {
+      expect(
+        pb().watermarkSize({
+          height: 12,
+        }),
+      ).toIncludeModifier('wms:0:12');
     });
   });
 

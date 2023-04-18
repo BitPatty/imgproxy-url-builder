@@ -3,17 +3,29 @@ import { stringifyOptions } from '../common.js';
 /**
  * The watermark size
  */
-type WatermarkSizeOptions = {
-  /**
-   * The desired width
-   */
-  width: number;
+type WatermarkSizeOptions =
+  | {
+      /**
+       * The desired width
+       */
+      width: number;
 
-  /**
-   * The desired height
-   */
-  height: number;
-};
+      /**
+       * The desired height
+       */
+      height?: number;
+    }
+  | {
+      /**
+       * The desired width
+       */
+      width?: number;
+
+      /**
+       * The desired height
+       */
+      height: number;
+    };
 
 /**
  * Defines the desired width and height of the watermark. imgproxy always
