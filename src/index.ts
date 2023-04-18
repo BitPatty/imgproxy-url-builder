@@ -55,7 +55,10 @@ import { WatermarkTextOptions } from './transformers/watermark-text.js';
 import { WatermarkUrlOptions } from './transformers/watermark-url.js';
 import { ZoomOptions } from './transformers/zoom.js';
 
+import { chain } from './utils.js';
+
 export default pb;
+export { chain };
 export {
   // Param builder itself
   BuildOptions,

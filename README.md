@@ -71,6 +71,29 @@ const t = pb().rotate(90).blur(10); // rotate: 90, blur: 10
 t.rotate(34); // rotate: 34, blur: 10
 ```
 
+## Chaining Pipelines
+
+Pipelines [can be chained](https://github.com/imgproxy/imgproxy/blob/41b9ebe9277ef3e664e0a842fbc0e912b2640969/docs/chained_pipelines.md) using the chain utility function:
+
+```typescript
+import pb, { chain } from '@bitpatty/imgproxy-url-builder';
+
+// Returns bl:10/rot:90/-/bl:10/rot:270
+chain([pb().blur(10).rotate(90), pb().blur(10).rotate(270)]);
+
+// Returns /8q2Ey2URdWizZb8PgAUKMO6C2tD4aXOa2IbCMV9pTKA/bl:10/-/ar:true/dGVzdC5wbmc
+chain({
+  buildOptions: {
+    path: 'test.png',
+    signature: {
+      key: '73757065722d7365637265742d6b6579', // super-secret-key
+      salt: '73757065722d7365637265742d73616c74', // super-secret-salt
+    },
+  },
+  builders: [pb().blur(10), pb().autoRotate()],
+});
+```
+
 ## Modifiers
 
 - [adjust](#adjust-imgproxy-docs)
