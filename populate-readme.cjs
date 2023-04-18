@@ -71,7 +71,7 @@ for (let i = 0; i < commentsWithExamples.length; i++) {
             break;
           }
 
-          if (k === j + 2 && textLines[k].startsWith('pb()')) {
+          if (!functionName && k >= j + 2 && textLines[k].startsWith('pb()')) {
             functionName = textLines[k].replace(/^pb\(\)\.([^(]+).+$/, '$1');
           }
 

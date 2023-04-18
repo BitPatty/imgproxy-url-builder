@@ -539,11 +539,15 @@ class ParamBuilder {
   /**
    * Sets the filename for the Content-Disposition header.
    *
-   * See https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#filename for the imgproxy documentation
+   * See https://github.com/imgproxy/imgproxy/blob/41b9ebe9277ef3e664e0a842fbc0e912b2640969/docs/generating_the_url.md#filename for the imgproxy documentation
    *
    * @example
    * ```typescript
+   * // Not encoded
    * pb().fileName('filename.png');
+   *
+   * // Encoded
+   * pb().fileName('ZmlsZW5hbWUucG5n', true);
    * ```
    */
   public fileName(this: this, ...options: Parameters<typeof fileName>): this {

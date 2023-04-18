@@ -366,14 +366,18 @@ Sets a custom fallback image by specifying its URL.
 pb().fallbackImageUrl('https://example.com');
 ```
 
-### fileName ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#filename))
+### fileName ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/41b9ebe9277ef3e664e0a842fbc0e912b2640969/docs/generating_the_url.md#filename))
 
 Sets the filename for the Content-Disposition header.
 
 #### Example
 
 ```typescript
+// Not encoded
 pb().fileName('filename.png');
+
+// Encoded
+pb().fileName('ZmlsZW5hbWUucG5n', true);
 ```
 
 ### format ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format))

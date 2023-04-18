@@ -298,6 +298,12 @@ describe('Transformers', () => {
     test('Applies Modifier', () => {
       expect(pb().fileName('foo.png')).toIncludeModifier('fn:foo.png');
     });
+
+    test('Applies Encoded Modifier', () => {
+      expect(pb().fileName('ZmlsZW5hbWUucG5n', true)).toIncludeModifier(
+        'fn:ZmlsZW5hbWUucG5n:true',
+      );
+    });
   });
 
   describe('Format Quality', () => {
