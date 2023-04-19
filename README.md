@@ -1,3 +1,7 @@
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/BitPatty/imgproxy-url-builder/build.yml?label=Build&style=flat-square)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/BitPatty/imgproxy-url-builder?label=Coverage&style=flat-square)](https://coveralls.io/github/BitPatty/imgproxy-url-builder?branch=master)
+![npm](https://img.shields.io/npm/dm/@bitpatty/imgproxy-url-builder?label=Downloads&style=flat-square)
+
 # imgproxy-url-builder
 
 A helper library for building [imgproxy](https://github.com/imgproxy/imgproxy) URLs.
@@ -93,6 +97,10 @@ chain({
   builders: [pb().blur(10), pb().autoRotate()],
 });
 ```
+
+## License
+
+Published under the [MIT License](https://github.com/BitPatty/imgproxy-url-builder/blob/master/LICENSE).
 
 ## Modifiers
 
