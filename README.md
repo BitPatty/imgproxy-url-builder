@@ -4,7 +4,7 @@
 
 # imgproxy-url-builder
 
-A helper library for building [imgproxy](https://github.com/imgproxy/imgproxy) URLs.
+A TypeScript helper library for building [imgproxy](https://github.com/imgproxy/imgproxy) URLs.
 
 ## Installation
 
