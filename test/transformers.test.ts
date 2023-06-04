@@ -176,7 +176,17 @@ describe('Transformers', () => {
     });
   });
 
-  describe('DPR', () => {
+  describe('DPI', () => {
+    test('Uses Proper Identifier', () => {
+      expect(pb().dpi(300)).toIncludeModifierIdentifier('dpi');
+    });
+
+    test('Applies Modifier', () => {
+      expect(pb().dpi(1200)).toIncludeModifier('dpi:1200');
+    });
+  });
+
+  describe('Dpr', () => {
     test('Uses Proper Identifier', () => {
       expect(pb().dpr(3)).toIncludeModifierIdentifier('dpr');
     });

@@ -16,6 +16,7 @@ import { BrightnessOptions } from './transformers/brightness.js';
 import { CacheBusterOptions } from './transformers/cache-buster.js';
 import { ContrastOptions } from './transformers/contrast.js';
 import { CropOptions } from './transformers/crop.js';
+import { DPIOptions } from './transformers/dpi.js';
 import { DprOptions } from './transformers/dpr.js';
 import { DrawDetectionOptions } from './transformers/draw-detections.js';
 import { ExpiresOptions } from './transformers/expires.js';
@@ -80,6 +81,7 @@ export {
   CacheBusterOptions,
   ContrastOptions,
   CropOptions,
+  DPIOptions,
   DprOptions,
   DrawDetectionOptions,
   ExpiresOptions,

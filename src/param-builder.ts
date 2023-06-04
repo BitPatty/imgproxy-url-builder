@@ -9,6 +9,7 @@ import cacheBuster from './transformers/cache-buster.js';
 import contrast from './transformers/contrast.js';
 import crop from './transformers/crop.js';
 import disableAnimation from './transformers/disable-animation.js';
+import dpi from './transformers/dpi.js';
 import dpr from './transformers/dpr.js';
 import drawDetections from './transformers/draw-detections.js';
 import enforceThumbnail from './transformers/enforce-thumbnail.js';
@@ -378,6 +379,21 @@ class ParamBuilder {
     ...options: Parameters<typeof disableAnimation>
   ): this {
     this.modifiers.set('disableAnimation', disableAnimation(...options));
+    return this;
+  }
+
+  /**
+   * When set, imgproxy will replace the image's DPI metadata with the provided value.
+   *
+   * See https://github.com/imgproxy/imgproxy/blob/8629c5eca1e422908363f471513bfc887d778a85/docs/generating_the_url.md#dpi-iddpi for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().dpi(300);
+   * ```
+   */
+  public dpi(this: this, ...options: Parameters<typeof dpi>): this {
+    this.modifiers.set('dpi', dpi(...options));
     return this;
   }
 
