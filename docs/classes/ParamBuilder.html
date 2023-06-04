@@ -20,7 +20,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">ParamBuilder</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L104">param-builder.ts:104</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L105">param-builder.ts:105</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -49,6 +49,7 @@
 <a href="ParamBuilder.html#contrast" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>contrast</span></a>
 <a href="ParamBuilder.html#crop" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>crop</span></a>
 <a href="ParamBuilder.html#disableAnimation" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>disable<wbr/>Animation</span></a>
+<a href="ParamBuilder.html#dpi" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>dpi</span></a>
 <a href="ParamBuilder.html#dpr" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>dpr</span></a>
 <a href="ParamBuilder.html#drawDetections" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>draw<wbr/>Detections</span></a>
 <a href="ParamBuilder.html#enforceThumbnail" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>enforce<wbr/>Thumbnail</span></a>
@@ -110,7 +111,7 @@
 <h5><span class="tsd-kind-parameter">initialModifiers</span>: <span class="tsd-signature-type ">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L110">param-builder.ts:110</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L111">param-builder.ts:111</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member"><a id="modifiers" class="tsd-anchor"></a>
@@ -119,7 +120,7 @@
 <div class="tsd-comment tsd-typography"><p>The currently applied imgproxy modifiers</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L108">param-builder.ts:108</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L109">param-builder.ts:109</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="adjust" class="tsd-anchor"></a>
@@ -131,7 +132,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#adjust-idadjust">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#adjust-idadjust</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">adjust</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">brightness:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">contrast:</span><span class="hl-0"> </span><span class="hl-6">0.8</span><span class="hl-0">,    </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">saturation:</span><span class="hl-0"> </span><span class="hl-6">0.9</span><span class="hl-0">   </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -142,7 +143,7 @@
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/AdjustOptions.html" class="tsd-signature-type tsd-kind-type-alias">AdjustOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L192">param-builder.ts:192</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L193">param-builder.ts:193</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="autoRotate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>auto<wbr/>Rotate</span><a href="#autoRotate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -152,7 +153,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#auto-rotate">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#auto-rotate</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">autoRotate</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -161,7 +162,7 @@
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L207">param-builder.ts:207</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L208">param-builder.ts:208</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="background" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>background</span><a href="#background" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -171,7 +172,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">background</span><span class="hl-0">(</span><span class="hl-1">&#39;ff0000&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">background</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">r:</span><span class="hl-0"> </span><span class="hl-6">255</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">g:</span><span class="hl-0"> </span><span class="hl-6">0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">b:</span><span class="hl-0"> </span><span class="hl-6">0</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -182,7 +183,7 @@
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/BackgroundOptions.html" class="tsd-signature-type tsd-kind-type-alias">BackgroundOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L228">param-builder.ts:228</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L229">param-builder.ts:229</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="backgroundAlpha" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>background<wbr/>Alpha</span><a href="#backgroundAlpha" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -192,7 +193,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background-alpha-idbackground-alpha">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#background-alpha-idbackground-alpha</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">backgroundAlpha</span><span class="hl-0">(</span><span class="hl-6">0.4</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -203,7 +204,7 @@
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>percentage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L246">param-builder.ts:246</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L247">param-builder.ts:247</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="blur" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>blur</span><a href="#blur" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -213,7 +214,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">blur</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -224,7 +225,7 @@
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>sigma<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L264">param-builder.ts:264</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L265">param-builder.ts:265</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="blurDetections" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>blur<wbr/>Detections</span><a href="#blurDetections" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -234,7 +235,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur-detections-idblur-detections">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#blur-detections-idblur-detections</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">blurDetections</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">sigma:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">classNames:</span><span class="hl-0"> [</span><span class="hl-1">&#39;face&#39;</span><span class="hl-0">]</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -245,7 +246,7 @@
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/BlurDetectionOptions.html" class="tsd-signature-type tsd-kind-type-alias">BlurDetectionOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L282">param-builder.ts:282</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L283">param-builder.ts:283</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="brightness" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>brightness</span><a href="#brightness" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -255,7 +256,7 @@
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#brightness-idbrightness">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#brightness-idbrightness</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">brightness</span><span class="hl-0">(-</span><span class="hl-6">100</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -266,7 +267,7 @@
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L300">param-builder.ts:300</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L301">param-builder.ts:301</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="build" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>build</span><a href="#build" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -276,8 +277,6 @@
 <p>If a path is supplied, the full URL path will be returned,
 else only the stringified modifiers will be returned.</p>
 <p>If a base URL is supplied, the full imgproxy URL will be returned.</p>
-
-<h3>Returns</h3><p>The imgproxy URL</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -286,9 +285,10 @@ else only the stringified modifiers will be returned.</p>
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">options</span>: <a href="../types/BuildOptions.html" class="tsd-signature-type tsd-kind-type-alias">BuildOptions</a></h5>
 <div class="tsd-comment tsd-typography"><p>The build options</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><p>The imgproxy URL</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L154">param-builder.ts:154</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L155">param-builder.ts:155</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="cacheBuster" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>cache<wbr/>Buster</span><a href="#cacheBuster" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -298,7 +298,7 @@ else only the stringified modifiers will be returned.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#cache-buster">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#cache-buster</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">cacheBuster</span><span class="hl-0">(</span><span class="hl-1">&quot;abcdef123&quot;</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -309,7 +309,7 @@ else only the stringified modifiers will be returned.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>buster<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L318">param-builder.ts:318</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L319">param-builder.ts:319</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="clone" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>clone</span><a href="#clone" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -317,17 +317,16 @@ else only the stringified modifiers will be returned.</p>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>Creates a new param builder instance with a copy of the
 current modifiers</p>
-
-<h3>Returns</h3><p>A copy of this param builder</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><p>A copy of this param builder</p>
+<aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L122">param-builder.ts:122</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L123">param-builder.ts:123</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="contrast" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>contrast</span><a href="#contrast" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -337,7 +336,7 @@ current modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#contrast-idcontrast">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#contrast-idcontrast</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">contrast</span><span class="hl-0">(</span><span class="hl-6">0.3</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -348,7 +347,7 @@ current modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>percentage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L336">param-builder.ts:336</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L337">param-builder.ts:337</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="crop" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>crop</span><a href="#crop" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -358,7 +357,7 @@ current modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#crop">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#crop</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">crop</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,                  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">,                  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {                   </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">CENTER</span><span class="hl-0">,  </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset:</span><span class="hl-0"> {                  </span><span class="hl-4">// optional</span><br/><span class="hl-0">       </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">,                  </span><span class="hl-4">// required</span><br/><span class="hl-0">       </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">                   </span><span class="hl-4">// required</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">})</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -369,7 +368,7 @@ current modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">?: </span><a href="../types/CropOptions.html" class="tsd-signature-type tsd-kind-type-alias">CropOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L361">param-builder.ts:361</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L362">param-builder.ts:362</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="disableAnimation" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>disable<wbr/>Animation</span><a href="#disableAnimation" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -379,7 +378,7 @@ current modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#disable-animation-iddisable-animation">https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#disable-animation-iddisable-animation</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">disableAnimation</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -390,17 +389,17 @@ current modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L376">param-builder.ts:376</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member"><a id="dpr" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><span>dpr</span><a href="#dpr" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L377">param-builder.ts:377</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="dpi" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>dpi</span><a href="#dpi" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="dpr.dpr-1"><span class="tsd-kind-call-signature">dpr</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">this</span>, <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a><a href="#dpr.dpr-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="dpi.dpi-1"><span class="tsd-kind-call-signature">dpi</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">this</span>, <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a><a href="#dpi.dpi-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Multiplies the dimensions according to the specified factor.</p>
-<p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr</a> for the imgproxy documentation</p>
+<div class="tsd-comment tsd-typography"><p>When set, imgproxy will replace the image&#39;s DPI metadata with the provided value.</p>
+<p>See <a href="https://github.com/imgproxy/imgproxy/blob/8629c5eca1e422908363f471513bfc887d778a85/docs/generating_the_url.md#dpi-iddpi">https://github.com/imgproxy/imgproxy/blob/8629c5eca1e422908363f471513bfc887d778a85/docs/generating_the_url.md#dpi-iddpi</a> for the imgproxy documentation</p>
 
-<h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">dpr</span><span class="hl-0">(</span><span class="hl-6">18</span><span class="hl-0">);</span>
-</code></pre>
+<h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">dpi</span><span class="hl-0">(</span><span class="hl-6">300</span><span class="hl-0">);</span>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -411,7 +410,28 @@ current modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L394">param-builder.ts:394</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L395">param-builder.ts:395</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member"><a id="dpr" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>dpr</span><a href="#dpr" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="dpr.dpr-1"><span class="tsd-kind-call-signature">dpr</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">this</span>, <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a><a href="#dpr.dpr-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Multiplies the dimensions according to the specified factor.</p>
+<p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr</a> for the imgproxy documentation</p>
+
+<h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">dpr</span><span class="hl-0">(</span><span class="hl-6">18</span><span class="hl-0">);</span>
+</code><button>Copy</button></pre>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li>
+<li>
+<h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L410">param-builder.ts:410</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="drawDetections" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>draw<wbr/>Detections</span><a href="#drawDetections" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -422,7 +442,7 @@ bounding boxes.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#draw-detections-iddraw-detections">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#draw-detections-iddraw-detections</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">drawDetections</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">classNames:</span><span class="hl-0"> [</span><span class="hl-1">&quot;face&quot;</span><span class="hl-0">]</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -433,7 +453,7 @@ bounding boxes.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/DrawDetectionOptions.html" class="tsd-signature-type tsd-kind-type-alias">DrawDetectionOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L412">param-builder.ts:412</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L428">param-builder.ts:428</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="enforceThumbnail" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>enforce<wbr/>Thumbnail</span><a href="#enforceThumbnail" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -444,7 +464,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enforce-thumbnail">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enforce-thumbnail</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">enforceThumbnail</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -453,7 +473,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L431">param-builder.ts:431</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L447">param-builder.ts:447</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="enlarge" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>enlarge</span><a href="#enlarge" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -463,7 +483,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enlarge">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#enlarge</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">enlarge</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -472,7 +492,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L446">param-builder.ts:446</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L462">param-builder.ts:462</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="expires" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>expires</span><a href="#expires" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -482,7 +502,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#expires">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#expires</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">expires</span><span class="hl-0">(</span><span class="hl-7">new</span><span class="hl-0"> </span><span class="hl-5">Date</span><span class="hl-0">());</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">expires</span><span class="hl-0">(</span><span class="hl-6">1661431326</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -493,7 +513,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/ExpiresOptions.html" class="tsd-signature-type tsd-kind-type-alias">ExpiresOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L463">param-builder.ts:463</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L479">param-builder.ts:479</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="extend" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>extend</span><a href="#extend" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -503,7 +523,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#extend">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#extend</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extend</span><span class="hl-0">();</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extend</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">NORTH</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset</span><span class="hl-0">: {                </span><span class="hl-4">// optional</span><br/><span class="hl-0">      </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">      </span><span class="hl-3">y</span><span class="hl-0">: </span><span class="hl-6">20</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -514,7 +534,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">?: </span><a href="../types/ExtendOptions.html" class="tsd-signature-type tsd-kind-type-alias">ExtendOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L488">param-builder.ts:488</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L504">param-builder.ts:504</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="extendAspectRatio" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>extend<wbr/>Aspect<wbr/>Ratio</span><a href="#extendAspectRatio" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -524,7 +544,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/1a9768a2c682e88820064aa3d9a05ea234ff3cc4/docs/generating_the_url.md#extend-aspect-ratio">https://github.com/imgproxy/imgproxy/blob/1a9768a2c682e88820064aa3d9a05ea234ff3cc4/docs/generating_the_url.md#extend-aspect-ratio</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extendAspectRatio</span><span class="hl-0">();</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">extendAspectRatio</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">gravity:</span><span class="hl-0"> {</span><br/><span class="hl-0">    </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">NORTH</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">offset</span><span class="hl-0">: {                </span><span class="hl-4">// optional</span><br/><span class="hl-0">      </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">      </span><span class="hl-3">y</span><span class="hl-0">: </span><span class="hl-6">20</span><span class="hl-0">;                 </span><span class="hl-4">// required</span><br/><span class="hl-0">    }</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -535,7 +555,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">?: </span><a href="../types/ExtendAspectRatioOptions.html" class="tsd-signature-type tsd-kind-type-alias">ExtendAspectRatioOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L513">param-builder.ts:513</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L529">param-builder.ts:529</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="fallbackImageUrl" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>fallback<wbr/>Image<wbr/>Url</span><a href="#fallbackImageUrl" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -545,7 +565,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#fallback-image-url-idfallback-image-url">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#fallback-image-url-idfallback-image-url</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">fallbackImageUrl</span><span class="hl-0">(</span><span class="hl-1">&#39;https://example.com&#39;</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -556,7 +576,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L531">param-builder.ts:531</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L547">param-builder.ts:547</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="fileName" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>file<wbr/>Name</span><a href="#fileName" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -566,7 +586,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/41b9ebe9277ef3e664e0a842fbc0e912b2640969/docs/generating_the_url.md#filename">https://github.com/imgproxy/imgproxy/blob/41b9ebe9277ef3e664e0a842fbc0e912b2640969/docs/generating_the_url.md#filename</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-4">// Not encoded</span><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">fileName</span><span class="hl-0">(</span><span class="hl-1">&#39;filename.png&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-4">// Encoded</span><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">fileName</span><span class="hl-0">(</span><span class="hl-1">&#39;ZmlsZW5hbWUucG5n&#39;</span><span class="hl-0">, </span><span class="hl-7">true</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -577,7 +597,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span>base64Encoded<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L553">param-builder.ts:553</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L569">param-builder.ts:569</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="format" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>format</span><a href="#format" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -587,7 +607,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">format</span><span class="hl-0">(</span><span class="hl-1">&#39;png&#39;</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -598,7 +618,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>imageFormat<span class="tsd-signature-symbol">: </span><a href="../types/FormatOptions.html" class="tsd-signature-type tsd-kind-type-alias">FormatOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L568">param-builder.ts:568</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L584">param-builder.ts:584</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="formatQuality" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>format<wbr/>Quality</span><a href="#formatQuality" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -608,7 +628,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format-quality">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#format-quality</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">formatQuality</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">jpeg:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">png:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">// ...</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -619,7 +639,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/FormatQualityOptions.html" class="tsd-signature-type tsd-kind-type-alias">FormatQualityOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L587">param-builder.ts:587</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L603">param-builder.ts:603</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="gifOptions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>gif<wbr/>Options</span><a href="#gifOptions" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -630,7 +650,7 @@ embedded thumbnail instead of the main image.</p>
 <h3>Deprecated</h3><p>Automatically applied since version 3.0.0</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">gifOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">optimizeFrames:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">,     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">optimizeTransparency:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -641,7 +661,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/GifOptions.html" class="tsd-signature-type tsd-kind-type-alias">GifOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L607">param-builder.ts:607</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L623">param-builder.ts:623</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="gradient" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>gradient</span><a href="#gradient" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -651,7 +671,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#gradient-idgradient">https://github.com/imgproxy/imgproxy/blob/cfa4b596d1f31656f9116cc16f2a4ff7d15c2837/docs/generating_the_url.md#gradient-idgradient</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">gradient</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">1</span><span class="hl-0">,       </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">color:</span><span class="hl-0"> </span><span class="hl-1">&#39;ababab&#39;</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">direction:</span><span class="hl-0"> </span><span class="hl-1">&#39;up&#39;</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">start:</span><span class="hl-0"> </span><span class="hl-6">0.0</span><span class="hl-0">,       </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">stop:</span><span class="hl-0"> </span><span class="hl-6">0.7</span><span class="hl-0">         </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -662,7 +682,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/GradientOptions.html" class="tsd-signature-type tsd-kind-type-alias">GradientOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L631">param-builder.ts:631</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L647">param-builder.ts:647</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="gravity" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>gravity</span><a href="#gravity" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -672,7 +692,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#gravity">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#gravity</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">gravity</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">GravityType</span><span class="hl-0">.</span><span class="hl-8">NORTH</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">offset</span><span class="hl-0">: {                </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,                 </span><span class="hl-4">// required</span><br/><span class="hl-0">    </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">20</span><span class="hl-0">                  </span><span class="hl-4">// required</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -683,7 +703,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/GravityOptions.html" class="tsd-signature-type tsd-kind-type-alias">GravityOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L652">param-builder.ts:652</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L668">param-builder.ts:668</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="jpegOptions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>jpeg<wbr/>Options</span><a href="#jpegOptions" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -693,7 +713,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#jpeg-options-idjpeg-options">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#jpeg-options-idjpeg-options</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">jpegOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">progressive:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,         </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">noSubsample:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,         </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">trellisQuant:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,        </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">overshootDeringing:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">optimizeScans:</span><span class="hl-0"> </span><span class="hl-3">boolean</span><span class="hl-0">,       </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantizationTable:</span><span class="hl-0"> </span><span class="hl-6">7</span><span class="hl-0">          </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -704,7 +724,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/JpegOptions.html" class="tsd-signature-type tsd-kind-type-alias">JpegOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L674">param-builder.ts:674</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L690">param-builder.ts:690</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="keepCopyright" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>keep<wbr/>Copyright</span><a href="#keepCopyright" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -714,7 +734,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#keep-copyright">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#keep-copyright</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">keepCopyright</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -723,7 +743,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L692">param-builder.ts:692</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L708">param-builder.ts:708</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="maxBytes" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>max<wbr/>Bytes</span><a href="#maxBytes" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -733,7 +753,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#max-bytes">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#max-bytes</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">maxBytes</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -744,7 +764,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>bytes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L707">param-builder.ts:707</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L723">param-builder.ts:723</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="minHeight" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>min<wbr/>Height</span><a href="#minHeight" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -754,7 +774,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-height">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-height</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">minHeight</span><span class="hl-0">(</span><span class="hl-6">100</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -765,7 +785,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L722">param-builder.ts:722</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L738">param-builder.ts:738</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="minWidth" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>min<wbr/>Width</span><a href="#minWidth" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -775,7 +795,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-width">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#min-width</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">minWidth</span><span class="hl-0">(</span><span class="hl-6">100</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -786,7 +806,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L737">param-builder.ts:737</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L753">param-builder.ts:753</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="pad" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>pad</span><a href="#pad" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -796,7 +816,7 @@ embedded thumbnail instead of the main image.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#padding">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#padding</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pad</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">top:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,    </span><span class="hl-4">// optional (Note: sets all other sides if not set explicitly)</span><br/><span class="hl-0">  </span><span class="hl-3">right:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">bottom:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">left:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">     </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -807,7 +827,7 @@ embedded thumbnail instead of the main image.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/PaddingOptions.html" class="tsd-signature-type tsd-kind-type-alias">PaddingOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L757">param-builder.ts:757</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L773">param-builder.ts:773</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="page" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>page</span><a href="#page" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -818,7 +838,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#page-idpage">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#page-idpage</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">page</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -829,7 +849,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>pg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L773">param-builder.ts:773</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L789">param-builder.ts:789</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="pixelate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>pixelate</span><a href="#pixelate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -839,7 +859,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#pixelate">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#pixelate</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pixelate</span><span class="hl-0">(</span><span class="hl-6">5</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -850,7 +870,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>pixelSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L788">param-builder.ts:788</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L804">param-builder.ts:804</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="pngOptions" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>png<wbr/>Options</span><a href="#pngOptions" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -860,7 +880,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#png-options-idpng-options">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#png-options-idpng-options</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">pngOptions</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">interlaced:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">,         </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantize:</span><span class="hl-0"> </span><span class="hl-7">false</span><span class="hl-0">,          </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">quantization_colors:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">   </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -871,7 +891,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/PngOptions.html" class="tsd-signature-type tsd-kind-type-alias">PngOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L807">param-builder.ts:807</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L823">param-builder.ts:823</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="preset" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>preset</span><a href="#preset" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -881,7 +901,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#preset</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">preset</span><span class="hl-0">(</span><span class="hl-1">&#39;mypreset&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">preset</span><span class="hl-0">([</span><span class="hl-1">&#39;preset1&#39;</span><span class="hl-0">, </span><span class="hl-1">&#39;preset2&#39;</span><span class="hl-0">]);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -892,7 +912,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>presets<span class="tsd-signature-symbol">: </span><a href="../types/PresetOptions.html" class="tsd-signature-type tsd-kind-type-alias">PresetOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L827">param-builder.ts:827</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L843">param-builder.ts:843</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="quality" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>quality</span><a href="#quality" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -902,7 +922,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#quality</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">quality</span><span class="hl-0">(</span><span class="hl-6">80</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -913,7 +933,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>percentage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L890">param-builder.ts:890</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L906">param-builder.ts:906</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="raw" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>raw</span><a href="#raw" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -923,7 +943,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#raw">https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#raw</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">raw</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -934,7 +954,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L842">param-builder.ts:842</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L858">param-builder.ts:858</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="resize" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>resize</span><a href="#resize" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -944,7 +964,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resize">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resize</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">type:</span><span class="hl-0"> </span><span class="hl-3">ResizeType</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">100</span><span class="hl-0">,             </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">50</span><span class="hl-0">              </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -955,7 +975,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/ResizeOptions.html" class="tsd-signature-type tsd-kind-type-alias">ResizeOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L909">param-builder.ts:909</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L925">param-builder.ts:925</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="resizingAlgorithm" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>resizing<wbr/>Algorithm</span><a href="#resizingAlgorithm" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -965,7 +985,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resizing-algorithm-idresizing-algorithm">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#resizing-algorithm-idresizing-algorithm</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">resizingAlgorithm</span><span class="hl-0">(</span><span class="hl-3">ResizingAlgorithm</span><span class="hl-0">.</span><span class="hl-8">NEAREST</span><span class="hl-0">));</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -976,7 +996,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>algorithm<span class="tsd-signature-symbol">: </span><a href="../enums/ResizingAlgorithm.html" class="tsd-signature-type tsd-kind-enum">ResizingAlgorithm</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L857">param-builder.ts:857</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L873">param-builder.ts:873</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="returnAttachment" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>return<wbr/>Attachment</span><a href="#returnAttachment" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -986,7 +1006,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#return-attachment</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">returnAttachment</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -995,7 +1015,7 @@ specifying the page to use.</p>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L875">param-builder.ts:875</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L891">param-builder.ts:891</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="rotate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>rotate</span><a href="#rotate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1005,7 +1025,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#rotate">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#rotate</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">rotate</span><span class="hl-0">(</span><span class="hl-6">90</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1016,7 +1036,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>angle<span class="tsd-signature-symbol">: </span><a href="../types/RotationOptions.html" class="tsd-signature-type tsd-kind-type-alias">RotationOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L924">param-builder.ts:924</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L940">param-builder.ts:940</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="saturation" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>saturation</span><a href="#saturation" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1026,7 +1046,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#saturation-idsaturation">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#saturation-idsaturation</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">saturation</span><span class="hl-0">(</span><span class="hl-6">0.3</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1037,7 +1057,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>percentage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L939">param-builder.ts:939</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L955">param-builder.ts:955</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="sharpen" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sharpen</span><a href="#sharpen" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1047,7 +1067,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#sharpen">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#sharpen</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">sharpen</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1058,7 +1078,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>sigma<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L957">param-builder.ts:957</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L973">param-builder.ts:973</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="skipProcessing" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>skip<wbr/>Processing</span><a href="#skipProcessing" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1068,7 +1088,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#skip-processing">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#skip-processing</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">skipProcessing</span><span class="hl-0">([</span><span class="hl-1">&#39;png&#39;</span><span class="hl-0">, </span><span class="hl-1">&#39;svg&#39;</span><span class="hl-0">]);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1079,7 +1099,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>extensions<span class="tsd-signature-symbol">: </span><a href="../types/SkipProcessingOptions.html" class="tsd-signature-type tsd-kind-type-alias">SkipProcessingOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L972">param-builder.ts:972</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L988">param-builder.ts:988</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="stripColorProfile" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>strip<wbr/>Color<wbr/>Profile</span><a href="#stripColorProfile" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1089,7 +1109,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-color-profile">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-color-profile</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">stripColorProfile</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1098,7 +1118,7 @@ specifying the page to use.</p>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L990">param-builder.ts:990</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1006">param-builder.ts:1006</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="stripMetadata" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>strip<wbr/>Metadata</span><a href="#stripMetadata" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1108,7 +1128,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-metadata">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#strip-metadata</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">stripMetadata</span><span class="hl-0">();</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1117,7 +1137,7 @@ specifying the page to use.</p>
 <h5><span class="tsd-kind-parameter">this</span>: <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1005">param-builder.ts:1005</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1021">param-builder.ts:1021</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="style" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>style</span><a href="#style" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1128,7 +1148,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#style-idstyle">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#style-idstyle</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">style</span><span class="hl-0">(</span><span class="hl-1">&#39;fill:red;width:30px;&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">style</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">fill:</span><span class="hl-0"> </span><span class="hl-1">&#39;red&#39;</span><span class="hl-0">;</span><br/><span class="hl-0">  </span><span class="hl-3">width</span><span class="hl-0">: </span><span class="hl-1">&#39;30px&#39;</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1139,7 +1159,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>styles<span class="tsd-signature-symbol">: </span><a href="../types/StyleOptions.html" class="tsd-signature-type tsd-kind-type-alias">StyleOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1026">param-builder.ts:1026</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1042">param-builder.ts:1042</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="trim" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>trim</span><a href="#trim" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1149,7 +1169,7 @@ specifying the page to use.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#trim">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#trim</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">trim</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">threshold:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,       </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">color:</span><span class="hl-0"> </span><span class="hl-1">&#39;ffffff&#39;</span><span class="hl-0">,     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">equal:</span><span class="hl-0"> {             </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">horizontal:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">,  </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">vertical:</span><span class="hl-0"> </span><span class="hl-7">true</span><span class="hl-0">     </span><span class="hl-4">// optional</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1160,7 +1180,7 @@ specifying the page to use.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/TrimOptions.html" class="tsd-signature-type tsd-kind-type-alias">TrimOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1048">param-builder.ts:1048</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1064">param-builder.ts:1064</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="unset" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>unset</span><a href="#unset" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1180,7 +1200,7 @@ modifiers</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L132">param-builder.ts:132</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L133">param-builder.ts:133</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="unsharpen" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>unsharpen</span><a href="#unsharpen" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1190,7 +1210,7 @@ modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#unsharpening-idunsharpening">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#unsharpening-idunsharpening</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">unsharpen</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">mode:</span><span class="hl-0"> </span><span class="hl-3">UnsharpeningMode</span><span class="hl-0">.</span><span class="hl-8">AUTO</span><span class="hl-0">,   </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">weight:</span><span class="hl-0"> </span><span class="hl-6">11</span><span class="hl-0">,                    </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">dividor:</span><span class="hl-0"> </span><span class="hl-6">24</span><span class="hl-0">                    </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1201,7 +1221,7 @@ modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/UnsharpeningOptions.html" class="tsd-signature-type tsd-kind-type-alias">UnsharpeningOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1067">param-builder.ts:1067</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1083">param-builder.ts:1083</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="videoThumbnailSecond" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>video<wbr/>Thumbnail<wbr/>Second</span><a href="#videoThumbnailSecond" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1211,7 +1231,7 @@ modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">videoThumbnailSecond</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1222,7 +1242,7 @@ modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1082">param-builder.ts:1082</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1098">param-builder.ts:1098</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="watermark" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>watermark</span><a href="#watermark" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1232,7 +1252,7 @@ modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermark</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">0.8</span><span class="hl-0">,                          </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">position:</span><span class="hl-0"> </span><span class="hl-3">WatermarkPosition</span><span class="hl-0">.</span><span class="hl-8">REPLICATE</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">scale</span><span class="hl-0">: </span><span class="hl-6">2</span><span class="hl-0">                               </span><span class="hl-4">// optional</span><br/><span class="hl-0">});</span><br/><br/><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermark</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">opacity:</span><span class="hl-0"> </span><span class="hl-6">1.0</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">scale:</span><span class="hl-0"> </span><span class="hl-6">1</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">position:</span><span class="hl-0"> </span><span class="hl-3">WatermarkPosition</span><span class="hl-0">.</span><span class="hl-8">WEST</span><span class="hl-0">  </span><span class="hl-4">// optional</span><br/><span class="hl-0">  </span><span class="hl-3">offset</span><span class="hl-0">: {                         </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">x:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">,                          </span><span class="hl-4">// optional</span><br/><span class="hl-0">    </span><span class="hl-3">y:</span><span class="hl-0"> </span><span class="hl-6">10</span><span class="hl-0">                           </span><span class="hl-4">// optional</span><br/><span class="hl-0">  }</span><br/><span class="hl-0">})</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1243,7 +1263,7 @@ modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/WatermarkOptions.html" class="tsd-signature-type tsd-kind-type-alias">WatermarkOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1117">param-builder.ts:1117</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1133">param-builder.ts:1133</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="watermarkShadow" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>watermark<wbr/>Shadow</span><a href="#watermarkShadow" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1253,7 +1273,7 @@ modifiers</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#watermark-shadow-idwatermark-shadow">https://github.com/imgproxy/imgproxy/blob/f95f57bb4df35c69ae2257958006ef54b1c1d8c7/docs/generating_the_url.md#watermark-shadow-idwatermark-shadow</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkShadow</span><span class="hl-0">(</span><span class="hl-6">10</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1264,7 +1284,7 @@ modifiers</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>sigma<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1132">param-builder.ts:1132</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1148">param-builder.ts:1148</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="watermarkSize" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>watermark<wbr/>Size</span><a href="#watermarkSize" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1276,7 +1296,7 @@ when needed.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-size-idwatermark-size">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-size-idwatermark-size</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkSize</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-3">width:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">,  </span><span class="hl-4">// required</span><br/><span class="hl-0">  </span><span class="hl-3">height:</span><span class="hl-0"> </span><span class="hl-6">30</span><span class="hl-0">  </span><span class="hl-4">// required</span><br/><span class="hl-0">});</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1287,7 +1307,7 @@ when needed.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/WatermarkSizeOptions.html" class="tsd-signature-type tsd-kind-type-alias">WatermarkSizeOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1155">param-builder.ts:1155</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1171">param-builder.ts:1171</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="watermarkText" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>watermark<wbr/>Text</span><a href="#watermarkText" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1297,7 +1317,7 @@ when needed.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-text-idwatermark-text">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-text-idwatermark-text</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkText</span><span class="hl-0">(</span><span class="hl-1">&quot;my watermark&quot;</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1308,7 +1328,7 @@ when needed.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1173">param-builder.ts:1173</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1189">param-builder.ts:1189</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="watermarkUrl" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>watermark<wbr/>Url</span><a href="#watermarkUrl" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1318,7 +1338,7 @@ when needed.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-url-idwatermark-url">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark-url-idwatermark-url</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">watermarkUrl</span><span class="hl-0">(</span><span class="hl-1">&#39;https://example.com&#39;</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1329,7 +1349,7 @@ when needed.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1191">param-builder.ts:1191</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1207">param-builder.ts:1207</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="zoom" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>zoom</span><a href="#zoom" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1339,7 +1359,7 @@ when needed.</p>
 <p>See <a href="https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#zoom">https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#zoom</a> for the imgproxy documentation</p>
 
 <h3>Example</h3><pre><code class="language-typescript"><span class="hl-5">pb</span><span class="hl-0">().</span><span class="hl-5">zoom</span><span class="hl-0">(</span><span class="hl-6">3</span><span class="hl-0">);</span>
-</code></pre>
+</code><button>Copy</button></pre>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -1350,7 +1370,7 @@ when needed.</p>
 <h5><code class="tsd-tag ts-flagRest">Rest</code> <span class="tsd-signature-symbol">...</span><span class="tsd-kind-parameter">options</span>: <span class="tsd-signature-symbol">[</span>options<span class="tsd-signature-symbol">: </span><a href="../types/ZoomOptions.html" class="tsd-signature-type tsd-kind-type-alias">ZoomOptions</a><span class="tsd-signature-symbol">]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ParamBuilder.html" class="tsd-signature-type tsd-kind-class">ParamBuilder</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/6fb0a92/src/param-builder.ts#L1209">param-builder.ts:1209</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/BitPatty/imgproxy-url-builder/blob/bdc5115/src/param-builder.ts#L1225">param-builder.ts:1225</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -1385,6 +1405,7 @@ when needed.</p>
 <li><a href="#contrast" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>contrast</span></a></li>
 <li><a href="#crop" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>crop</span></a></li>
 <li><a href="#disableAnimation" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>disable<wbr/>Animation</span></a></li>
+<li><a href="#dpi" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>dpi</span></a></li>
 <li><a href="#dpr" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>dpr</span></a></li>
 <li><a href="#drawDetections" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>draw<wbr/>Detections</span></a></li>
 <li><a href="#enforceThumbnail" class=""><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>enforce<wbr/>Thumbnail</span></a></li>
@@ -1451,6 +1472,7 @@ when needed.</p>
 <li><a href="../types/CacheBusterOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>Cache<wbr/>Buster<wbr/>Options</span></a></li>
 <li><a href="../types/ContrastOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>Contrast<wbr/>Options</span></a></li>
 <li><a href="../types/CropOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>Crop<wbr/>Options</span></a></li>
+<li><a href="../types/DPIOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>DPIOptions</span></a></li>
 <li><a href="../types/DprOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>Dpr<wbr/>Options</span></a></li>
 <li><a href="../types/DrawDetectionOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>Draw<wbr/>Detection<wbr/>Options</span></a></li>
 <li><a href="../types/ExpiresOptions.html"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg><span>Expires<wbr/>Options</span></a></li>
