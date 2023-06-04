@@ -115,6 +115,7 @@ Published under the [MIT License](https://github.com/BitPatty/imgproxy-url-build
 - [contrast](#contrast-imgproxy-docs)
 - [crop](#crop-imgproxy-docs)
 - [disableAnimation](#disableanimation-imgproxy-docs)
+- [dpi](#dpi-imgproxy-docs)
 - [dpr](#dpr-imgproxy-docs)
 - [drawDetections](#drawdetections-imgproxy-docs)
 - [enforceThumbnail](#enforcethumbnail-imgproxy-docs)
@@ -291,6 +292,16 @@ Use a single frame of animated images.
 
 ```typescript
 pb().disableAnimation();
+```
+
+### dpi ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/8629c5eca1e422908363f471513bfc887d778a85/docs/generating_the_url.md#dpi-iddpi))
+
+When set, imgproxy will replace the image's DPI metadata with the provided value.
+
+#### Example
+
+```typescript
+pb().dpi(300);
 ```
 
 ### dpr ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#dpr))
