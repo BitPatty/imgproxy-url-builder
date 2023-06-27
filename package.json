@@ -50,7 +50,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "npm-check-updates": "16.10.13",
     "prettier": "2.8.8",
-    "rollup": "3.25.2",
+    "rollup": "3.25.3",
     "rollup-plugin-typescript2": "0.35.0",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
