@@ -56,6 +56,6 @@
     "ts-node": "10.9.1",
     "tslib": "2.6.0",
     "typedoc": "0.24.8",
-    "typescript": "5.1.5"
+    "typescript": "5.1.6"
   }
 }
