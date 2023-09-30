@@ -1,9 +1,9 @@
 import adjust from './transformers/adjust.js';
 import autoRotate from './transformers/auto-rotate.js';
-import background from './transformers/background.js';
 import backgroundAlpha from './transformers/background-alpha.js';
-import blur from './transformers/blur.js';
+import background from './transformers/background.js';
 import blurDetections from './transformers/blur-detections.js';
+import blur from './transformers/blur.js';
 import brightness from './transformers/brightness.js';
 import cacheBuster from './transformers/cache-buster.js';
 import contrast from './transformers/contrast.js';
@@ -15,12 +15,12 @@ import drawDetections from './transformers/draw-detections.js';
 import enforceThumbnail from './transformers/enforce-thumbnail.js';
 import enlarge from './transformers/enlarge.js';
 import expires from './transformers/expires.js';
-import extend from './transformers/extend.js';
 import extendAspectRatio from './transformers/extend-aspect-ratio.js';
+import extend from './transformers/extend.js';
 import fallbackImageUrl from './transformers/fallback-image-url.js';
 import fileName from './transformers/filename.js';
-import format from './transformers/format.js';
 import formatQuality from './transformers/format-quality.js';
+import format from './transformers/format.js';
 import gifOptions from './transformers/gif-options.js';
 import gradient from './transformers/gradient.js';
 import gravity from './transformers/gravity.js';
@@ -49,11 +49,11 @@ import style from './transformers/style.js';
 import trim from './transformers/trim.js';
 import unsharpen from './transformers/unsharpen.js';
 import videoThumbnailSecond from './transformers/video-thumbnail-second.js';
-import watermark from './transformers/watermark.js';
 import watermarkShadow from './transformers/watermark-shadow.js';
 import watermarkSize from './transformers/watermark-size.js';
 import watermarkText from './transformers/watermark-text.js';
 import watermarkUrl from './transformers/watermark-url.js';
+import watermark from './transformers/watermark.js';
 import zoom from './transformers/zoom.js';
 
 import { encodeFilePath, generateSignature } from './common.js';
@@ -78,6 +78,13 @@ export type BuildOptions = {
    * Defaults to false. If true, encodes the path to a  base64url
    */
   plain?: boolean;
+
+  /**
+   * Whether to append the extension (or filetype) to the end of the url.
+   *
+   * Defaults to false. If true adds the extension.
+   */
+  addExtension?: boolean;
 
   /**
    * The signature to apply
@@ -160,7 +167,9 @@ class ParamBuilder {
     if (path && plain) mods.push('plain', path);
     else mods.push(encodeFilePath(path));
 
-    const res = mods.join('/');
+    const extension = options?.addExtension ? this.getExtention(path) : '';
+
+    const res = mods.join('/') + extension;
 
     // If no signature is calculated add a - as placeholder
     // See https://github.com/imgproxy/imgproxy/blob/b243a08254b9ca7da2c628429cd870c111ece5c9/docs/signing_the_url.md
@@ -174,6 +183,26 @@ class ParamBuilder {
       : `-/${res}`;
 
     return baseUrl ? `${baseUrl}/${finalPath}` : `/${finalPath}`;
+  }
+
+  /**
+   * Get the extension for the file. Checks the specified format and the target image.
+   *
+   * @param path The path to the target image, e.g. `https://example.com/foo.png`
+   * @returns An extension if found, or an empty string
+   */
+  private getExtention(path: string): string {
+    let extension = '';
+
+    const formatString = this.modifiers.get('format');
+    if (formatString) {
+      extension = `.${formatString.split(':').pop()}`;
+    } else {
+      const parts = path.split('.');
+      if (parts.length) extension = `.${parts.pop()}`;
+    }
+
+    return extension;
   }
 
   /**
