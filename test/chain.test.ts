@@ -58,19 +58,6 @@ describe('Chain', () => {
     );
   });
 
-  test('Add Extension from path', () => {
-    expect(
-      pb().build({
-        path: 'test.png',
-        addExtension: true,
-        signature: {
-          key: '73757065722d7365637265742d6b6579', // super-secret-key
-          salt: '73757065722d7365637265742d73616c74', // super-secret-salt
-        },
-      }),
-    ).toEqual('/zxikHGnHjfY5KF1eksnwFQvqNtQa0bAqDRDJBwPoMNY/dGVzdC5wbmc.png');
-  });
-
   test('Add Extension from format', () => {
     expect(
       pb()
@@ -88,18 +75,21 @@ describe('Chain', () => {
     );
   });
 
-  test('Add Extension fallback', () => {
+  test('Do not Add Extension if plain', () => {
     expect(
-      pb().build({
-        path: 'testwithoutextension',
-        addExtension: true,
-        signature: {
-          key: '73757065722d7365637265742d6b6579', // super-secret-key
-          salt: '73757065722d7365637265742d73616c74', // super-secret-salt
-        },
-      }),
+      pb()
+        .format('webp')
+        .build({
+          path: 'test.png',
+          addExtension: true,
+          plain: true,
+          signature: {
+            key: '73757065722d7365637265742d6b6579', // super-secret-key
+            salt: '73757065722d7365637265742d73616c74', // super-secret-salt
+          },
+        }),
     ).toEqual(
-      '/NZqsjnAakEL_WYW3m0jRJmfzbVojINSNJD_ygU9VzFY/dGVzdHdpdGhvdXRleHRlbnNpb24.testwithoutextension',
+      '/pJaBmZSqwN__JanbIGi_nT57o0sA4YPkhkfn-SKZTEk/f:webp/plain/test.png',
     );
   });
 });

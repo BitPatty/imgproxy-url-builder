@@ -75,7 +75,7 @@ export type BuildOptions = {
   /**
    * Whether to append the path in plain.
    *
-   * Defaults to false. If true, encodes the path to a  base64url
+   * Defaults to false. If false, encodes the path to a base64url
    */
   plain?: boolean;
 
@@ -167,7 +167,10 @@ class ParamBuilder {
     if (path && plain) mods.push('plain', path);
     else mods.push(encodeFilePath(path));
 
-    const extension = options?.addExtension ? this.getExtention(path) : '';
+    let extension = '';
+    if (!plain && options?.addExtension) {
+      extension = this.getExtension();
+    }
 
     const res = mods.join('/') + extension;
 
@@ -191,18 +194,11 @@ class ParamBuilder {
    * @param path The path to the target image, e.g. `https://example.com/foo.png`
    * @returns An extension if found, or an empty string
    */
-  private getExtention(path: string): string {
-    let extension = '';
-
+  private getExtension(): string {
     const formatString = this.modifiers.get('format');
-    if (formatString) {
-      extension = `.${formatString.split(':').pop()}`;
-    } else {
-      const parts = path.split('.');
-      if (parts.length) extension = `.${parts.pop()}`;
-    }
+    if (!formatString) return '';
 
-    return extension;
+    return `.${formatString.split(':').pop()}`;
   }
 
   /**
