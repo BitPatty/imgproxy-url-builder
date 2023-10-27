@@ -167,10 +167,10 @@ class ParamBuilder {
     if (path && plain) mods.push('plain', path);
     else mods.push(encodeFilePath(path));
 
-    let extension = '';
-    if (!plain && options?.addExtension) {
-      extension = this.getExtension();
-    }
+    // Get the file extension if requested
+    const extension = options?.addExtension
+      ? this.getExtension(plain ? '@' : '.')
+      : '';
 
     const res = mods.join('/') + extension;
 
@@ -191,14 +191,15 @@ class ParamBuilder {
   /**
    * Get the extension for the file. Checks the specified format and the target image.
    *
-   * @param path The path to the target image, e.g. `https://example.com/foo.png`
-   * @returns An extension if found, or an empty string
+   * See https://github.com/imgproxy/imgproxy/blob/5ac79477dfa76ed3c014a1472e31e26a2d2257a0/docs/generating_the_url.md#source-url for the imgproxy documentation
+   *
+   * @param path  The path to the target image, e.g. `https://example.com/foo.png`
+   * @returns     An extension if found, or an empty string
    */
-  private getExtension(): string {
+  private getExtension(separator: '@' | '.'): string {
     const formatString = this.modifiers.get('format');
     if (!formatString) return '';
-
-    return `.${formatString.split(':').pop()}`;
+    return `${separator}${formatString.split(':').pop()}`;
   }
 
   /**

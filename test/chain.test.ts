@@ -58,38 +58,39 @@ describe('Chain', () => {
     );
   });
 
-  test('Add Extension from format', () => {
+  test('Add Extension from format (encoded)', () => {
     expect(
-      pb()
-        .format('webp')
-        .build({
-          path: 'test.png',
-          addExtension: true,
-          signature: {
-            key: '73757065722d7365637265742d6b6579', // super-secret-key
-            salt: '73757065722d7365637265742d73616c74', // super-secret-salt
-          },
-        }),
-    ).toEqual(
-      '/XmZ2pGTP_p5AD6Sk5lOo83-T1BcQVmEcPVymiKZEoF8/f:webp/dGVzdC5wbmc.webp',
-    );
+      pb().format('webp').build({
+        path: 'test.png',
+        addExtension: true,
+      }),
+    ).toEqual('/-/f:webp/dGVzdC5wbmc.webp');
   });
 
-  test('Do not Add Extension if plain', () => {
+  test('Add Extension from format (plain)', () => {
     expect(
-      pb()
-        .format('webp')
-        .build({
-          path: 'test.png',
-          addExtension: true,
-          plain: true,
-          signature: {
-            key: '73757065722d7365637265742d6b6579', // super-secret-key
-            salt: '73757065722d7365637265742d73616c74', // super-secret-salt
-          },
-        }),
-    ).toEqual(
-      '/pJaBmZSqwN__JanbIGi_nT57o0sA4YPkhkfn-SKZTEk/f:webp/plain/test.png',
-    );
+      pb().format('webp').build({
+        path: 'test.png',
+        addExtension: true,
+        plain: true,
+      }),
+    ).toEqual('/-/f:webp/plain/test.png@webp');
+  });
+
+  test('Do not Add Extension if no format is set', () => {
+    expect(
+      pb().build({
+        path: 'test.png',
+        addExtension: true,
+      }),
+    ).toEqual('/-/dGVzdC5wbmc');
+  });
+
+  test('Do not Add Extension if not requested', () => {
+    expect(
+      pb().format('webp').build({
+        path: 'test.png',
+      }),
+    ).toEqual('/-/f:webp/dGVzdC5wbmc');
   });
 });
