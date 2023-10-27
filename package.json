@@ -3,6 +3,12 @@
   "version": "1.3.4",
   "description": "A TypeScript helper library for building imgproxy URLs",
   "author": "Matteias Collet <matteias.collet@pm.me>",
+  "contributors": [
+    {
+      "name": "Coo van Leeuwen",
+      "url": "https://github.com/c00"
+    }
+  ],
   "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
