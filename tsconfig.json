@@ -3,7 +3,7 @@
     "outDir": "dist",
     "module": "ESNext",
     "target": "ES2022",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Bundler",
     "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
