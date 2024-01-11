@@ -1,12 +1,16 @@
 {
   "name": "@bitpatty/imgproxy-url-builder",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A TypeScript helper library for building imgproxy URLs",
   "author": "Matteias Collet <matteias.collet@pm.me>",
   "contributors": [
     {
       "name": "Coo van Leeuwen",
       "url": "https://github.com/c00"
+    },
+    {
+      "name": "Ushakov Fedor",
+      "url": "https://github.com/ushakovfserg"
     }
   ],
   "type": "module",
