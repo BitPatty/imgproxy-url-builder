@@ -129,6 +129,7 @@ Published under the [MIT License](https://github.com/BitPatty/imgproxy-url-build
 - [formatQuality](#formatquality-imgproxy-docs)
 - [gradient](#gradient-imgproxy-docs)
 - [gravity](#gravity-imgproxy-docs)
+- [hashsum](#hashsum-imgproxy-docs)
 - [jpegOptions](#jpegoptions-imgproxy-docs)
 - [keepCopyright](#keepcopyright-imgproxy-docs)
 - [maxBytes](#maxbytes-imgproxy-docs)
@@ -475,6 +476,19 @@ pb().gravity({
     x: 10,                 // required
     y: 20                  // required
   }
+});
+```
+
+### hashsum ([imgproxy docs](https://github.com/imgproxy/imgproxy-docs/blob/f9d7908d253ec2b31425b988a48f8c28cb271c58/docs/usage/processing.mdx#L916))
+
+When `hashsum_type` is not `none`, imgproxy will calculate the hashsum of the source image and compare it with the provided hashsum.
+
+#### Example
+
+```typescript
+pb().hashsum({
+  hashsum: 'ABCDEF',       // required
+  type: HashsumType.NONE   // optional
 });
 ```
 
