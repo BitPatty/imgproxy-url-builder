@@ -29,6 +29,7 @@ import { FormatQualityOptions } from './transformers/format-quality.js';
 import { GifOptions } from './transformers/gif-options.js';
 import { GradientOptions } from './transformers/gradient.js';
 import { GravityOptions } from './transformers/gravity.js';
+import { HashsumOptions } from './transformers/hashsum.js';
 import { JpegOptions } from './transformers/jpeg-options.js';
 import { MaxBytesOptions } from './transformers/max-bytes.js';
 import { MinHeightOptions } from './transformers/min-height.js';
@@ -94,6 +95,7 @@ export {
   GifOptions,
   GradientOptions,
   GravityOptions,
+  HashsumOptions,
   JpegOptions,
   MaxBytesOptions,
   MinWidthOptions,

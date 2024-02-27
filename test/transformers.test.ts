@@ -8,6 +8,7 @@ import pb, {
 } from '../src/index.js';
 
 import { base64urlEncode, utf8encode } from '../src/crypto/codec.js';
+import HashsumType from '../src/enums/hashsum-type.enum.js';
 
 describe('Transformers', () => {
   describe('Adjust', () => {
@@ -412,6 +413,31 @@ describe('Transformers', () => {
           type: GravityType.NORTHWEST,
         }),
       ).toIncludeModifier('g:nowe');
+    });
+  });
+
+  describe('hashsum', () => {
+    test('Uses Proper Identifier', () => {
+      expect(pb().hashsum({ hashsum: 'abc' })).toIncludeModifierIdentifier(
+        'hashsum',
+      );
+    });
+
+    test('Applies Modifier', () => {
+      expect(
+        pb().hashsum({
+          type: HashsumType.SHA256,
+          hashsum: 'abc',
+        }),
+      ).toIncludeModifier('hashsum:sha256:abc');
+    });
+
+    test('Applies Defaults', () => {
+      expect(
+        pb().hashsum({
+          hashsum: 'abc',
+        }),
+      ).toIncludeModifier('hashsum:none:abc');
     });
   });
 

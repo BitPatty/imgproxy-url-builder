@@ -57,6 +57,7 @@ import watermark from './transformers/watermark.js';
 import zoom from './transformers/zoom.js';
 
 import { encodeFilePath, generateSignature } from './common.js';
+import hashsum from './transformers/hashsum.js';
 
 /**
  * The build options
@@ -693,6 +694,25 @@ class ParamBuilder {
    */
   public gravity(this: this, ...options: Parameters<typeof gravity>): this {
     this.modifiers.set('gravity', gravity(...options));
+    return this;
+  }
+
+  /**
+   * When `hashsum_type` is not `none`, imgproxy will calculate the hashsum of the source image
+   * and compare it with the provided hashsum.
+   *
+   * See https://github.com/imgproxy/imgproxy-docs/blob/f9d7908d253ec2b31425b988a48f8c28cb271c58/docs/usage/processing.mdx#L916 for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().hashsum({
+   *   hashsum: 'ABCDEF',       // required
+   *   type: HashsumType.NONE   // optional
+   * });
+   * ```
+   */
+  public hashsum(this: this, ...options: Parameters<typeof hashsum>): this {
+    this.modifiers.set('hashsum', hashsum(...options));
     return this;
   }
 
