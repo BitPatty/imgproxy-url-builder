@@ -154,7 +154,9 @@ Published under the [MIT License](https://github.com/BitPatty/imgproxy-url-build
 - [style](#style-imgproxy-docs)
 - [trim](#trim-imgproxy-docs)
 - [unsharpen](#unsharpen-imgproxy-docs)
+- [videoThumbnailKeyframes](#videothumbnailkeyframes-imgproxy-docs)
 - [videoThumbnailSecond](#videothumbnailsecond-imgproxy-docs)
+- [videoThumbnailTile](#videothumbnailtile-imgproxy-docs)
 - [watermark](#watermark-imgproxy-docs)
 - [watermarkShadow](#watermarkshadow-imgproxy-docs)
 - [watermarkSize](#watermarksize-imgproxy-docs)
@@ -770,6 +772,16 @@ pb().unsharpen({
 });
 ```
 
+### videoThumbnailKeyframes ([imgproxy docs](https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-keyframes-pro-video-thumbnail-keyframes))
+
+Specifies whether the latest keyframe before the video thumbnail second should be used for thumbnail generation
+
+#### Example
+
+```typescript
+pb().videoThumbnailKeyframes(true);
+```
+
 ### videoThumbnailSecond ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second))
 
 Redefines the second used for the thumbnail.
@@ -778,6 +790,27 @@ Redefines the second used for the thumbnail.
 
 ```typescript
 pb().videoThumbnailSecond(3);
+```
+
+### videoThumbnailTile ([imgproxy docs](https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile))
+
+Generates a tiled sprite using hte source video frames
+
+#### Example
+
+```typescript
+pb().videoThumbnailTile({
+  step: 1,           // required
+  columns: 1,        // required
+  rows: 1,           // required
+  tileWidth: 50,     // required
+  tileHeight: 50,    // required
+  extendTile: true,  // optional
+  trim: true,        // optional
+  fill: true,        // optional
+  focusX: 10.3,      // optional
+  focusY: 10.3,      // optional
+});
 ```
 
 ### watermark ([imgproxy docs](https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#watermark))
