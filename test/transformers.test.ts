@@ -757,6 +757,42 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Video Thumbnail Tile', () => {
+    test('Uses Proper Identifier', () => {
+      expect(
+        pb().videoThumbnailTile({
+          step: 1,
+          columns: 2,
+          rows: 3,
+          tileHeight: 13,
+          tileWidth: 20,
+          extendTile: true,
+          trim: true,
+          fill: false,
+          focusX: 10.3,
+          focusY: 1.6,
+        }),
+      ).toIncludeModifierIdentifier('videoThumbnailTile');
+    });
+
+    test('Applies Modifier', () => {
+      expect(
+        pb().videoThumbnailTile({
+          step: 1,
+          columns: 2,
+          rows: 3,
+          tileHeight: 13,
+          tileWidth: 20,
+          extendTile: true,
+          trim: true,
+          fill: false,
+          focusX: 10.3,
+          focusY: 1.6,
+        }),
+      ).toIncludeModifier('vtt:1:2:3:20:13:true:true:false:10.3:1.6');
+    });
+  });
+
   describe('Watermark Shadow', () => {
     test('Uses Proper Identifier', () => {
       expect(pb().watermarkShadow(3)).toIncludeModifierIdentifier(

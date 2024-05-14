@@ -50,6 +50,7 @@ import { StyleOptions } from './transformers/style.js';
 import { TrimOptions } from './transformers/trim.js';
 import { UnsharpeningOptions } from './transformers/unsharpen.js';
 import { VideoThumbnailSecondOptions } from './transformers/video-thumbnail-second.js';
+import { VideoThumbnailTileOptions } from './transformers/video-thumbnail-tile.js';
 import { WatermarkOptions } from './transformers/watermark.js';
 import { WatermarkShadowOptions } from './transformers/watermark-shadow.js';
 import { WatermarkSizeOptions } from './transformers/watermark-size.js';
@@ -116,6 +117,7 @@ export {
   TrimOptions,
   UnsharpeningOptions,
   VideoThumbnailSecondOptions,
+  VideoThumbnailTileOptions,
   WatermarkOptions,
   WatermarkShadowOptions,
   WatermarkSizeOptions,

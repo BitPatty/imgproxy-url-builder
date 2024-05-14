@@ -49,6 +49,7 @@ import style from './transformers/style.js';
 import trim from './transformers/trim.js';
 import unsharpen from './transformers/unsharpen.js';
 import videoThumbnailSecond from './transformers/video-thumbnail-second.js';
+import videoThumbnailTile from './transformers/video-thumbnail-tile.js';
 import watermarkShadow from './transformers/watermark-shadow.js';
 import watermarkSize from './transformers/watermark-size.js';
 import watermarkText from './transformers/watermark-text.js';
@@ -1149,6 +1150,35 @@ class ParamBuilder {
       'videoThumbnailSecond',
       videoThumbnailSecond(...options),
     );
+    return this;
+  }
+
+  /**
+   * Generates a tiled sprite using hte source video frames
+   *
+   * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile
+   *
+   * @example
+   * ```typescript
+   * pb().videoThumbnailTile({
+   *   step: 1,           // required
+   *   columns: 1,        // required
+   *   rows: 1,           // required
+   *   tileWidth: 50,     // required
+   *   tileHeight: 50,    // required
+   *   extendTile: true,  // optional
+   *   trim: true,        // optional
+   *   fill: true,        // optional
+   *   focusX: 10.3,      // optional
+   *   focusY: 10.3,      // optional
+   * });
+   * ```
+   */
+  public videoThumbnailTile(
+    this: this,
+    ...options: Parameters<typeof videoThumbnailTile>
+  ): this {
+    this.modifiers.set('videoThumbnailTile', videoThumbnailTile(...options));
     return this;
   }
 
