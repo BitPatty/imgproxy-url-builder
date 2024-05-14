@@ -745,6 +745,18 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Video Thumbnail Keyframes', () => {
+    test('Uses Proper Identifier', () => {
+      expect(pb().videoThumbnailKeyframes(true)).toIncludeModifierIdentifier(
+        'videoThumbnailKeyframes',
+      );
+    });
+
+    test('Applies Modifier', () => {
+      expect(pb().videoThumbnailKeyframes(true)).toIncludeModifier('vtk:true');
+    });
+  });
+
   describe('Video Thumbnail Second', () => {
     test('Uses Proper Identifier', () => {
       expect(pb().videoThumbnailSecond(3)).toIncludeModifierIdentifier(

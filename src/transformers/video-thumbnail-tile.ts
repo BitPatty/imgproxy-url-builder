@@ -64,7 +64,7 @@ type VideoThumbnailTileOptions = {
 /**
  * Generates a tiled sprite using hte source video frames
  *
- * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile
+ * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile for the imgproxy documentation
  *
  * @param second  The video thumbnail tile options
  * @returns       The video thumbnail tile param string

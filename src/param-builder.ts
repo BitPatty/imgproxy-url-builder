@@ -59,6 +59,7 @@ import zoom from './transformers/zoom.js';
 
 import { encodeFilePath, generateSignature } from './common.js';
 import hashsum from './transformers/hashsum.js';
+import videoThumbnailKeyframes from './transformers/video-thumbnail-keyframes.js';
 
 /**
  * The build options
@@ -1133,6 +1134,28 @@ class ParamBuilder {
   }
 
   /**
+   * Specifies whether the latest keyframe before the video thumbnail second
+   * should be used for thumbnail generation
+   *
+   * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-keyframes-pro-video-thumbnail-keyframes for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().videoThumbnailKeyframes(true);
+   * ```
+   */
+  public videoThumbnailKeyframes(
+    this: this,
+    ...options: Parameters<typeof videoThumbnailKeyframes>
+  ): this {
+    this.modifiers.set(
+      'videoThumbnailKeyframes',
+      videoThumbnailKeyframes(...options),
+    );
+    return this;
+  }
+
+  /**
    * Redefines the second used for the thumbnail.
    *
    * See https://github.com/imgproxy/imgproxy/blob/6f292443eafb2e39f9252175b61faa6b38105a7c/docs/generating_the_url.md#video-thumbnail-second-idvideo-thumbnail-second for the imgproxy documentation
@@ -1156,7 +1179,7 @@ class ParamBuilder {
   /**
    * Generates a tiled sprite using hte source video frames
    *
-   * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile
+   * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile for the imgproxy documentation
    *
    * @example
    * ```typescript

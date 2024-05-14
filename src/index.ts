@@ -49,6 +49,7 @@ import { SkipProcessingOptions } from './transformers/skip-processing.js';
 import { StyleOptions } from './transformers/style.js';
 import { TrimOptions } from './transformers/trim.js';
 import { UnsharpeningOptions } from './transformers/unsharpen.js';
+import { VideoThumbnailKeyframesOptions } from './transformers/video-thumbnail-keyframes.js';
 import { VideoThumbnailSecondOptions } from './transformers/video-thumbnail-second.js';
 import { VideoThumbnailTileOptions } from './transformers/video-thumbnail-tile.js';
 import { WatermarkOptions } from './transformers/watermark.js';
@@ -116,6 +117,7 @@ export {
   StyleOptions,
   TrimOptions,
   UnsharpeningOptions,
+  VideoThumbnailKeyframesOptions,
   VideoThumbnailSecondOptions,
   VideoThumbnailTileOptions,
   WatermarkOptions,
