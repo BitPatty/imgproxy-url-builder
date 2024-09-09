@@ -51,12 +51,12 @@
   "homepage": "https://github.com/BitPatty/imgproxy-url-builder#readme",
   "devDependencies": {
     "@types/jest": "29.5.12",
-    "@types/node": "22.5.3",
+    "@types/node": "22.5.4",
     "@typescript-eslint/eslint-plugin": "8.4.0",
     "@typescript-eslint/parser": "8.4.0",
-    "eslint": "9.9.1",
+    "eslint": "9.10.0",
     "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-jest": "28.8.2",
+    "eslint-plugin-jest": "28.8.3",
     "eslint-plugin-prettier": "5.2.1",
     "npm-check-updates": "17.1.1",
     "prettier": "3.3.3",
@@ -65,7 +65,7 @@
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
     "tslib": "2.7.0",
-    "typedoc": "0.26.6",
+    "typedoc": "0.26.7",
     "typescript": "5.5.4"
   }
 }
