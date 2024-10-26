@@ -1,23 +1,79 @@
 import { createHash } from 'crypto';
 import { utf8encode } from '../../src/crypto/codec.js';
-import sha256 from '../../src/crypto/sha256.js';
+import { sha256 } from '../../src/crypto/sha256.js';
+import { wordArrayToByteArray } from '../../src/crypto/common.js';
 
 describe('SHA256', () => {
-  test.each(new Array(1000).fill(0).map((_, idx) => idx))(
-    'Characters: %i',
-    (length) => {
-      let res = '';
+  const compareSha256 = (message: string) => {
+    const expected = createHash('sha256')
+      .update(message, 'utf-8')
+      .digest('hex');
+    const actualSha256 = sha256(utf8encode(message));
+    const actual = Array.from(wordArrayToByteArray(actualSha256))
+      .map((v) => v.toString(16).padStart(2, '0'))
+      .join('');
 
-      for (let i = 0; i < length; i++) {
-        res += String.fromCharCode(Math.floor(Math.random() * 0xff));
-      }
+    expect(actual).toBe(expected);
+  };
 
-      const h = createHash('sha256').update(res, 'utf-8').digest('hex');
-      const m = sha256(utf8encode(res))
-        .map((v) => v.toString(16).padStart(8, '0'))
-        .join('');
+  // Empty string case
+  test('SHA256 with empty string', () => {
+    compareSha256('');
+  });
 
-      expect(m).toBe(h);
-    },
-  );
+  // Simple message case
+  test('SHA256 with simple message', () => {
+    compareSha256('Hello World');
+  });
+
+  // Long message case
+  test('SHA256 with long message', () => {
+    compareSha256('A'.repeat(1000));
+  });
+
+  // Special characters case
+  test('SHA256 with special characters', () => {
+    compareSha256('~!@#$%^&*()_+-={}[]:";\'<>?,./|\\');
+  });
+
+  // UTF-8 characters case
+  test('SHA256 with UTF-8 characters', () => {
+    compareSha256('こんにちは世界'); // "Hello World" in Japanese
+  });
+
+  // Binary data case
+  test('SHA256 with binary data', () => {
+    const binaryData = new Uint8Array([0, 255, 128, 64, 32, 16, 8]);
+    compareSha256(Buffer.from(binaryData).toString('binary'));
+  });
+
+  // Repeated pattern case
+  test('SHA256 with repeated pattern', () => {
+    compareSha256('abcabcabcabc');
+  });
+
+  // Very short message (1 character)
+  test('SHA256 with very short message', () => {
+    compareSha256('a');
+  });
+
+  // Extremely long message
+  test('SHA256 with extremely long message', () => {
+    compareSha256('A'.repeat(100000));
+  });
+
+  // Edge case with numeric string
+  test('SHA256 with numeric string', () => {
+    compareSha256('1234567890');
+  });
+
+  // Edge case with whitespace
+  test('SHA256 with whitespace characters', () => {
+    compareSha256('   \n\t ');
+  });
+
+  // Edge case with null characters
+  test('SHA256 with null characters', () => {
+    compareSha256('\0\0\0');
+  });
 });

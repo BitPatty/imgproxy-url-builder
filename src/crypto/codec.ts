@@ -4,76 +4,17 @@
  * @param num  The number
  * @returns    The lowest 6 bits
  */
-const low6 = (num: number): number => {
-  return num & 0b0011_1111;
-};
+const low6 = (num: number): number => num & 0b0011_1111;
 
 /**
  * UTF-8 encodes the specified message
  *
  * @param msg  The message
- * @returns    The encoded message as array of bytes
+ * @returns    The encoded message as a Uint8Array of bytes
  */
-const utf8encode = (msg: string): number[] => {
-  const arr: number[] = [];
-
-  for (let i = 0; i < msg.length; i++) {
-    const charCode = msg.charCodeAt(i);
-
-    // U+0000 to U+007F
-    if (charCode < 0x80) {
-      // Byte 1 0xb0xxx_xxxx
-      arr.push(charCode);
-    }
-
-    // U+0080 to U+07FF
-    else if (charCode < 0x800) {
-      // Byte 1 0b110x_xxxx
-      arr.push(0b1100_0000 | (charCode >>> 6));
-
-      // Byte 2 0b10xx_xxxx
-      arr.push(0b1000_0000 | low6(charCode));
-    }
-
-    // U+0800 to U+10000
-    // | 0b1110_xxxx | 0b10xx_xxxx | 0b10xx_xxxx |
-    // Excluding UTF-16 surrogate range U+D800 to U+DFFF
-    else if (charCode < 0x10000 && (charCode < 0xd800 || charCode >= 0xe000)) {
-      // Byte 1 0b1110_xxxx
-      arr.push(0b1110_0000 | ((charCode >>> 12) & 0b1111));
-
-      // Byte 2 0b10xx_xxxx
-      arr.push(0b1000_0000 | low6(charCode >>> 6));
-
-      // Byte 3 0b10xx_xxxx
-      arr.push(0b1000_0000 | low6(charCode));
-    }
-
-    // Surrogates
-    else if (charCode < 0x10000 && i + 1 < msg.length) {
-      // Surrogates take up two bytes
-      i++;
-
-      // Reverse the UTF-16 encoding
-      const highSurrogate = (charCode & 0x3ff) << 10;
-      const lowSurrogate = msg.charCodeAt(i) & 0x3ff;
-      const surrogate = 0x10000 + (highSurrogate | lowSurrogate);
-
-      // Byte 1 0b1111_0xxx
-      arr.push(0b1111_0000 | ((surrogate >>> 18) & 0b0111));
-
-      // Byte 2 0b10xx_xxxx
-      arr.push(0b1000_0000 | low6(surrogate >>> 12));
-
-      // Byte 3 0b10xx_xxxx
-      arr.push(0b1000_0000 | low6(surrogate >>> 6));
-
-      // Byte 4 0b10xx_xxxx
-      arr.push(0b1000_0000 | low6(surrogate));
-    }
-  }
-
-  return arr;
+const utf8encode = (msg: string): Uint8Array => {
+  const encoder = new TextEncoder();
+  return encoder.encode(msg);
 };
 
 /**
@@ -108,16 +49,13 @@ const parseHexChar = (char: string): number => {
  * into an array of bytes
  *
  * @param str  The string
- * @returns    The array of parsed bytes
+ * @returns    The Uint8Array of parsed bytes
  */
-const parseHexString = (str: string): number[] => {
-  const res = [];
+const parseHexString = (str: string): Uint8Array => {
+  const res = new Uint8Array(Math.ceil(str.length / 2));
 
   for (let i = 0; i < str.length; i += 2) {
-    res.push(0);
-    res[res.length - 1] |= parseHexChar(str[i]) << 4;
-
-    if (i + 1 < str.length) res[res.length - 1] |= parseHexChar(str[i + 1]);
+    res[i / 2] = (parseHexChar(str[i]) << 4) | parseHexChar(str[i + 1] || '0');
   }
 
   return res;
@@ -128,58 +66,44 @@ const parseHexString = (str: string): number[] => {
  * number to its base64url representation
  *
  * @param b  The number
- * @returns  The base64url encoded bits
+ * @returns  The base64url encoded character
  */
 const base64urlChar = (b: number): string => {
-  const r = (b & 0b0011_1111) >>> 0;
+  const r = low6(b);
 
   // Uppercase letters
   if (r <= 25) return String.fromCharCode(65 + r);
-
-  // Numbers
-  if (r <= 51) return String.fromCharCode(97 + r - 26);
-
   // Lowercase letters
+  if (r <= 51) return String.fromCharCode(97 + r - 26);
+  // Numbers
   if (r <= 61) return String.fromCharCode(48 + r - 52);
-
-  // Plus (+) in Base64 is replaced with '-'
-  // in a Base64 URL
-  if (r === 62) return '-';
-
-  // Slash (/) in Base64 is replaced with '_'
-  // in a Base64 URL
-  return '_';
+  // Base64 URL replacements for '+' and '/'
+  return r === 62 ? '-' : '_';
 };
 
 /**
  * Encodes the specified array of bytes to
  * its base64url representation
  *
- * @param bytes  The bytes
+ * @param bytes  The Uint8Array of bytes
  * @returns      The base64url string
  */
-const base64urlEncode = (bytes: number[]): string => {
+const base64urlEncode = (bytes: Uint8Array): string => {
   let res = '';
 
   for (let i = 0; i < bytes.length; i += 3) {
-    // Iterate through 3-byte packets to have
-    // a multiple of 6 bits
-    for (let j = 0, carry = 0; j < 3; j++) {
-      if (i + j >= bytes.length) {
-        // If there are no words left return the result
-        res += base64urlChar(carry);
-        return res;
+    // First byte
+    res += base64urlChar(bytes[i] >>> 2);
+    // Second byte
+    res += base64urlChar(((bytes[i] & 0b11) << 4) | (bytes[i + 1] >>> 4));
+    // Handle cases where fewer than 3 bytes are available
+    if (i + 1 < bytes.length) {
+      res += base64urlChar(
+        ((bytes[i + 1] & 0b1111) << 2) | (bytes[i + 2] >>> 6),
+      );
+      if (i + 2 < bytes.length) {
+        res += base64urlChar(bytes[i + 2] & 0b0011_1111);
       }
-
-      const p = bytes[i + j];
-
-      // Encode the current byte
-      res += base64urlChar(carry | (p >>> (2 + j * 2)));
-
-      // Update the carry
-      if (j === 0) carry = (p & 0b0_0011) << 4;
-      else if (j === 1) carry = (p & 0b0_1111) << 2;
-      else res += base64urlChar(p);
     }
   }
 
