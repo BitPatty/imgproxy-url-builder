@@ -66,4 +66,4 @@ const hmac = (key: Uint8Array, message: Uint8Array): Uint32Array => {
   return sha256(new Uint8Array([...oPad, ...wordArrayToByteArray(innerHash)]));
 };
 
-export default hmac;
+export { hmac };

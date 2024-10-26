@@ -28,7 +28,7 @@
     "prebuild": "rm -rf dist",
     "build": "rollup -c",
     "test": "jest --verbose --coverage",
-    "docs": "typedoc && node populate-readme.cjs",
+    "docs": "typedoc && node scripts/populate-readme.cjs",
     "deps:force-upgrade": "npm-check-updates -u && rm -rf node_modules && rm -f package-lock.json && npm i"
   },
   "keywords": [
@@ -54,6 +54,7 @@
     "@types/node": "22.7.9",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.11.0",
+    "crypto-js": "4.2.0",
     "eslint": "9.13.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jest": "28.8.3",

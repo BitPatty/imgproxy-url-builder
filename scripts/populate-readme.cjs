@@ -2,12 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 const pbLines = fs
-  .readFileSync(path.join(__dirname, 'src', 'param-builder.ts'))
+  .readFileSync(path.join(__dirname, '..', 'src', 'param-builder.ts'))
   .toString()
   .split('\n');
 
 const readmeLines = fs
-  .readFileSync(path.join(__dirname, 'README.md'))
+  .readFileSync(path.join(__dirname, '..', 'README.md'))
   .toString()
   .split('\n');
 

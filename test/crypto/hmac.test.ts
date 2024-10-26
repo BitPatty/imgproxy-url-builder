@@ -1,6 +1,6 @@
 import { createHmac } from 'crypto';
 import { utf8encode } from '../../src/crypto/codec.js';
-import hmac from '../../src/crypto/hmac.js';
+import { hmac } from '../../src/crypto/hmac.js';
 import { wordArrayToByteArray } from '../../src/crypto/common.js';
 
 describe('HMAC', () => {
