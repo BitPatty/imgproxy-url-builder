@@ -29,6 +29,7 @@ import keepCopyright from './transformers/keep-copypright.js';
 import maxBytes from './transformers/max-bytes.js';
 import minHeight from './transformers/min-height.js';
 import minWidth from './transformers/min-width.js';
+import monochrome from './transformers/monochrome.js';
 import pad from './transformers/pad.js';
 import page from './transformers/page.js';
 import pixelate from './transformers/pixelate.js';
@@ -800,6 +801,27 @@ class ParamBuilder {
    */
   public minWidth(this: this, ...options: Parameters<typeof minWidth>): this {
     this.modifiers.set('minWidth', minWidth(...options));
+    return this;
+  }
+
+  /**
+   * Converts the image to monochrome.
+   *
+   * See https://github.com/imgproxy/imgproxy-docs/blob/7d15484aea6a1fae5f1dfd1806b5551a4774658d/docs/usage/processing.mdx?plain=1#L415 for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().monochrome({
+   *   intensity: 0.3,  // required
+   *   color: 'ff0000'  // optional
+   * });
+   * ```
+   */
+  public monochrome(
+    this: this,
+    ...options: Parameters<typeof monochrome>
+  ): this {
+    this.modifiers.set('monochrome', monochrome(...options));
     return this;
   }
 

@@ -500,6 +500,24 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Monochrome', () => {
+    test('Uses Proper Identifier', () => {
+      expect(pb().monochrome({ intensity: 0 })).toIncludeModifierIdentifier(
+        'monochrome',
+      );
+    });
+
+    test('Applies Modifier Without Color', () => {
+      expect(pb().monochrome({ intensity: 0.3 })).toIncludeModifier('mc:0.3');
+    });
+
+    test('Applies Modifier With Color', () => {
+      expect(
+        pb().monochrome({ intensity: 0.3, color: 'ff0000' }),
+      ).toIncludeModifier('mc:0.3:ff0000');
+    });
+  });
+
   describe('Pad', () => {
     test('Uses Proper Identifier', () => {
       expect(pb().pad({})).toIncludeModifierIdentifier('pad');
