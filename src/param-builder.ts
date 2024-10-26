@@ -1199,7 +1199,7 @@ class ParamBuilder {
   }
 
   /**
-   * Generates a tiled sprite using hte source video frames
+   * Generates a tiled sprite using the source video frames
    *
    * See https://github.com/imgproxy/imgproxy-docs/blob/676c6d4b1f5d9fee79abfecf130fc7dda3f9124e/versioned_docs/version-3.24.x/usage/processing.mdx#video-thumbnail-tile-pro-video-thumbnail-tile for the imgproxy documentation
    *
