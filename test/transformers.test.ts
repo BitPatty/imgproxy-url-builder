@@ -215,6 +215,26 @@ describe('Transformers', () => {
     });
   });
 
+  describe('Duotone', () => {
+    test('Uses Proper Identifier', () => {
+      expect(
+        pb().duotone({ intensity: 1.0, color1: 'ff0000', color2: '00ff00' }),
+      ).toIncludeModifierIdentifier('duotone');
+    });
+
+    test('Applies Modifier', () => {
+      expect(
+        pb().duotone({ intensity: 0.7, color1: 'ff0000', color2: '00ff00' }),
+      ).toIncludeModifier('dt:0.7:ff0000:00ff00');
+    });
+
+    test('Applies Modifier with full intensity', () => {
+      expect(
+        pb().duotone({ intensity: 1.0, color1: '000000', color2: 'ffffff' }),
+      ).toIncludeModifier('dt:1:000000:ffffff');
+    });
+  });
+
   describe('Enforce Thumbnail', () => {
     test('Uses Proper Identifier', () => {
       expect(pb().enforceThumbnail()).toIncludeModifierIdentifier(

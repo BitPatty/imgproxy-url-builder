@@ -19,6 +19,7 @@ import { CropOptions } from './transformers/crop.js';
 import { DPIOptions } from './transformers/dpi.js';
 import { DprOptions } from './transformers/dpr.js';
 import { DrawDetectionOptions } from './transformers/draw-detections.js';
+import { DuotoneOptions } from './transformers/duotone.js';
 import { ExpiresOptions } from './transformers/expires.js';
 import { ExtendOptions } from './transformers/extend.js';
 import { ExtendAspectRatioOptions } from './transformers/extend-aspect-ratio.js';
@@ -34,6 +35,7 @@ import { JpegOptions } from './transformers/jpeg-options.js';
 import { MaxBytesOptions } from './transformers/max-bytes.js';
 import { MinHeightOptions } from './transformers/min-height.js';
 import { MinWidthOptions } from './transformers/min-width.js';
+import { MonochromeOptions } from './transformers/monochrome.js';
 import { PaddingOptions } from './transformers/pad.js';
 import { PageOptions } from './transformers/page.js';
 import { PixelateOptions } from './transformers/pixelate.js';
@@ -87,6 +89,7 @@ export {
   DPIOptions,
   DprOptions,
   DrawDetectionOptions,
+  DuotoneOptions,
   ExpiresOptions,
   ExtendOptions,
   ExtendAspectRatioOptions,
@@ -102,6 +105,7 @@ export {
   MaxBytesOptions,
   MinWidthOptions,
   MinHeightOptions,
+  MonochromeOptions,
   PaddingOptions,
   PageOptions,
   PixelateOptions,

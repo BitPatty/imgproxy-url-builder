@@ -12,6 +12,7 @@ import disableAnimation from './transformers/disable-animation.js';
 import dpi from './transformers/dpi.js';
 import dpr from './transformers/dpr.js';
 import drawDetections from './transformers/draw-detections.js';
+import duotone from './transformers/duotone.js';
 import enforceThumbnail from './transformers/enforce-thumbnail.js';
 import enlarge from './transformers/enlarge.js';
 import expires from './transformers/expires.js';
@@ -460,6 +461,25 @@ class ParamBuilder {
     ...options: Parameters<typeof drawDetections>
   ): this {
     this.modifiers.set('drawDetections', drawDetections(...options));
+    return this;
+  }
+
+  /**
+   * Converts the image to duotone with specified intensity and colors.
+   *
+   * See https://github.com/imgproxy/imgproxy-docs/blob/7d15484aea6a1fae5f1dfd1806b5551a4774658d/docs/usage/processing.mdx?plain=1#L429 for the imgproxy documentation
+   *
+   * @example
+   * ```typescript
+   * pb().duotone({
+   *   intensity: 1.0,   // required
+   *   color1: 'ff0000', // required
+   *   color2: '00ff00'  // required
+   * });
+   * ```
+   */
+  public duotone(this: this, ...options: Parameters<typeof duotone>): this {
+    this.modifiers.set('duotone', duotone(...options));
     return this;
   }
 
