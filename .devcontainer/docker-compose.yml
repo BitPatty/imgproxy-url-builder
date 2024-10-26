@@ -23,8 +23,6 @@ services:
       - imgproxy-url-builder-network
     volumes:
       - ..:/workspace:cached
-      - ~/.ssh:/home/node/.ssh:ro
-      - ~/.gitconfig:/home/node/.gitconfig:ro
       - /var/run/docker.sock:/var/run/docker.sock
     command: sleep infinity
     user: node
