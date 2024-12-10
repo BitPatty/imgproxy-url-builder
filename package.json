@@ -52,8 +52,8 @@
   "devDependencies": {
     "@types/jest": "29.5.14",
     "@types/node": "22.10.1",
-    "@typescript-eslint/eslint-plugin": "8.17.0",
-    "@typescript-eslint/parser": "8.17.0",
+    "@typescript-eslint/eslint-plugin": "8.18.0",
+    "@typescript-eslint/parser": "8.18.0",
     "crypto-js": "4.2.0",
     "eslint": "9.16.0",
     "eslint-config-prettier": "9.1.0",
@@ -61,12 +61,12 @@
     "eslint-plugin-prettier": "5.2.1",
     "npm-check-updates": "17.1.11",
     "prettier": "3.4.2",
-    "rollup": "4.28.0",
+    "rollup": "4.28.1",
     "rollup-plugin-typescript2": "0.36.0",
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
     "tslib": "2.8.1",
-    "typedoc": "0.27.3",
+    "typedoc": "0.27.4",
     "typescript": "5.7.2"
   }
 }
