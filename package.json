@@ -59,7 +59,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-jest": "28.10.0",
     "eslint-plugin-prettier": "5.2.1",
-    "npm-check-updates": "17.1.12",
+    "npm-check-updates": "17.1.13",
     "prettier": "3.4.2",
     "rollup": "4.29.1",
     "rollup-plugin-typescript2": "0.36.0",
