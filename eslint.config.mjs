@@ -29,6 +29,7 @@ export default defineConfig([
     '**/*.sh',
     '**/rollup.config.js',
     '**/populate-readme.cjs',
+    'eslint.config.mjs',
   ]),
   {
     extends: compat.extends(
