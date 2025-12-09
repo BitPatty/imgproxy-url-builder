@@ -65,7 +65,10 @@ const prepareMessage = (bytes: Uint8Array): Uint32Array => {
  * @param hv   The current hash value
  * @returns      The updated hash value
  */
-const processChunk = (chunk: Uint32Array, hv: Uint32Array): Uint32Array => {
+const processChunk = (
+  chunk: Uint32Array<ArrayBufferLike>,
+  hv: Uint32Array<ArrayBuffer>,
+): Uint32Array<ArrayBuffer> => {
   const w = new Uint32Array(64);
   w.set(chunk);
 

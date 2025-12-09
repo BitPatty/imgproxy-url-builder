@@ -15,7 +15,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*", "test/**/*", "./*.ts"],
   "exclude": ["node_modules", "dist", "rollup.config.*"]

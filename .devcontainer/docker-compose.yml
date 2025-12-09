@@ -16,9 +16,10 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        VARIANT: 20
-        USER_UID: 1000
-        USER_GID: 1000
+        # Use the default non-root user 1000
+        # On MacOS: Add the line export UID="$(id -u $(whoami))" to your .zshrc
+        USER_UID: '${UID:-1000}'
+        USER_GID: '${UID:-1000}'
     networks:
       - imgproxy-url-builder-network
     volumes:
