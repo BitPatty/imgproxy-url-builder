@@ -16,8 +16,21 @@
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "rootDir": ".",
+    "types": [
+      "node",
+      "jest"
+    ]
   },
-  "include": ["src/**/*", "test/**/*", "./*.ts"],
-  "exclude": ["node_modules", "dist", "rollup.config.*"]
+  "include": [
+    "src/**/*",
+    "test/**/*",
+    "./*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "rollup.config.*"
+  ]
 }

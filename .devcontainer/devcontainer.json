@@ -19,8 +19,13 @@
       ]
     }
   },
-  "forwardPorts": [4000, 5000, 9000, 9001],
-  "postCreateCommand": "bash -i .devcontainer/init.sh",
+  "forwardPorts": [
+    4000,
+    5000,
+    9000,
+    9001
+  ],
+  "postCreateCommand": "bash -i .devcontainer/post-create.sh",
   "remoteUser": "node",
   "portsAttributes": {
     "4000": {
